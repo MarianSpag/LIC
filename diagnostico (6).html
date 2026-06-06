@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Federal LBTI+ 2026 | Libres, Iguales y Conectadas</title>
+<meta name="description" content="Resultados de la encuesta nacional de diagnóstico comunitario 2026. Respuestas de 82 personas LBTI+ en 8 provincias de Argentina. Un proyecto de Conectando Derechos financiado por OutRight Action International.">
+<meta name="keywords" content="LBTI+, diagnóstico federal, Argentina, derechos, comunidad, Conectando Derechos, LIC, lesbianas, bisexuales, trans, intersex">
+<meta name="author" content="Conectando Derechos">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Diagnóstico Federal LBTI+ 2026 | Libres, Iguales y Conectadas">
+<meta property="og:description" content="82 personas LBTI+ de 8 provincias argentinas. Preocupaciones, trabajo, derechos, comunidad y urgencias territoriales.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/LIC-logo-principal-scaled.png">
+<meta property="og:site_name" content="Conectando Derechos">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diagnóstico Federal LBTI+ 2026 | LIC">
+<meta name="twitter:description" content="Resultados del diagnóstico comunitario federal 2026. 82 respuestas, 8 provincias.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Diagnóstico Federal LBTI+ Argentina 2026",
+  "description": "Encuesta nacional de diagnóstico comunitario sobre la situación de personas LBTI+ en Argentina. 82 respuestas de 8 provincias.",
+  "creator": {
+    "@type": "Organization",
+    "name": "Conectando Derechos",
+    "url": "https://conectandoderechos.org.ar"
+  },
+  "funder": {
+    "@type": "Organization",
+    "name": "OutRight Action International"
+  },
+  "temporalCoverage": "2026",
+  "spatialCoverage": "Argentina",
+  "keywords": ["LBTI+", "derechos humanos", "diagnóstico comunitario", "Argentina", "diversidad sexual"],
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "inLanguage": "es"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orelega+One&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ==============================
+   TOKENS & RESET
+============================== */
+:root {
+  --vp: #9B59D0;
+  --vm: #6B35B8;
+  --vc: #3D1A6E;
+  --li: #C89FE8;
+  --lp: #F0EBFF;
+  --do: #C8940F;
+  --do2: #F0C040;
+  --fu: #B5155A;
+  --fu2: #E91E8C;
+  --bg: #FDFCF8;
+  --bg2: #F5F1FC;
+  --bg3: #EDE5FA;
+  --t1: #160832;
+  --t2: #432A72;
+  --t3: #9180AD;
+  --brd: #D4CBEC;
+  --brd2: #B8ACE0;
+  --side-w: 240px;
+  --top-h: 52px;
+  --paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:14px}
+body{margin:0;padding:0}
+.lic-app{
+  font-family:'DM Sans',sans-serif;
+  background-color:var(--bg);
+  background-image:var(--paper);
+  color:var(--t1);
+  line-height:1.65;
+  display:flex;
+  min-height:100vh;
+  width:100%;
+  position:relative;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+/* ==============================
+   SIDEBAR
+============================== */
+.sidebar{
+  width:var(--side-w);
+  flex-shrink:0;
+  background:var(--vc);
+  background-image:var(--paper);
+  position:fixed;
+  inset:0 auto 0 0;
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+  z-index:400;
+  border-right:2px solid rgba(0,0,0,.25);
+}
+
+.sb-brand{
+  padding:1.6rem 1.4rem 1.2rem;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.sb-brand img{
+  height:72px;
+  width:auto;
+  object-fit:contain;
+  object-position:left center;
+}
+.sb-tagline{
+  margin-top:.6rem;
+  font-size:.96rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.4);
+}
+
+/* Filtro */
+.sb-filter{
+  padding:1rem 1.4rem;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.sb-filter-lbl{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.38);
+  margin-bottom:.5rem;
+  display:block;
+}
+.sb-select{
+  width:100%;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  padding:.45rem .65rem;
+  font-family:'DM Sans',sans-serif;
+  font-size:.94rem;
+  font-weight:500;
+  appearance:none;
+  -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='rgba(255,255,255,.5)' stroke-width='1.4' fill='none' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right .65rem center;
+  padding-right:1.8rem;
+  transition:border-color .2s;
+}
+.sb-select:hover{border-color:rgba(255,255,255,.4)}
+.sb-select:focus{outline:2px solid var(--do2);outline-offset:0}
+.sb-select option{background:var(--vc);color:#fff}
+.sb-select optgroup{color:rgba(255,255,255,.5);font-size:.86rem}
+.sb-badge{
+  margin-top:.45rem;
+  font-size:.82rem;
+  color:var(--do2);
+  font-weight:600;
+}
+
+/* Nav */
+.sb-nav{
+  flex:1;
+  padding:.6rem 0;
+}
+.sb-nav-group{
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.28);
+  padding:.7rem 1.4rem .2rem;
+}
+.sb-item{
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  padding:.5rem 1.4rem;
+  cursor:pointer;
+  color:rgba(255,255,255,.55);
+  font-size:.94rem;
+  font-weight:500;
+  transition:all .15s;
+  border-left:3px solid transparent;
+  user-select:none;
+  position:relative;
+}
+.sb-item:hover{color:#fff;background:rgba(255,255,255,.07)}
+.sb-item.act{
+  color:#fff;
+  border-left-color:var(--do2);
+  background:rgba(255,255,255,.11);
+  font-weight:600;
+}
+.sb-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.08rem;
+  color:rgba(255,255,255,.28);
+  width:22px;
+  flex-shrink:0;
+  text-align:center;
+}
+.sb-item.act .sb-num{color:var(--do2)}
+.sb-icon-img{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  opacity:.55;
+  flex-shrink:0;
+}
+.sb-item.act .sb-icon-img{opacity:1}
+
+/* Sidebar footer */
+.sb-foot{
+  padding:1rem 1.4rem;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  flex-direction:column;
+  gap:.7rem;
+}
+.sb-foot img{
+  height:auto;
+  width:100%;
+  max-width:160px;
+  object-fit:contain;
+  object-position:left center;
+  opacity:.9;
+}
+
+/* ==============================
+   TOPBAR
+============================== */
+.topbar{
+  position:fixed;
+  top:0;
+  left:var(--side-w);
+  right:0;
+  height:var(--top-h);
+  background:var(--bg);
+  background-image:var(--paper);
+  border-bottom:1.5px solid var(--brd);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 2.2rem;
+  z-index:300;
+}
+.top-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.05rem;
+  letter-spacing:.07em;
+  color:var(--vp);
+}
+.top-meta{
+  font-size:.7rem;
+  color:var(--t3);
+  font-weight:500;
+}
+
+/* ==============================
+   MAIN
+============================== */
+.main{
+  margin-left:var(--side-w);
+  margin-top:var(--top-h);
+  flex:1;
+  min-width:0;
+}
+.panels{
+  padding:0;
+}
+.panel-content{
+  padding:2.4rem 2.4rem 3rem;
+}
+.panel{display:none}
+.panel.act{display:block}
+
+/* ==============================
+   SECTION HEADER
+============================== */
+.sh{
+  margin-bottom:1.8rem;
+  padding-bottom:1.1rem;
+  border-bottom:2px solid var(--brd);
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:2rem;
+}
+.sh-left{}
+.sh-tag{
+  font-size:.6rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--vc);
+  margin-bottom:.35rem;
+}
+.sh-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,3.2vw,2.8rem);
+  letter-spacing:.03em;
+  color:var(--vp);
+  line-height:1;
+  margin-bottom:.3rem;
+}
+.sh-desc{
+  font-size:.85rem;
+  color:var(--t3);
+  font-weight:300;
+  max-width:560px;
+}
+.sh-icon{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  opacity:.7;
+  flex-shrink:0;
+}
+
+/* ==============================
+   LAYOUT
+============================== */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.gauto{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.mt{margin-top:1.2rem}
+.mt2{margin-top:2rem}
+
+/* ==============================
+   CARDS
+============================== */
+.card{
+  background:#fff;
+  border:1.5px solid var(--brd);
+  padding:1.3rem;
+  transition:border-color .15s;
+}
+.card:hover{border-color:var(--vc)}
+.card-top-v  {border-top:3px solid var(--vm)}
+.card-top-g  {border-top:3px solid var(--do2)}
+.card-top-f  {border-top:3px solid var(--fu)}
+.card-t{
+  font-size:.63rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--t3);
+  margin-bottom:.85rem;
+}
+
+.kpi-card{
+  background:var(--bg2);
+  border:1.5px solid var(--brd);
+  padding:1.1rem 1.3rem;
+}
+.kpi-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.6rem;
+  line-height:1;
+  margin-bottom:3px;
+}
+.kpi-l{
+  font-size:.68rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--t3);
+}
+
+/* Pills highlight */
+.hl-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.4rem}
+.hl{
+  font-size:.73rem;
+  font-weight:600;
+  padding:4px 11px;
+  border:1.5px solid var(--brd);
+  background:var(--bg2);
+  color:var(--t2);
+}
+.hl-r{background:#FEF0F4;border-color:#F2AABF;color:var(--fu)}
+.hl-g{background:#FFFCEA;border-color:#DFC044;color:#7A5D00}
+.hl-v{background:var(--bg3);border-color:var(--vc);color:var(--vm)}
+
+/* ==============================
+   PREOCUPACIONES
+============================== */
+.pr-list{display:flex;flex-direction:column;gap:.85rem}
+.pr-row{
+  display:grid;
+  grid-template-columns:1.8rem 1fr 5.2rem;
+  align-items:center;
+  gap:.9rem;
+  padding:.95rem 1.1rem;
+  background:#fff;
+  border:1.5px solid var(--brd);
+  transition:border-color .15s;
+}
+.pr-row:hover{border-color:var(--vc)}
+.pr-rank{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.65rem;
+  color:var(--li);
+  line-height:1;
+  text-align:center;
+}
+.pr-body{display:flex;flex-direction:column;gap:5px}
+.pr-name{font-size:.87rem;font-weight:600;color:var(--vp)}
+.bw{height:4px;background:var(--bg3);overflow:hidden}
+.bf{height:100%;background:linear-gradient(90deg,var(--vm) 0%,var(--fu) 100%)}
+.pdist{display:flex;gap:2px;height:20px;align-items:flex-end;margin-top:2px}
+.pd{flex:1;min-height:2px}
+.dl{font-size:.58rem;color:var(--t3)}
+.pr-r{text-align:right}
+.pr-avg{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;color:var(--do);line-height:1}
+.pr-sub{font-size:.6rem;color:var(--t3)}
+.pr-p5{font-size:.68rem;font-weight:700;color:var(--fu);margin-top:2px}
+
+/* ==============================
+   BARRAS H
+============================== */
+.hbl{display:flex;flex-direction:column;gap:.6rem}
+.hbi{display:grid;grid-template-columns:1fr auto;gap:.7rem;align-items:center}
+.hbi-l{font-size:.8rem;font-weight:500;color:var(--t1);margin-bottom:3px}
+.hbt{height:5px;background:var(--bg3);overflow:hidden}
+.hbf{height:100%;background:linear-gradient(90deg,var(--vm),var(--vc))}
+.hbv{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;color:var(--do);white-space:nowrap}
+
+/* ==============================
+   PROVINCIAS
+============================== */
+.prov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.8rem}
+.pv{
+  background:var(--bg2);
+  border:1.5px solid var(--brd);
+  padding:.95rem 1.1rem;
+}
+.pv.feat{border-color:var(--do2);background:#FFFCEE}
+.pv-name{font-size:.76rem;font-weight:600;color:var(--vm);margin-bottom:3px}
+.pv-n{font-family:'Bebas Neue',sans-serif;font-size:2.1rem;line-height:1;color:var(--vp)}
+.pv.feat .pv-n{color:var(--do)}
+.pv-pct{font-size:.68rem;color:var(--t3)}
+.pv-bar{height:3px;background:var(--bg3);margin-top:6px}
+.pv-bf{height:100%;background:linear-gradient(90deg,var(--vm),var(--vc))}
+
+/* ==============================
+   DESTACADOS
+============================== */
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.dest{border:1.5px solid var(--brd);overflow:hidden}
+.dest-hdr{
+  background:var(--vp);
+  padding:.65rem 1rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.dest-hn{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.04em;color:#fff}
+.dest-hx{font-size:.65rem;color:rgba(255,255,255,.8)}
+.dest-body{padding:.85rem 1rem;display:flex;flex-direction:column;gap:.45rem}
+.dest-item{display:flex;align-items:flex-start;gap:.45rem}
+.dest-sq{width:5px;height:5px;background:var(--vm);flex-shrink:0;margin-top:.4rem}
+.dest-txt{font-size:.77rem;color:var(--t2);line-height:1.45}
+.dest-txt strong{color:var(--vp);font-weight:600}
+
+/* ==============================
+   ACOMPAÑAMIENTO
+============================== */
+.acomp-bar{display:flex;gap:2px;height:34px;margin:1rem 0}
+.acomp-seg{
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;font-weight:700;color:#fff;
+}
+
+/* ==============================
+   URGENCIAS
+============================== */
+.urg-scroll{
+  overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,black 5%,black 95%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,black 5%,black 95%,transparent);
+  margin:0 -2.4rem;
+  padding:.5rem 0;
+}
+.urg-track{
+  display:flex;gap:.9rem;
+  animation:scrl 55s linear infinite;
+  width:max-content;
+}
+.urg-track:hover{animation-play-state:paused}
+@keyframes scrl{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.urg-pill{
+  background:var(--bg2);border:1.5px solid var(--brd);
+  padding:6px 14px;font-size:.78rem;color:var(--t2);
+  white-space:nowrap;cursor:default;transition:all .15s;
+  max-width:340px;overflow:hidden;text-overflow:ellipsis;
+}
+.urg-pill:hover{border-color:var(--fu);color:var(--fu);background:#FEF0F4}
+.urg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:1.5rem}
+.urg-card{
+  border-left:4px solid var(--fu);
+  border:1.5px solid var(--brd);
+  border-left-width:4px;
+  border-left-color:var(--fu);
+  padding:.95rem 1.1rem;background:#FFF8FB;
+}
+.urg-card p{font-size:.81rem;color:var(--t2);line-height:1.65;font-style:italic}
+
+/* ==============================
+   CITA
+============================== */
+.cita{
+  font-family:'Orelega One',serif;
+  font-size:.92rem;
+  color:var(--vm);
+  border-left:4px solid var(--vc);
+  padding:.75rem 1.2rem;
+  margin:1.4rem 0;
+  background:var(--bg3);
+}
+
+/* ==============================
+   OVERVIEW / HERO
+============================== */
+.ov-hero{
+  background:var(--vp);
+  background-image:var(--paper);
+  padding:3rem 2.5rem 2.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.ov-hero::before{
+  content:'';
+  position:absolute;
+  right:-60px;top:-60px;
+  width:260px;height:260px;
+  border:36px solid rgba(255,255,255,.04);
+}
+.ov-hero::after{
+  content:'';
+  position:absolute;
+  left:40%;bottom:-40px;
+  width:180px;height:180px;
+  border:24px solid rgba(240,192,64,.06);
+}
+.ov-logos{
+  display:flex;align-items:center;gap:1.4rem;
+  margin-bottom:1.8rem;
+}
+.ov-logos img{
+  width:auto;
+  object-fit:contain;
+  object-position:left center;
+}
+.ov-logos-sep{
+  width:1px;height:24px;
+  background:rgba(255,255,255,.2);
+}
+.ov-tag{
+  font-size:.62rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--do2);
+  margin-bottom:.9rem;display:block;
+}
+.ov-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.8rem,5.5vw,4.2rem);
+  letter-spacing:.02em;color:#fff;
+  line-height:.95;margin-bottom:.7rem;
+}
+.ov-title span{color:var(--do2)}
+.ov-sub{
+  font-size:.88rem;color:rgba(255,255,255,.88);
+  max-width:480px;font-weight:300;margin-bottom:2rem;
+}
+.ov-kpis{display:flex;gap:2rem;flex-wrap:wrap}
+.ov-k{display:flex;flex-direction:column;gap:2px}
+.ov-kn{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--do2);line-height:1}
+.ov-kl{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+
+/* Overview cards */
+.ov-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1rem;padding:2rem 2.4rem 2.4rem}
+.ov-card{
+  border:1.5px solid var(--brd);padding:1.2rem 1.3rem;
+  cursor:pointer;transition:all .15s;background:#fff;
+}
+.ov-card:hover{border-color:var(--vm);background:var(--bg2)}
+.ov-card-num{
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
+  color:var(--vc);line-height:1;margin-bottom:.3rem;
+}
+.ov-card-title{font-size:.83rem;font-weight:600;color:var(--vp);margin-bottom:.25rem}
+.ov-card-desc{font-size:.72rem;color:var(--t3)}
+.ov-card-icon{
+  width:24px;height:24px;object-fit:contain;
+  margin-bottom:.5rem;opacity:.7;
+}
+
+/* ==============================
+   PROYECTO PANEL
+============================== */
+.proyecto-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.2rem;
+  margin-bottom:1.5rem;
+}
+.proyecto-card{
+  background:#fff;
+  border:1.5px solid var(--brd);
+  padding:1.4rem;
+}
+.pj-ico{
+  width:36px;height:36px;
+  object-fit:contain;
+  margin-bottom:.8rem;
+  opacity:.8;
+}
+.pj-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;color:var(--vm);
+  line-height:1;margin-bottom:.2rem;
+}
+.pj-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:.5rem}
+.pj-txt{font-size:.82rem;color:var(--t2);line-height:1.55}
+
+.fase-timeline{
+  display:flex;
+  gap:0;
+  margin-bottom:1.5rem;
+  overflow:hidden;
+  border:1.5px solid var(--brd);
+}
+.fase{
+  flex:1;
+  padding:1.2rem 1.1rem;
+  border-right:1.5px solid var(--brd);
+  background:#fff;
+  position:relative;
+}
+.fase:last-child{border-right:none}
+.fase-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.5rem;color:var(--lp);
+  line-height:1;position:absolute;
+  right:.8rem;top:.6rem;
+}
+.fase-tag{
+  font-size:.58rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--vc);margin-bottom:.3rem;
+}
+.fase-title{font-size:.88rem;font-weight:600;color:var(--vp);margin-bottom:.4rem}
+.fase-items{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.fase-items li{font-size:.75rem;color:var(--t2);padding-left:.8rem;position:relative}
+.fase-items li::before{content:'—';position:absolute;left:0;color:var(--vc)}
+.fase-act{background:var(--bg3)}
+.fase-act .fase-tag{color:var(--fu)}
+.fase-act .fase-num{color:var(--lp)}
+
+.financ-row{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:2rem;flex-wrap:wrap;
+  padding:1.2rem 1.4rem;
+  background:var(--bg2);
+  border:1.5px solid var(--brd);
+  margin-top:1.5rem;
+}
+.financ-logos{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.pj-intro-row{display:flex;align-items:flex-start;gap:2rem;flex-wrap:wrap}
+@media(max-width:600px){.pj-intro-row{flex-direction:column}}
+.financ-logos img{height:48px;width:auto;object-fit:contain}
+.financ-logos-sep{width:1px;height:20px;background:var(--brd2)}
+.financ-txt{font-size:.75rem;color:var(--t3)}
+.financ-txt strong{color:var(--t2)}
+
+/* ==============================
+   DONUT
+============================== */
+.dw{max-width:220px;margin:0 auto}
+
+/* ==============================
+   NO DATA
+============================== */
+.no-data{
+  text-align:center;padding:2.5rem 1rem;
+  color:var(--t3);font-style:italic;font-size:.86rem;
+}
+
+/* ==============================
+   SCROLLBAR
+============================== */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--vc)}
+
+/* ==============================
+   HAMBURGER BUTTON (solo móvil/tablet)
+============================== */
+.ham-btn{
+  display:none;
+  position:fixed;
+  bottom:1.2rem;
+  right:1.2rem;
+  z-index:500;
+  width:48px;height:48px;
+  background:var(--vp);
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  box-shadow:0 4px 16px rgba(61,26,110,.35);
+}
+.ham-btn span{
+  display:block;
+  width:22px;height:2px;
+  background:#fff;
+  transition:all .2s;
+}
+.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham-btn.open span:nth-child(2){opacity:0}
+.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Overlay móvil */
+.sb-overlay{
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.5);
+  z-index:350;
+}
+.sb-overlay.show{display:block}
+
+/* ==============================
+   TABLET (600px–920px)
+============================== */
+@media(max-width:920px){
+  :root{--side-w:220px}
+
+  /* Sidebar se convierte en drawer */
+  .sidebar{
+    transform:translateX(-100%);
+    transition:transform .25s ease;
+    z-index:400;
+    box-shadow:4px 0 24px rgba(0,0,0,.3);
+  }
+  .sidebar.open{transform:translateX(0)}
+
+  /* Main ocupa todo el ancho */
+  .main{margin-left:0}
+  .topbar{left:0}
+
+  /* Hamburger visible */
+  .ham-btn{display:flex}
+
+  /* Grids a 1 columna */
+  .g2,.g3,.g4,.proyecto-grid{grid-template-columns:1fr}
+  .fase-timeline{display:flex;flex-direction:column}
+  .fase{border-right:none;border-bottom:1.5px solid var(--brd)}
+  .fase:last-child{border-bottom:none}
+
+  /* Padding reducido */
+  .panel-content{padding:1.4rem}
+  .ov-cards{padding:1rem 1.4rem 1.4rem}
+  .ov-hero{padding:2rem 1.5rem 1.8rem}
+
+  /* Overview cards más compactas */
+  .ov-cards{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))
+  .dest-grid{grid-template-columns:1fr}
+  .prov-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+
+  /* Topbar */
+  .top-name{font-size:.9rem}
+  .top-meta{font-size:.65rem}
+}
+
+/* ==============================
+   MÓVIL (<600px)
+============================== */
+@media(max-width:600px){
+  :root{--top-h:48px}
+
+  /* Panels */
+  .panels{padding:1rem}
+  .ov-hero{padding:1.6rem 1rem 1.4rem}
+  .ov-title{font-size:2.4rem}
+  .ov-kpis{gap:1.2rem}
+  .ov-kn{font-size:2rem}
+  .ov-kl{font-size:.58rem}
+  .ov-cards{grid-template-columns:1fr 1fr}
+  .ov-logos img{height:28px}
+
+  /* Section header */
+  .sh{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .sh-icon{width:36px;height:36px}
+  .sh-title{font-size:1.8rem}
+
+  /* KPI cards */
+  .g4{grid-template-columns:1fr 1fr}
+  .kpi-n{font-size:2rem}
+
+  /* Grids */
+  .g2,.g3,.g4,.proyecto-grid,.gauto{grid-template-columns:1fr}
+
+  /* Preocupaciones: apilar en columna */
+  .pr-row{grid-template-columns:1.6rem 1fr;grid-template-rows:auto auto}
+  .pr-r{grid-column:2;display:flex;align-items:center;gap:1rem;text-align:left;margin-top:.3rem}
+  .pr-avg{font-size:1.8rem}
+
+  /* Barras h */
+  .hbi{grid-template-columns:1fr auto}
+  .hbv{font-size:1.2rem}
+
+  /* Provincias */
+  .prov-grid{grid-template-columns:1fr 1fr}
+  .pv-n{font-size:1.8rem}
+
+  /* Destacados */
+  .dest-grid{grid-template-columns:1fr}
+
+  /* Proyecto */
+  .fase-timeline{display:flex;flex-direction:column}
+  .fase-num{font-size:1.8rem}
+
+  /* Financ */
+  .financ-row{flex-direction:column;gap:1rem}
+  .financ-logos{flex-wrap:wrap;gap:1rem}
+
+  /* Urgencias */
+  .urg-grid{grid-template-columns:1fr}
+  .urg-scroll{margin:0 -1rem}
+
+  /* Topbar */
+  .topbar{padding:0 1rem}
+  .top-name{font-size:.82rem}
+  .top-meta{display:none}
+
+  /* Acompañamiento */
+  .acomp-bar{height:28px}
+
+  /* Donut más pequeño en mobile */
+  .dw{max-width:180px}
+
+  /* Proyecto info block */
+  .card[style*="flex"]{flex-direction:column}
+
+  /* Pills HL */
+  .hl-row{gap:.35rem}
+  .hl{font-size:.68rem;padding:3px 9px}
+}
+</style>
+</head>
+<body>
+<div class="lic-app">
+
+<!-- Overlay móvil -->
+<div class="sb-overlay" id="sbOverlay"></div>
+<!-- Botón hamburguesa -->
+<button class="ham-btn" id="hamBtn" aria-label="Abrir menú">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- ==============================
+     SIDEBAR
+============================== -->
+<aside class="sidebar" id="sidebar">
+
+  <div class="sb-brand">
+    <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/LIC-logo-principal-scaled.png"
+         alt="Libres, Iguales y Conectadas"
+         style="height:56px"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <div style="display:none;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#fff;letter-spacing:.05em">LIC 2026</div>
+    <div class="sb-tagline">Diagnóstico Federal LBTI+</div>
+  </div>
+
+  <div class="sb-filter">
+    <span class="sb-filter-lbl">Filtrar por territorio</span>
+    <select class="sb-select" id="filterSel">
+      <option value="all">Argentina — todas</option>
+      <option value="federal">Federal (sin AMBA)</option>
+      <option value="amba">AMBA (CABA + Bs. As.)</option>
+      <optgroup label="── Por provincia">
+        <option value="Ciudad Autónoma de Buenos Aires">CABA</option>
+        <option value="Tucumán">Tucumán</option>
+        <option value="Buenos Aires">Buenos Aires</option>
+        <option value="Mendoza">Mendoza</option>
+        <option value="Santa Fe">Santa Fe</option>
+        <option value="Jujuy">Jujuy</option>
+        <option value="Río Negro">Río Negro</option>
+        <option value="Misiones">Misiones</option>
+      </optgroup>
+    </select>
+    <div class="sb-badge" id="sb-badge">82 respuestas</div>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="sb-nav-group">Secciones</div>
+
+    <div class="sb-item act" data-panel="overview">
+      <span class="sb-num">◆</span><span>Resumen</span>
+    </div>
+    <div class="sb-item" data-panel="proyecto">
+      <span class="sb-num">00</span>
+      <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corazon-libres.png" alt="" role="presentation" aria-hidden="true">
+      <span>El Proyecto</span>
+    </div>
+    <div class="sb-item" data-panel="perfil">
+      <span class="sb-num">01</span>
+      <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-logo-femenino.png" alt="">
+      <span>Perfil General</span>
+    </div>
+    <div class="sb-item" data-panel="preoc">
+      <span class="sb-num">02</span>
+      <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/icono-rayito-scaled.png" alt="">
+      <span>Preocupaciones</span>
+    </div>
+    <div class="sb-item" data-panel="trabajo">
+      <span class="sb-num">03</span>
+      <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-pesa.png" alt="">
+      <span>Trabajo</span>
+    </div>
+    <div class="sb-item" data-panel="derechos">
+      <span class="sb-num">04</span>
+      <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Iconos-listos-Iguales.png" alt="">
+      <span>Derechos</span>
+    </div>
+    <div class="sb-item" data-panel="comunidad">
+      <span class="sb-num">05</span>
+      <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
+      <span>Comunidad</span>
+    </div>
+    <div class="sb-item" data-panel="territorio">
+      <span class="sb-num">06</span>
+      <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corona.png" alt="">
+      <span>Territorio</span>
+    </div>
+    <div class="sb-item" data-panel="urgencias">
+      <span class="sb-num">07</span>
+      <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
+      <span>Urgencias</span>
+    </div>
+  </nav>
+
+  <div class="sb-foot">
+    <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/logo-CD.png"
+         alt="Conectando Derechos"
+         onerror="this.style.display='none'">
+    <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Outright-blanco.png"
+         alt="OutRight Action International"
+         onerror="this.style.display='none'">
+  </div>
+
+</aside>
+
+<!-- ==============================
+     TOPBAR
+============================== -->
+<div class="topbar" role="banner">
+  <span class="top-name" id="topName">RESUMEN GENERAL</span>
+  <span class="top-meta" id="topMeta">82 respuestas · 8 provincias</span>
+</div>
+
+<!-- ==============================
+     MAIN
+============================== -->
+<main class="main" id="main-content" role="main">
+<div class="panels">
+
+<!-- ── OVERVIEW ── -->
+<div class="panel act" id="panel-overview">
+<div class="ov-hero">
+    <div class="ov-logos">
+      <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/LIC-logo-principal-scaled.png"
+           alt="Libres, Iguales y Conectadas"
+           style="height:80px">
+      <div class="ov-logos-sep"></div>
+      <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Logos-1.png.png"
+           alt="Conectando Derechos"
+           style="height:140px">
+  <div class="ov-logos-sep"></div>
+      <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Outright-blanco.png"
+           alt="Conectando Derechos"
+           style="height:50px">
+    </div>
+    <span class="ov-tag">◆ Argentina · 2026</span>
+    <div class="ov-title">DIAGNÓSTICO<br>FEDERAL<br><span>LBTI+</span></div>
+    <p class="ov-sub">Resultados de la encuesta nacional de diagnóstico comunitario. Una respuesta colectiva al retroceso de derechos.</p>
+    <div class="ov-kpis">
+      <div class="ov-k"><div class="ov-kn" id="ov-t">82</div><div class="ov-kl">Respuestas</div></div>
+      <div class="ov-k"><div class="ov-kn" id="ov-p">8</div><div class="ov-kl">Provincias</div></div>
+      <div class="ov-k"><div class="ov-kn" id="ov-f">29</div><div class="ov-kl">Federal sin AMBA</div></div>
+      <div class="ov-k"><div class="ov-kn" id="ov-h">73%</div><div class="ov-kl">Contexto hostil</div></div>
+    </div>
+</div>
+<div class="ov-cards">
+    <div class="ov-card" data-goto="proyecto">
+      <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corazon-libres.png" alt="">
+      <div class="ov-card-num">00</div>
+      <div class="ov-card-title">El Proyecto</div>
+      <div class="ov-card-desc">Objetivos, fases y metodología de LIC</div>
+    </div>
+    <div class="ov-card" data-goto="perfil">
+      <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-logo-femenino.png" alt="">
+      <div class="ov-card-num">01</div>
+      <div class="ov-card-title">Perfil General</div>
+      <div class="ov-card-desc">Identidades, distribución y datos destacados por provincia</div>
+    </div>
+    <div class="ov-card" data-goto="preoc">
+      <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/icono-rayito-scaled.png" alt="">
+      <div class="ov-card-num">02</div>
+      <div class="ov-card-title">Preocupaciones</div>
+      <div class="ov-card-desc">Ranking 6 dimensiones escala 1–5</div>
+    </div>
+    <div class="ov-card" data-goto="trabajo">
+      <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-pesa.png" alt="">
+      <div class="ov-card-num">03</div>
+      <div class="ov-card-title">Trabajo</div>
+      <div class="ov-card-desc">Situación laboral, ingresos y formaciones demandadas</div>
+    </div>
+    <div class="ov-card" data-goto="derechos">
+      <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Iconos-listos-Iguales.png" alt="">
+      <div class="ov-card-num">04</div>
+      <div class="ov-card-title">Derechos</div>
+      <div class="ov-card-desc">Conocimiento legal, denuncia e incidencia cívica</div>
+    </div>
+    <div class="ov-card" data-goto="comunidad">
+      <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
+      <div class="ov-card-num">05</div>
+      <div class="ov-card-title">Comunidad</div>
+      <div class="ov-card-desc">Vínculos, acompañamiento y participación organizada</div>
+    </div>
+    <div class="ov-card" data-goto="territorio">
+      <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corona.png" alt="">
+      <div class="ov-card-num">06</div>
+      <div class="ov-card-title">Territorio</div>
+      <div class="ov-card-desc">Contexto político, espacios y amenazas digitales</div>
+    </div>
+    <div class="ov-card" data-goto="urgencias">
+      <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
+      <div class="ov-card-num">07</div>
+      <div class="ov-card-title">Urgencias</div>
+      <div class="ov-card-desc">Voces literales de la comunidad por territorio</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── PROYECTO ── -->
+<div class="panel" id="panel-proyecto">
+<div class="panel-content">
+
+  <div class="sh">
+    <div class="sh-left">
+      <div class="sh-tag">Módulo 00</div>
+      <h2 class="sh-title">El Proyecto</h2>
+      <p class="sh-desc">Libres, Iguales y Conectadas — quiénes somos, qué hacemos y por qué.</p>
+    </div>
+    <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corazon-libres.png" alt="">
+  </div>
+
+  <!-- Qué es LIC -->
+  <div class="card card-top-v" style="margin-bottom:1.2rem">
+    <div style="display:flex;align-items:flex-start;gap:2rem;flex-wrap:wrap" class="pj-intro-row">
+      <div style="flex:1;min-width:260px">
+        <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/LIC-logo-principal-scaled.png"
+             alt="LIC" style="height:80px;width:auto;margin-bottom:1rem"
+             onerror="this.style.display='none'">
+        <p style="font-size:.88rem;color:var(--t2);line-height:1.7;margin-bottom:.8rem">
+          <strong style="color:var(--vp)">Libres, Iguales y Conectadas (LIC)</strong> es un programa federal que fortalece la autonomía económica, política y comunitaria de personas LBTI+ en Argentina.
+        </p>
+        <p style="font-size:.88rem;color:var(--t2);line-height:1.7;margin-bottom:.8rem">
+          No es solo formación: es <strong style="color:var(--vm)">organización + contención + incidencia internacional</strong>. Frente al retroceso estatal y los discursos de odio, la respuesta es que la comunidad se organice.
+        </p>
+        <p style="font-size:.85rem;color:var(--t3);font-style:italic">"Una respuesta colectiva." · Enero–Noviembre 2026</p>
+      </div>
+      <div style="width:220px;flex-shrink:0">
+        <div style="background:var(--vp);padding:1.2rem;margin-bottom:1px">
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.5rem">Población</div>
+          <div style="font-size:.85rem;color:#fff;font-weight:500">Personas LBTI+ de Argentina</div>
+        </div>
+        <div style="background:var(--vm);padding:1.2rem;margin-bottom:1px">
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.5rem">Alcance</div>
+          <div style="font-size:.85rem;color:#fff;font-weight:500">Federal — 5+ provincias priorizadas</div>
+        </div>
+        <div style="background:var(--vc);padding:1.2rem">
+          <div style="font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.5rem">Período</div>
+          <div style="font-size:.85rem;color:#fff;font-weight:500">15 enero – 30 noviembre 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 componentes -->
+  <div class="sh-tag" style="margin-bottom:.5rem">Los 4 componentes</div>
+  <div class="proyecto-grid">
+    <div class="proyecto-card">
+      <img class="pj-ico" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/icono-rayito-scaled.png" alt="">
+      <div class="pj-num">01</div>
+      <div class="pj-label">Diagnóstico Federal</div>
+      <div class="pj-txt">Co-diseñado con referentes provinciales. Encuesta nacional, grupos focales y mapa de recursos comunitarios.</div>
+    </div>
+    <div class="proyecto-card">
+      <img class="pj-ico" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-pesa.png" alt="">
+      <div class="pj-num">02</div>
+      <div class="pj-label">Talleres de Formación</div>
+      <div class="pj-txt">100 personas LBTI+. 12 encuentros (6 virtuales + 6 presenciales). Ejes: Económico · Cívico/Derechos · Liderazgo.</div>
+    </div>
+    <div class="proyecto-card">
+      <img class="pj-ico" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
+      <div class="pj-num">03</div>
+      <div class="pj-label">Terceros Lugares</div>
+      <div class="pj-txt">30 personas LBTI+. 3 encuentros presenciales + 3 virtuales. Espacios seguros co-construidos. Kit de Autogestión al finalizar.</div>
+    </div>
+    <div class="proyecto-card">
+      <img class="pj-ico" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corona.png" alt="">
+      <div class="pj-num">04</div>
+      <div class="pj-label">Mentorías</div>
+      <div class="pj-txt">10 mentoras + 20 mentees. Modalidad virtual. 5 encuentros por par. Perfil: líderes políticas, empresariales y comunitarias.</div>
+    </div>
+  </div>
+
+  <!-- 3 fases -->
+  <div class="sh-tag" style="margin:.5rem 0 .5rem">Las 3 fases</div>
+  <div class="fase-timeline">
+    <div class="fase">
+      <div class="fase-num">1</div>
+      <div class="fase-tag">Meses 1–3 · Completada</div>
+      <div class="fase-title">Diagnóstico y co-diseño federal</div>
+      <ul class="fase-items">
+        <li>Encuesta federal — 82 respuestas, 8 provincias</li>
+        <li>Grupos focales: Tucumán (presencial) y AMBA</li>
+        <li>Mapa de recursos comunitarios</li>
+        <li>Hoja de Ruta 2026–2028 en co-creación</li>
+      </ul>
+    </div>
+    <div class="fase fase-act">
+      <div class="fase-num">2</div>
+      <div class="fase-tag">Meses 4–10 · En curso</div>
+      <div class="fase-title">Implementación</div>
+      <ul class="fase-items">
+        <li>12 talleres de formación</li>
+        <li>Programa de mentorías</li>
+        <li>6 Terceros Lugares</li>
+        <li>Lanzamiento federal presencial</li>
+      </ul>
+    </div>
+    <div class="fase">
+      <div class="fase-num">3</div>
+      <div class="fase-tag">Meses 11–12 · Próxima</div>
+      <div class="fase-title">Incidencia y cierre</div>
+      <ul class="fase-items">
+        <li>Informe Sombra</li>
+        <li>Reuniones con embajadas</li>
+        <li>Informe final para OutRight</li>
+        <li>Cierre administrativo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Objetivos -->
+  <div class="sh-tag" style="margin:.5rem 0 .5rem">Objetivos específicos</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem;margin-bottom:1.5rem">
+    <div style="border:1.5px solid var(--brd);padding:1rem 1.1rem;background:#fff">
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vc);margin-bottom:.4rem">OE1 — Federalización</div>
+      <div style="font-size:.8rem;color:var(--t2);line-height:1.5">Estrategia federal colaborativa para los próximos 3 años, basada en urgencias reales de 5 provincias priorizadas.</div>
+    </div>
+    <div style="border:1.5px solid var(--brd);padding:1rem 1.1rem;background:#fff">
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vc);margin-bottom:.4rem">OE2 — Autonomía económica</div>
+      <div style="font-size:.8rem;color:var(--t2);line-height:1.5">100 personas LBTI+ con formación en habilidades para la vida. 20 personas con mentorías individuales.</div>
+    </div>
+    <div style="border:1.5px solid var(--brd);padding:1rem 1.1rem;background:#fff">
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vc);margin-bottom:.4rem">OE3 — Terceros lugares</div>
+      <div style="font-size:.8rem;color:var(--t2);line-height:1.5">30 personas LBTI+ en espacios seguros donde expresarse, construir relaciones y recibir apoyo mutuo.</div>
+    </div>
+    <div style="border:1.5px solid var(--brd);padding:1rem 1.1rem;background:#fff">
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vc);margin-bottom:.4rem">OE4 — Incidencia internacional</div>
+      <div style="font-size:.8rem;color:var(--t2);line-height:1.5">Informe Sombra para visibilizar el impacto de la crisis ante organismos internacionales y embajadas.</div>
+    </div>
+  </div>
+
+  <!-- Financiamiento -->
+  <div class="financ-row">
+    <div class="financ-logos">
+      <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/logo-CD.png" alt="Conectando Derechos">
+      <div class="financ-logos-sep"></div>
+      <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/outright.png" alt="OutRight Action International">
+    </div>
+    <div class="financ-txt">
+      <strong>Financiado por OutRight Action International</strong><br>
+      Fuente: ILGA World / SIDA (Swedish International Development Agency)<br>
+      Monto: USD 25.000 · Período: enero–noviembre 2026
+    </div>
+  </div>
+
+</div>
+</div><!-- /pc -->
+
+<!-- ── PERFIL ── -->
+<div class="panel" id="panel-perfil">
+<div class="panel-content">
+  <div class="sh">
+    <div class="sh-left">
+      <div class="sh-tag">Módulo 01</div>
+      <h2 class="sh-title">Perfil General</h2>
+      <p class="sh-desc">Identidades y distribución territorial de las participantes.</p>
+    </div>
+    <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-logo-femenino.png" alt="">
+  </div>
+  <div class="g4" id="perfil-kpis"></div>
+  <div class="g2 mt">
+    <div class="card card-top-v">
+      <div class="card-t">Identidades (múltiple opción)</div>
+      <div class="dw"><canvas id="chartId" height="220"></canvas></div>
+    </div>
+    <div class="card card-top-g">
+      <div class="card-t">Distribución territorial</div>
+      <div class="prov-grid" id="provGrid"></div>
+    </div>
+  </div>
+  <div class="mt2">
+    <div class="sh-tag" style="margin-bottom:.4rem">Análisis territorial</div>
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.55rem;color:var(--vp);letter-spacing:.03em;margin-bottom:.3rem">Datos destacados por provincia</h3>
+    <p style="font-size:.83rem;color:var(--t3);margin-bottom:1rem">Singularidades de cada territorio respecto al total nacional.</p>
+    <div class="dest-grid" id="destGrid"></div>
+  </div>
+</div>
+</div><!-- /pc -->
+
+<!-- ── PREOCUPACIONES ── -->
+<div class="panel" id="panel-preoc">
+<div class="panel-content">
+  <div class="sh">
+    <div class="sh-left">
+      <div class="sh-tag">Módulo 02</div>
+      <h2 class="sh-title">Preocupaciones</h2>
+      <p class="sh-desc">Escala 1–5. El 100% identifica las mismas 6 preocupaciones prioritarias.</p>
+    </div>
+    <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/icono-rayito-scaled.png" alt="">
+  </div>
+  <div class="pr-list" id="preocList"></div>
+</div>
+</div>
+</div><!-- /pc -->
+
+<!-- ── TRABAJO ── -->
+<div class="panel" id="panel-trabajo">
+<div class="panel-content">
+  <div class="sh">
+    <div class="sh-left">
+      <div class="sh-tag">Módulo 03</div>
+      <h2 class="sh-title">Trabajo y Economía</h2>
+      <p class="sh-desc">Situación laboral, ingresos y formaciones demandadas.</p>
+    </div>
+    <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-pesa.png" alt="">
+  </div>
+  <div class="hl-row" id="trabajo-hl"></div>
+  <div class="g2">
+    <div class="card card-top-v">
+      <div class="card-t">Fuente de ingresos</div>
+      <canvas id="chartIng" height="190"></canvas>
+    </div>
+    <div class="card card-top-f">
+      <div class="card-t">Situación económica — último año</div>
+      <div class="dw"><canvas id="chartEcon" height="220"></canvas></div>
+    </div>
+  </div>
+  <div class="cita">"La situación económica es agobiante y la urgencia personal come los espacios de encuentro y diálogo, individualizando las respuestas ante la crisis."</div>
+  <div class="card card-top-g mt">
+    <div class="card-t">Formaciones más demandadas (máx. 3 opciones por persona)</div>
+    <div class="hbl" id="formList" style="margin-top:.7rem"></div>
+  </div>
+</div>
+</div>
+</div><!-- /pc -->
+
+<!-- ── DERECHOS ── -->
+<div class="panel" id="panel-derechos">
+<div class="panel-content">
+  <div class="sh">
+    <div class="sh-left">
+      <div class="sh-tag">Módulo 04</div>
+      <h2 class="sh-title">Derechos y Participación Cívica</h2>
+      <p class="sh-desc">Conocimiento legal, denuncia e incidencia.</p>
+    </div>
+    <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Iconos-listos-Iguales.png" alt="">
+  </div>
+  <div class="hl-row" id="derechos-hl"></div>
+  <div class="g2">
+    <div class="card card-top-v">
+      <div class="card-t">¿Sabés cómo presentar una denuncia?</div>
+      <div class="dw"><canvas id="chartDen" height="220"></canvas></div>
+    </div>
+    <div class="card card-top-g">
+      <div class="card-t">Herramientas cívicas más útiles</div>
+      <div class="hbl" id="herrList" style="margin-top:.5rem"></div>
+    </div>
+  </div>
+  <div class="card card-top-f mt">
+    <div class="card-t">Participación en incidencia cívica</div>
+    <canvas id="chartInci" height="140"></canvas>
+  </div>
+</div>
+</div>
+</div><!-- /pc -->
+
+<!-- ── COMUNIDAD ── -->
+<div class="panel" id="panel-comunidad">
+<div class="panel-content">
+  <div class="sh">
+    <div class="sh-left">
+      <div class="sh-tag">Módulo 05</div>
+      <h2 class="sh-title">Comunidad y Vínculos</h2>
+      <p class="sh-desc">Lazos, contención y participación en espacios comunitarios LBTI+.</p>
+    </div>
+    <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
+  </div>
+  <div class="hl-row" id="comunidad-hl"></div>
+  <div class="g2">
+    <div class="card card-top-v">
+      <div class="card-t">Acompañamiento de personas LBTI+ (escala 1–5)</div>
+      <div class="acomp-bar" id="acompBar"></div>
+      <p style="font-size:.77rem;color:var(--t3);margin-top:.3rem" id="acomp-txt"></p>
+    </div>
+    <div class="card card-top-g">
+      <div class="card-t">Vinculación con la comunidad LBTI+</div>
+      <canvas id="chartVinc" height="190"></canvas>
+    </div>
+  </div>
+</div>
+</div>
+</div><!-- /pc -->
+
+<!-- ── TERRITORIO ── -->
+<div class="panel" id="panel-territorio">
+<div class="panel-content">
+  <div class="sh">
+    <div class="sh-left">
+      <div class="sh-tag">Módulo 06</div>
+      <h2 class="sh-title">Contexto Territorial</h2>
+      <p class="sh-desc">Percepción política, espacios disponibles y amenazas digitales.</p>
+    </div>
+    <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corona.png" alt="">
+  </div>
+  <div class="hl-row" id="territorio-hl"></div>
+  <div class="g2">
+    <div class="card card-top-f">
+      <div class="card-t">Contexto político percibido</div>
+      <canvas id="chartCtx" height="190"></canvas>
+    </div>
+    <div class="card card-top-v">
+      <div class="card-t">Espacios LBTI+ activos en la provincia</div>
+      <div class="dw"><canvas id="chartEsp" height="220"></canvas></div>
+    </div>
+  </div>
+  <div class="card mt">
+    <div class="card-t">¿Han sufrido amenazas digitales o acoso organizado?</div>
+    <canvas id="chartAmen" height="110"></canvas>
+  </div>
+</div>
+</div>
+</div><!-- /pc -->
+
+<!-- ── URGENCIAS ── -->
+<div class="panel" id="panel-urgencias">
+<div class="panel-content">
+  <div class="sh">
+    <div class="sh-left">
+      <div class="sh-tag">Módulo 07 · Voces de la comunidad</div>
+      <h2 class="sh-title">Urgencias Territoriales</h2>
+      <p class="sh-desc">Respuestas literales a "¿Cuál es hoy la principal urgencia para personas LBTI+ en tu territorio?"</p>
+    </div>
+    <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
+  </div>
+  <div class="urg-scroll"><div class="urg-track" id="urgTrack"></div></div>
+  <div class="urg-grid" id="urgGrid"></div>
+</div>
+
+</div>
+</div><!-- /pc -->
+</div><!-- /panels -->
+</main><!-- /main -->
+
+<script>
+const RAW=[{"prov":"Tucumán","id":"Lesbiana","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":3,"Situación económica":3,"Discriminación territorial":3,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy abierta con mi identidad.","clima":"Se respeta la diversidad.","form":"Oratoria y negociación","den":"No estoy segura","inci":"Si, pero igual me gustaría aprender más al respecto","herr":"Mentorías individuales con referentes de distintos sectores.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Hostil","amen":"No","urg":"La violencia en la calle y en las redes, esto se exacerbó en el último tiempo.","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres)","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"No binaria","preoc":{"Discurso de odio en redes":4,"Desconocimiento de derechos":5,"Falta de espacios seguros":3,"Situación económica":4,"Discriminación territorial":4,"Acceso a empleo formal":4},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"No se habla al respecto","form":"Educación financiera, Emprendedurismo","den":"No","inci":"Si, pero igual me gustaría aprender más al respecto","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Muy hostil","amen":"Prefiero no responder","urg":"","vinc":"Sí, tengo un grupo de amigue de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":3,"Situación económica":5,"Discriminación territorial":4,"Acceso a empleo formal":5},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Educación financiera, Derechos laborales, Inglés laboral","den":"No estoy segura","inci":"Sí","herr":"Mentorías individuales con referentes de distintos sectores., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"La principal urgencia es encontrar apoyo en los ámbitos económico, laboral, sanitario y educativo. También resulta fundamental acceder a financiamiento para impulsar acciones de visibilidad y respeto por la diversidad, así como crear y fortalecer espacios que promuevan la organización colectiva de los cuidados.","vinc":"Sí, tengo un grupo de amigue de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Jujuy","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":5,"Discriminación territorial":5,"Acceso a empleo formal":5},"ing":"Sin ingresos estables","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"No se habla al respecto","form":"Educación financiera, Emprendedurismo, Oratoria y negociación","den":"Sí","inci":"No, pero me gustaría aprender al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Neutral","amen":"No","urg":"El acompañamiento contención, espacios de diálogo y formación","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"No conozco espacios donde ir para estar con personas LBTI+","participa":""},{"prov":"Santa Fe","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":5,"Acceso a empleo formal":5},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inserción laboral, Derechos laborales","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Mentorías individuales con referentes de distintos sectores.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Muy hostil","amen":"Sí","urg":"Mejoras en las situaciones económicas, habitacionales, seguridad y emocionales.","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x, No binarie, Queer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":4,"Situación económica":2,"Discriminación territorial":5,"Acceso a empleo formal":4},"ing":"Emprendimiento propio","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Emprendedurismo, Derechos laborales, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Muy hostil","amen":"Sí","urg":"Vi\nzibilizacion de las personas con dni x . No varon trans ni mujer trans estan aparatos/as por el género, aunque no menos discriminados/as...en lo institucional el dni x es un desastre pocos cumplen con la normativa.","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares y no me siento cómoda.","participa":""},{"prov":"Mendoza","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":3,"Discriminación territorial":3,"Acceso a empleo formal":1},"ing":"Sin ingresos estables","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Emprendedurismo, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"No estoy segura/e/x.","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Hostil","amen":"No","urg":"Inclucion, visibilidad y respeto","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Santa Fe","id":"Trans, No binarie","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":2,"Situación económica":3,"Discriminación territorial":3,"Acceso a empleo formal":5},"ing":"Apoyo familiar","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"No se habla al respecto","form":"Emprendedurismo, Inserción laboral","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"Inserción laboral","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":2,"Situación económica":3,"Discriminación territorial":5,"Acceso a empleo formal":2},"ing":"Emprendimiento propio","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Muy hostil","amen":"No","urg":"Que se vaya Milei","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":2,"Discriminación territorial":5,"Acceso a empleo formal":2},"ing":"Empleo informal","econ":"Mejoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Muy hostil","amen":"Sí","urg":"Calculo que la económica. Sostener en red a quienes no están pudiendo hacerlo solxs","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Trans","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":3,"Discriminación territorial":5,"Acceso a empleo formal":4},"ing":"Empleo informal","econ":"Mejoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inserción laboral, Oratoria y negociación","den":"No","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Muy hostil","amen":"No","urg":"Cupo laboral, docencia con respecto a leyes por violencia física y/o psicológica, por acoso","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":4,"Desconocimiento de derechos":2,"Falta de espacios seguros":2,"Situación económica":2,"Discriminación territorial":1,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"No, nadie preguntó y nunca aclare.","clima":"No se habla al respecto","form":"Educación financiera, Oratoria y negociación","den":"No","inci":"Sí.","herr":"Mentorías individuales con referentes de distintos sectores., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"Prefiero no responder","urg":"","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":3,"Desconocimiento de derechos":3,"Falta de espacios seguros":3,"Situación económica":3,"Discriminación territorial":3,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"No, nadie preguntó y nunca aclare.","clima":"Hay un clima de hostilidad.","form":"Oratoria y negociación","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Hostil","amen":"No","urg":"Frenar los crímenes de odio, violencia en la calle y la violencia institucional del Estado que habilita todo eso.","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x, Trans, Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":4,"Discriminación territorial":5,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Derechos laborales","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Muy hostil","amen":"No","urg":"El acceso al trabajo registrado, la situación habitacional, acceso a dispositivos para combatir violencias ejercidas por la población heterocis y para trabajar situaciones de violencia entre lesbianas/feminidades/otres, y propiciar los cuidados necesarios frente a estas situaciones.","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x, Trans, No binarie, Queer, Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":5,"Discriminación territorial":2,"Acceso a empleo formal":5},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Emprendedurismo, Inserción laboral, Derechos laborales","den":"No estoy segura/e/x.","inci":"Sí.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"Sí","urg":"Acceso a trabajo formal","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares y no me siento cómoda.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x, Queer","preoc":{"Discurso de odio en redes":4,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":5,"Discriminación territorial":4,"Acceso a empleo formal":4},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"No se habla al respecto","form":"Educación financiera, Inglés laboral, Oratoria y negociación","den":"Sí","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"Sí","urg":"que se garanticen derechos básicos y se respeten los marcos normativos aún vigentes.","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":3,"Desconocimiento de derechos":3,"Falta de espacios seguros":4,"Situación económica":4,"Discriminación territorial":4,"Acceso a empleo formal":3},"ing":"Empleo informal","econ":"Se mantuvo igual","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Educación financiera, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Trans, No binarie","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":5,"Situación económica":2,"Discriminación territorial":5,"Acceso a empleo formal":1},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, con algunas personas.","clima":"No se habla al respecto","form":"Educación financiera, Emprendedurismo, Derechos laborales","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Muy hostil","amen":"No","urg":"Reparación histórica para personas travestis / trans, inclusión laboral real, garantizar los derechos ya conseguidos, que no nos maten,  persigan ni violenten","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":3,"Discriminación territorial":3,"Acceso a empleo formal":4},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inglés laboral","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Hostil","amen":"No","urg":"Acceso a información y procedimientos","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":5,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Hostil","amen":"Sí","urg":"La violencia en las calles","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Bisexual, Queer, Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":2,"Discriminación territorial":5,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Educación financiera, Emprendedurismo, Oratoria y negociación","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Hostil","amen":"Sí","urg":"Los efectos de la desigualdad y la opresión en la distribución de la riqueza. Prácticamente todas las personas que conozco de la comunidad son POBRES. Me parece válido y oportuno formarnos para tener más información cívica y laboral. Hay un sistema que funciona para extraer recursos y empobrecernos, y que, cuando se trata de nuestra comunidad, lo hace de la mano de prácticas discriminatorias y violentas. \n\nEn ese sentido, además de la posibilidad de hacerle frente a esa discriminación y odio, me parece que lo más urgente es pensar estrategias para tener dinero (o recursos materiales) para poder llevar a cabo la vida con dignidad y bajo las lógicas alternativas que nos convocan.","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":2,"Discriminación territorial":5,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Mejoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Derechos laborales","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"No sé","org":"No","ctx":"Hostil","amen":"No","urg":"Acceso al empleo, pienso","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":3,"Discriminación territorial":5,"Acceso a empleo formal":1},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Oratoria y negociación","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Hostil","amen":"No","urg":"La falta de trabajo y las dificultades económicas","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":3,"Situación económica":5,"Discriminación territorial":4,"Acceso a empleo formal":5},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inglés laboral","den":"No estoy segura/e/x.","inci":"Sí.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Hostil","amen":"No","urg":"Vivienda y trabajo, en especial en caso de personas trans mujeres y travestis","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"No binarie","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":4,"Acceso a empleo formal":5},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"Hay un clima de hostilidad.","form":"Educación financiera, Emprendedurismo, Inglés laboral","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Muy hostil","amen":"No","urg":"Las condiciones laborales de la comunidad","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":2,"Desconocimiento de derechos":2,"Falta de espacios seguros":3,"Situación económica":2,"Discriminación territorial":1,"Acceso a empleo formal":1},"ing":"Empleo formal","econ":"Mejoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera","den":"Sí","inci":"Sí.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Neutral","amen":"Sí","urg":"la violencia institucional","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":1,"Discriminación territorial":3,"Acceso a empleo formal":1},"ing":"Empleo formal","econ":"Mejoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Derechos laborales","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x, Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":5,"Discriminación territorial":3,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera","den":"No estoy segura/e/x.","inci":"Sí.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Hostil","amen":"No","urg":"","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":5,"Discriminación territorial":5,"Acceso a empleo formal":4},"ing":"Emprendimiento propio","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera, Emprendedurismo, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"No sé","org":"No","ctx":"Muy hostil","amen":"No","urg":"","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x, Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":3,"Discriminación territorial":4,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"No, nadie preguntó y nunca aclare.","clima":"No se habla al respecto","form":"Educación financiera, Derechos laborales, Oratoria y negociación","den":"No","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Muy hostil","amen":"No","urg":"formar comunidad","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x, Queer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":3,"Situación económica":5,"Discriminación territorial":3,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Derechos laborales, Oratoria y negociación","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Muy hostil","amen":"Sí","urg":"Crear comunidad, más allá de los entornos de fiesta y los vínculos meramente sexo afectivos","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":4,"Situación económica":3,"Discriminación territorial":2,"Acceso a empleo formal":3},"ing":"Empleo informal","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"No se habla al respecto","form":"Educación financiera, Oratoria y negociación","den":"No","inci":"No, no es de mi interés.","herr":"Guías prácticas/materiales didácticos que sean descargable., Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"No sé","org":"No","ctx":"Hostil","amen":"No","urg":"Discriminación social y laboral","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares y no me siento cómoda.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":3,"Discriminación territorial":3,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"No se habla al respecto","form":"Educación financiera, Emprendedurismo, Derechos laborales","den":"No estoy segura/e/x.","inci":"Sí.","herr":"Guías prácticas/materiales didácticos que sean descargable., Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"Falta de empleo formal","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"No conozco espacios donde ir para estar con personas LBTI+","participa":""},{"prov":"Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":2,"Desconocimiento de derechos":2,"Falta de espacios seguros":2,"Situación económica":2,"Discriminación territorial":2,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"No, nadie preguntó y nunca aclare.","clima":"Hay un clima de hostilidad.","form":"Educación financiera, Derechos laborales, Oratoria y negociación","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Hostil","amen":"No","urg":"Crimenes por odio y aumento de la violencia","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Mendoza","id":"Bisexual, Mujer","preoc":{"Discurso de odio en redes":3,"Desconocimiento de derechos":3,"Falta de espacios seguros":3,"Situación económica":3,"Discriminación territorial":4,"Acceso a empleo formal":2},"ing":"Empleo informal","econ":"Se mantuvo igual","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Inserción laboral, Derechos laborales, Inglés laboral","den":"No estoy segura/e/x.","inci":"No, no es de mi interés.","herr":"Guías prácticas/materiales didácticos que sean descargable., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"No","esp_prov":"No sé","org":"No","ctx":"Neutral","amen":"No","urg":"No tengo idea :(","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"No conozco espacios donde ir para estar con personas LBTI+","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Mujer","preoc":{"Discurso de odio en redes":2,"Desconocimiento de derechos":4,"Falta de espacios seguros":2,"Situación económica":4,"Discriminación territorial":4,"Acceso a empleo formal":3},"ing":"Empleo informal","econ":"Se mantuvo igual","visible":"No, nadie preguntó y nunca aclare.","clima":"Se respeta la diversidad.","form":"Inserción laboral, Inglés laboral","den":"No","inci":"No, no es de mi interés.","herr":"Mentorías individuales con referentes de distintos sectores.","acomp":null,"red":"No","esp_prov":"No sé","org":"No","ctx":"Neutral","amen":"No","urg":"no se","vinc":"Poco, solamente con vínculos sexo-afectivos.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":3,"Situación económica":3,"Discriminación territorial":3,"Acceso a empleo formal":4},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Oratoria y negociación","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Favorable","amen":"No","urg":"","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":3,"Discriminación territorial":2,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inglés laboral","den":"No","inci":"No, no es de mi interés.","herr":"Guías prácticas/materiales didácticos que sean descargable.","acomp":null,"red":"No estoy segura/e/x.","esp_prov":"Sí, más de uno","org":"No","ctx":"Hostil","amen":"Prefiero no responder","urg":"","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x, No binarie, Queer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":2,"Falta de espacios seguros":2,"Situación económica":5,"Discriminación territorial":5,"Acceso a empleo formal":5},"ing":"Apoyo familiar","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Emprendedurismo, Inserción laboral, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Muy hostil","amen":"No","urg":"Económica habitacional laboral y persecución política salud mental y fisica","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Río Negro","id":"No binarie","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":5,"Situación económica":3,"Discriminación territorial":5,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Emprendedurismo, Inglés laboral","den":"Sí","inci":"Sí.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Hostil","amen":"No","urg":"Viviendo y lugares de encuentro que no hay","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"No conozco espacios donde ir para estar con personas LBTI+","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":3,"Desconocimiento de derechos":4,"Falta de espacios seguros":3,"Situación económica":4,"Discriminación territorial":3,"Acceso a empleo formal":4},"ing":"Emprendimiento propio","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Emprendedurismo","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"Sí","urg":"Acceso a la salud, hormonas, centros de salud con perspectiva de género","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares y no me siento cómoda.","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":4,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":3,"Discriminación territorial":2,"Acceso a empleo formal":5},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Derechos laborales, Oratoria y negociación","den":"No","inci":"Sí.","herr":"Mentorías individuales con referentes de distintos sectores., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Muy hostil","amen":"No","urg":"El desempleo y la violencia","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x, Bisexual, Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":3,"Acceso a empleo formal":1},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"No se habla al respecto","form":"Educación financiera, Oratoria y negociación","den":"Sí","inci":"No, pero me gustaría aprender al respecto.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Neutral","amen":"No","urg":".","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Tucumán","id":"Bisexual","preoc":{"Discurso de odio en redes":3,"Desconocimiento de derechos":4,"Falta de espacios seguros":3,"Situación económica":5,"Discriminación territorial":3,"Acceso a empleo formal":5},"ing":"Sin ingresos estables","econ":"Empeoró","visible":"No, nadie preguntó y nunca aclare.","clima":"Hay un clima de hostilidad.","form":"Educación financiera, Inserción laboral, Oratoria y negociación","den":"Sí","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"No estoy segura/e/x.","esp_prov":"Sí, más de uno","org":"No","ctx":"Neutral","amen":"No","urg":"","vinc":"Poco, solamente con vínculos sexo-afectivos.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":4,"Situación económica":5,"Discriminación territorial":4,"Acceso a empleo formal":3},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Hay un clima de hostilidad.","form":"Derechos laborales, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Muy hostil","amen":"Sí","urg":"Vivienda y trabajo","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Buenos Aires","id":"Trans","preoc":{"Discurso de odio en redes":2,"Desconocimiento de derechos":2,"Falta de espacios seguros":2,"Situación económica":2,"Discriminación territorial":1,"Acceso a empleo formal":1},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Hay un clima de hostilidad.","form":"Emprendedurismo, Inglés laboral, Oratoria y negociación","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"No","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Muy hostil","amen":"No","urg":"La salud, vivienda","vinc":"Poco, solamente con vínculos sexo-afectivos.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x, Queer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":2,"Discriminación territorial":5,"Acceso a empleo formal":1},"ing":"Empleo informal","econ":"Mejoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera, Inglés laboral, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Favorable","amen":"No","urg":"Me dedico al deporte. La principal urgencia son espacios de entrenamiento con perspectiva de genero","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Tucumán","id":"Mujer","preoc":{"Discurso de odio en redes":2,"Desconocimiento de derechos":3,"Falta de espacios seguros":2,"Situación económica":3,"Discriminación territorial":1,"Acceso a empleo formal":1},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, con algunas personas.","clima":"No se habla al respecto","form":"Derechos laborales","den":"No","inci":"No, no es de mi interés.","herr":"Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"No sé","org":"No","ctx":"Neutral","amen":"No","urg":"No sé","vinc":"Poco, solamente con vínculos sexo-afectivos.","esp_facil":"Hay pocos lugares y no me siento cómoda.","participa":""},{"prov":"Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":5,"Discriminación territorial":5,"Acceso a empleo formal":4},"ing":"Empleo informal","econ":"Se mantuvo igual","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Educación financiera, Derechos laborales, Inglés laboral","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Neutral","amen":"No","urg":"La principal urgencia es la visibilidad en pueblos y ciudades que aún mantienen arraigo  ser parte de la comunidad como algo ajeno o “raro” o porteñocentrista. Al no visibilizarse y recién construirse en algunos lugares (la primera o la quinta marcha LBTI+) y tampoco hacer eco a las voces en ámbitos públicos o privados parece que no existe","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares y no me siento cómoda.","participa":""},{"prov":"Misiones","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":5,"Discriminación territorial":5,"Acceso a empleo formal":5},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inglés laboral, Oratoria y negociación","den":"Sí","inci":"Sí.","herr":"Guías prácticas/materiales didácticos que sean descargable., Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"No","esp_prov":"No","org":"No","ctx":"Neutral","amen":"No","urg":"Una entidad que accione rápidamente frente a casos de discriminación y violencia. Hoy en día es más peligroso acudir a la policía siendo de la comunidad, que intentar resolver solos esos problemas.","vinc":"No, no tengo vínculo con personas LBTI+","esp_facil":"No conozco espacios donde ir para estar con personas LBTI+","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":3,"Situación económica":4,"Discriminación territorial":2,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"No se habla al respecto","form":"Educación financiera","den":"Sí","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Neutral","amen":"No","urg":"La desigualdad social","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":3,"Desconocimiento de derechos":3,"Falta de espacios seguros":4,"Situación económica":4,"Discriminación territorial":3,"Acceso a empleo formal":5},"ing":"Sin ingresos estables","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera, Inserción laboral, Derechos laborales","den":"No","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"Acompañamiento en cuanto acceso a la salud.","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Mendoza","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":4,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":3,"Discriminación territorial":3,"Acceso a empleo formal":4},"ing":"Emprendimiento propio","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"No se habla al respecto","form":"Emprendedurismo, Derechos laborales, Inglés laboral","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"No estoy segura/e/x.","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Hostil","amen":"No","urg":"Oportunidades laborales, espacios de acompañamiento institucionales y espacios recreativos en comunidad.","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":4,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Inserción laboral","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Muy hostil","amen":"Sí","urg":"Revertir las políticas de odio, incorporar la población trans, tratar como iguales a personas LGBTTIQ+","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":3,"Situación económica":4,"Discriminación territorial":3,"Acceso a empleo formal":3},"ing":"Empleo informal","econ":"Mejoró","visible":"Si, con algunas personas.","clima":"No se habla al respecto","form":"Educación financiera, Emprendedurismo, Oratoria y negociación","den":"No","inci":"No, no es de mi interés.","herr":"Guías prácticas/materiales didácticos que sean descargable., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Neutral","amen":"No","urg":"","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":2,"Discriminación territorial":3,"Acceso a empleo formal":1},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"No se habla al respecto","form":"Educación financiera, Derechos laborales, Oratoria y negociación","den":"Sí","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"No estoy segura/e/x.","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"El acceso al empleo y la falta de información de centros a los cuales acudir en caso de violencia","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":3,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"No, nadie preguntó y nunca aclare.","clima":"No se habla al respecto","form":"Derechos laborales, Oratoria y negociación","den":"Sí","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"Sí","urg":"El acceso a la estabilidad laboral","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Buenos Aires","id":"Trans","preoc":{"Discurso de odio en redes":1,"Desconocimiento de derechos":2,"Falta de espacios seguros":1,"Situación económica":2,"Discriminación territorial":1,"Acceso a empleo formal":4},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera","den":"Sí","inci":"No, pero me gustaría aprender al respecto.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"El municipio de San Isidro está ausente con la comunidad","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":3,"Desconocimiento de derechos":2,"Falta de espacios seguros":2,"Situación económica":5,"Discriminación territorial":2,"Acceso a empleo formal":5},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Derechos laborales","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"no sé","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":5,"Acceso a empleo formal":3},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Educación financiera, Oratoria y negociación","den":"No","inci":"No, no es de mi interés.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Muy hostil","amen":"No","urg":"","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"No conozco espacios donde ir para estar con personas LBTI+","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":5,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Inglés laboral","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"No sé","org":"No","ctx":"Neutral","amen":"No","urg":"","vinc":"Poco, solamente con vínculos sexo-afectivos.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":5,"Discriminación territorial":5,"Acceso a empleo formal":5},"ing":"Empleo formal","econ":"Empeoró","visible":"No, nadie preguntó y nunca aclare.","clima":"Hay un clima de hostilidad.","form":"Educación financiera, Inglés laboral, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"Sí.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"No","ctx":"Muy hostil","amen":"No","urg":"Faltas de políticas públicas y discursos de odio legitimados","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":5,"Acceso a empleo formal":4},"ing":"Emprendimiento propio","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera, Oratoria y negociación","den":"Sí","inci":"Sí.","herr":"Alertas legislativas sobre proyectos de ley que afecten a la comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Neutral","amen":"No","urg":"Probando resultados (borrar respuesta(","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Lesbiana/e/x, Queer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":2,"Discriminación territorial":5,"Acceso a empleo formal":2},"ing":"Emprendimiento propio","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera, Oratoria y negociación","den":"Sí","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Muy hostil","amen":"Sí","urg":"vivienda y acceso al trabajo formal","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":3,"Desconocimiento de derechos":4,"Falta de espacios seguros":3,"Situación económica":1,"Discriminación territorial":3,"Acceso a empleo formal":1},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Oratoria y negociación","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"No","urg":"Integración y desexualizacion de las personas trans","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":3,"Acceso a empleo formal":5},"ing":"Sin ingresos estables","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Emprendedurismo, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Hostil","amen":"No","urg":"Organización, atraer a nuevo público, mas q nada la juventud, debate presencial, proyectos q una a la comunidad tucumana q siento q estamos unxs x un lado y otrxs x otro lado y eso lleva mucho al individualismo tanto social, politica y cultural.","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Bisexual, No binarie","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":2,"Falta de espacios seguros":4,"Situación económica":4,"Discriminación territorial":2,"Acceso a empleo formal":4},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"No se habla al respecto","form":"Oratoria y negociación","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Neutral","amen":"No","urg":"Lamentablemente me parece que todxs estamos en situación de que cada vez es más complicado llegar a fin de mes, así que acceso a espacios laborales en blanco sin discriminación para acceder y mantenerse en los puestos de trabajo. También políticas estatales de acompañamiento en general (empleo pero también salud, subsidios, etc)","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":2,"Situación económica":3,"Discriminación territorial":1,"Acceso a empleo formal":1},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inglés laboral","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"No estoy segura/e/x.","esp_prov":"No sé","org":"No","ctx":"Hostil","amen":"No","urg":"No tengo idea la verdad pero creo que cada vez da menos verguenza der facho y eso es un problema para todas las minorias","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"No conozco espacios donde ir para estar con personas LBTI+","participa":""},{"prov":"Tucumán","id":"Queer","preoc":{"Discurso de odio en redes":1,"Desconocimiento de derechos":2,"Falta de espacios seguros":2,"Situación económica":1,"Discriminación territorial":1,"Acceso a empleo formal":2},"ing":"Empleo informal","econ":"Mejoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Emprendedurismo, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"No, no es de mi interés.","herr":"Guías prácticas/materiales didácticos que sean descargable., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Hostil","amen":"No","urg":"","vinc":"No, no tengo vínculo con personas LBTI+","esp_facil":"No conozco espacios donde ir para estar con personas LBTI+","participa":""},{"prov":"Tucumán","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":4,"Situación económica":3,"Discriminación territorial":4,"Acceso a empleo formal":5},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inglés laboral, Oratoria y negociación","den":"Sí","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"Sí","urg":"Habilitar espacios de desbate e intercambio sobre salud mental y eventos, ferias, mesas de negocios que impulsen la inserción laboral y los proyectos de emprendimientos de la comunidad.","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":3,"Situación económica":5,"Discriminación territorial":3,"Acceso a empleo formal":2},"ing":"Empleo informal","econ":"Empeoró","visible":"No, nadie preguntó y nunca aclare.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inglés laboral, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"Sí.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Neutral","amen":"No","urg":"El acceso a estudios superiores y a trabajos no precarizados. La situación económica es agobiante y la urgencia personal come los espacios de encuentro y diálogo, individualizando las respuestas ante la crisis.","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":3,"Situación económica":2,"Discriminación territorial":3,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Emprendedurismo, Inglés laboral","den":"Sí","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Alertas legislativas sobre proyectos de ley que afecten a la comunidad., Talleres virtuales sobre temas relevantes para mi comunidad.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"Sí","urg":"La seguridad física","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":3,"Falta de espacios seguros":5,"Situación económica":3,"Discriminación territorial":5,"Acceso a empleo formal":3},"ing":"Emprendimiento propio","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera, Emprendedurismo, Oratoria y negociación","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Hostil","amen":"No","urg":"Economía y trabajo","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":2,"Desconocimiento de derechos":3,"Falta de espacios seguros":2,"Situación económica":5,"Discriminación territorial":2,"Acceso a empleo formal":3},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se respeta la diversidad.","form":"Educación financiera, Derechos laborales, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"Sí","ctx":"Neutral","amen":"Prefiero no responder","urg":"Acceso a empleo formal","vinc":"Sí, voy a espacio de la comunidad activamente (bares, reuniones, talleres).","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":3,"Acceso a empleo formal":5},"ing":"Empleo informal","econ":"Se mantuvo igual","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera, Inserción laboral, Inglés laboral","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"Prefiero no responder","urg":"","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Tucumán","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":3,"Discriminación territorial":5,"Acceso a empleo formal":4},"ing":"Emprendimiento propio","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"Se reivindica la diversidad como un valor.","form":"Educación financiera","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Hostil","amen":"No","urg":"Espacios de contención, con talleres y actividades, para poder conectar mejor y generar nuevos vínculos.","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Trans, No binarie","preoc":{"Discurso de odio en redes":4,"Desconocimiento de derechos":4,"Falta de espacios seguros":5,"Situación económica":5,"Discriminación territorial":4,"Acceso a empleo formal":4},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"No se habla al respecto","form":"Educación financiera, Derechos laborales","den":"No estoy segura/e/x.","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Mentorías individuales con referentes de distintos sectores., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, más de uno","org":"Sí","ctx":"Hostil","amen":"Sí","urg":"las mismas de siempre salud trabajo vivienda y educación","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x, Mujer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":4,"Situación económica":5,"Discriminación territorial":5,"Acceso a empleo formal":3},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Educación financiera, Inglés laboral, Oratoria y negociación","den":"No","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable.","acomp":null,"red":"No","esp_prov":"No sé","org":"No","ctx":"Neutral","amen":"No","urg":"Tener espacios donde reunirse y asesorarse en caso de emergencia","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Buenos Aires","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":2,"Acceso a empleo formal":2},"ing":"Empleo formal","econ":"Empeoró","visible":"Si, soy visible en mi espacio de trabajo.","clima":"No se habla al respecto","form":"Emprendedurismo, Inglés laboral, Oratoria y negociación","den":"No estoy segura/e/x.","inci":"No, pero me gustaría aprender al respecto.","herr":"Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"No","org":"No","ctx":"Neutral","amen":"No","urg":"Creo que hoy en día la principal urgencia que afecta directamente a la comunidad es el discurso de odio que se emite desde el poder descaradamente, legitimando todo tipo de actos de violencia que se pueden vivenciar en la via publica o en redes sociales contra la comunidad. Lo que mas me preocupa de esto, son los niñxs y adolescentes tanto de la comunidad como no, que habitan su vida social teniendo ese discurso como real, como aceptado.","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Ciudad Autónoma de Buenos Aires","id":"Bisexual","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":4,"Falta de espacios seguros":4,"Situación económica":5,"Discriminación territorial":2,"Acceso a empleo formal":3},"ing":"Empleo informal","econ":"Mejoró","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Emprendedurismo, Inglés laboral, Oratoria y negociación","den":"No","inci":"Si, pero igual me gustaría aprender más al respecto.","herr":"Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"No estoy segura/e/x.","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Favorable","amen":"No","urg":"","vinc":"Poco, solamente con vínculos sexo-afectivos.","esp_facil":"Sí, hay muchos espacios.","participa":""},{"prov":"Tucumán","id":"Lesbiana/e/x","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":5,"Discriminación territorial":5,"Acceso a empleo formal":5},"ing":"Empleo informal","econ":"Empeoró","visible":"No, nadie preguntó y nunca aclare.","clima":"No se habla al respecto","form":"Inserción laboral, Inglés laboral, Oratoria y negociación","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"No sé","org":"Sí","ctx":"Neutral","amen":"No","urg":"La principal urgencia para personas LGTB+ hoy es resolver la crisis económica","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""},{"prov":"Tucumán","id":"Queer","preoc":{"Discurso de odio en redes":5,"Desconocimiento de derechos":5,"Falta de espacios seguros":5,"Situación económica":4,"Discriminación territorial":4,"Acceso a empleo formal":4},"ing":"Empleo informal","econ":"Empeoró","visible":"Si, con algunas personas.","clima":"Se respeta la diversidad.","form":"Educación financiera, Derechos laborales, Inglés laboral","den":"No","inci":"No, pero me gustaría aprender al respecto.","herr":"Guías prácticas/materiales didácticos que sean descargable., Talleres virtuales sobre temas relevantes para mi comunidad., Espacios presenciales de intercambio, encuentro y debate.","acomp":null,"red":"Sí","esp_prov":"Sí, pero muy pocos","org":"No","ctx":"Hostil","amen":"Prefiero no responder","urg":"Educación, herramientas legales y visibilización","vinc":"Sí, tengo un grupo de amigues de la comunidad.","esp_facil":"Hay pocos lugares.","participa":""}];
+const PROVINCES=['Ciudad Autónoma de Buenos Aires','Tucumán','Buenos Aires','Mendoza','Santa Fe','Jujuy','Río Negro','Misiones'];
+const AMBA=['Ciudad Autónoma de Buenos Aires','Buenos Aires'];
+const FEDERAL=PROVINCES.filter(p=>!AMBA.includes(p));
+const P={vm:'#6B35B8',vc:'#9B59D0',li:'#C89FE8',lp:'#F0EBFF',do:'#C8940F',do2:'#F0C040',fu:'#B5155A',vp:'#3D1A6E',t2:'#432A72',t3:'#9180AD',brd:'#D4CBEC',bg2:'#F5F1FC',bg3:'#EDE5FA'};
+const PAL6=[P.vm,P.fu,P.do2,P.vc,P.li,'#3D1A6E'];
+const DC=['#C89FE8','#9B59D0','#6B35B8','#F0C040','#B5155A'];
+Chart.defaults.font.family="'DM Sans',sans-serif";
+Chart.defaults.font.size=12;
+Chart.defaults.color=P.t2;
+let CH={};
+let activePanel='overview';
+let activeFilter='all';
+
+const PANEL_NAMES={overview:'RESUMEN GENERAL',proyecto:'EL PROYECTO',perfil:'PERFIL GENERAL',preoc:'PREOCUPACIONES',trabajo:'TRABAJO Y ECONOMÍA',derechos:'DERECHOS Y PARTICIPACIÓN CÍVICA',comunidad:'COMUNIDAD Y VÍNCULOS',territorio:'CONTEXTO TERRITORIAL',urgencias:'URGENCIAS TERRITORIALES'};
+
+function gF(){
+  if(activeFilter==='all')return RAW;
+  if(activeFilter==='amba')return RAW.filter(r=>AMBA.includes(r.prov));
+  if(activeFilter==='federal')return RAW.filter(r=>FEDERAL.includes(r.prov));
+  return RAW.filter(r=>r.prov===activeFilter);
+}
+function kC(id){if(CH[id]){CH[id].destroy();delete CH[id];}}
+function mC(id,cfg){kC(id);const el=document.getElementById(id);if(!el)return;CH[id]=new Chart(el,cfg);}
+function cF(arr,k){const c={};arr.forEach(r=>{const v=r[k];if(v)c[v]=(c[v]||0)+1;});return c;}
+function cM(arr,k){const c={};arr.forEach(r=>{const v=r[k];if(!v)return;v.split(',').forEach(s=>{s=s.trim().replace(/\.$/,'');if(s)c[s]=(c[s]||0)+1;});});return c;}
+function cI(arr){const c={};arr.forEach(r=>{if(!r.id)return;r.id.split(',').forEach(s=>{s=s.trim();if(!s)return;if(/[Ll]esbiana/.test(s))s='Lesbiana/e/x';else if(/[Nn]o.?binar/.test(s))s='No binarie';c[s]=(c[s]||0)+1;});});return c;}
+function aP(arr,l){const sc=arr.map(r=>r.preoc[l]).filter(v=>v!=null);return sc.length?sc.reduce((a,b)=>a+b,0)/sc.length:null;}
+function dP(arr,l){const d=[0,0,0,0,0];arr.forEach(r=>{const v=r.preoc[l];if(v)d[v-1]++;});return d;}
+function pct(n,t){return t?Math.round(n/t*100):0;}
+function mkHL(its){return its.map(k=>`<span class="hl ${k.c||''}""><strong>${k.n}</strong> ${k.l}</span>`).join('');}
+
+function goTo(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('act'));
+  document.querySelectorAll('.sb-item').forEach(n=>n.classList.remove('act'));
+  const pan=document.getElementById('panel-'+id);
+  const nav=document.querySelector(`.sb-item[data-panel="${id}"]`);
+  if(pan)pan.classList.add('act');
+  if(nav)nav.classList.add('act');
+  activePanel=id;
+  document.getElementById('topName').textContent=PANEL_NAMES[id]||'';
+  window.scrollTo(0,0);
+  if(id!=='proyecto')renderPanel(id);
+}
+
+function onFilter(){
+  activeFilter=document.getElementById('filterSel').value;
+  const d=gF();
+  document.getElementById('sb-badge').textContent=d.length+' respuestas';
+  const provs=new Set(d.map(r=>r.prov).filter(Boolean)).size;
+  document.getElementById('topMeta').textContent=d.length+' respuestas · '+provs+' provincias';
+  renderPanel(activePanel);
+}
+
+function renderPanel(id){
+  const d=gF();
+  if(id==='overview')renderOV(d);
+  else if(id==='perfil')renderPerfil(d);
+  else if(id==='preoc')renderPreoc(d);
+  else if(id==='trabajo')renderTrabajo(d);
+  else if(id==='derechos')renderDerechos(d);
+  else if(id==='comunidad')renderComunidad(d);
+  else if(id==='territorio')renderTerritorio(d);
+  else if(id==='urgencias')renderUrgencias(d);
+}
+
+function renderOV(d){
+  const t=d.length;
+  document.getElementById('ov-t').textContent=t;
+  document.getElementById('ov-p').textContent=new Set(d.map(r=>r.prov).filter(Boolean)).size;
+  document.getElementById('ov-f').textContent=d.filter(r=>FEDERAL.includes(r.prov)).length;
+  const h=d.filter(r=>r.ctx==='Hostil'||r.ctx==='Muy hostil').length;
+  document.getElementById('ov-h').textContent=pct(h,t)+'%';
+}
+
+function renderPerfil(d){
+  const t=d.length||1;
+  const kp=document.getElementById('perfil-kpis');kp.innerHTML='';
+  const emp=pct(d.filter(r=>r.ing==='Empleo formal').length,t);
+  const emp2=pct(d.filter(r=>r.econ==='Empeoró').length,t);
+  const org=pct(d.filter(r=>r.org==='Sí').length,t);
+  const ids=Object.keys(cI(d)).length;
+  [{n:t,l:'Participantes',c:P.vm},{n:emp+'%',l:'Empleo formal',c:P.do2},{n:emp2+'%',l:'Economía empeoró',c:P.fu},{n:ids,l:'Identidades presentes',c:P.vc}]
+    .forEach(k=>{const div=document.createElement('div');div.className='kpi-card';div.innerHTML=`<div class="kpi-n" style="color:${k.c}">${k.n}</div><div class="kpi-l">${k.l}</div>`;kp.appendChild(div);});
+  const idC=cI(d);const idK=Object.entries(idC).sort((a,b)=>b[1]-a[1]);
+  mC('chartId',{type:'doughnut',data:{labels:idK.map(([k])=>k),datasets:[{data:idK.map(([,v])=>v),backgroundColor:PAL6,borderColor:'#fff',borderWidth:2,hoverOffset:4}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  const pg=document.getElementById('provGrid');pg.innerHTML='';
+  const pc=cF(d,'prov');const mx=Math.max(...Object.values(pc),1);
+  PROVINCES.forEach((p,i)=>{const n=pc[p]||0;if(!n)return;const abbr=p==='Ciudad Autónoma de Buenos Aires'?'CABA':p;const feat=i<2&&n>4?'feat':'';const div=document.createElement('div');div.className=`pv ${feat}`;div.innerHTML=`<div class="pv-name">${abbr}</div><div class="pv-n">${n}</div><div class="pv-pct">${pct(n,t)}% del total</div><div class="pv-bar"><div class="pv-bf" style="width:${pct(n,mx)}%"></div></div>`;pg.appendChild(div);});
+  renderDest(d);
+}
+
+function renderDest(d){
+  const grid=document.getElementById('destGrid');grid.innerHTML='';
+  PROVINCES.filter(p=>d.some(r=>r.prov===p)).forEach(p=>{
+    const sub=d.filter(r=>r.prov===p);if(!sub.length)return;
+    const tot=sub.length,totAll=d.length,hl=[];
+    const idC=cI(sub);const topId=Object.entries(idC).sort((a,b)=>b[1]-a[1])[0];
+    if(topId){const pp=pct(topId[1],tot);if(pp>=55)hl.push(`<strong>${topId[0]}</strong> es la identidad mayoritaria (${pp}%)`);else if(Object.keys(idC).length>=4)hl.push(`Alta <strong>diversidad de identidades</strong> (${Object.keys(idC).length} presentes)`);}
+    const emp=pct(sub.filter(r=>r.econ==='Empeoró').length,tot);const empAll=pct(d.filter(r=>r.econ==='Empeoró').length,totAll);
+    if(emp>empAll+8)hl.push(`<strong>Deterioro económico</strong> mayor al promedio (${emp}% vs ${empAll}%)`);else if(emp<empAll-8)hl.push(`Menos deterioro económico que el promedio (${emp}% vs ${empAll}%)`);
+    const hostil=pct(sub.filter(r=>r.ctx==='Hostil'||r.ctx==='Muy hostil').length,tot);const hostilAll=pct(d.filter(r=>r.ctx==='Hostil'||r.ctx==='Muy hostil').length,totAll);
+    if(hostil>hostilAll+12)hl.push(`Contexto político percibido como <strong>muy hostil</strong> (${hostil}%)`);else if(hostil<hostilAll-15)hl.push(`Percepción política <strong>menos hostil</strong> que la media`);
+    const nd=pct(sub.filter(r=>r.den==='No'||r.den.startsWith('No estoy')).length,tot);const ndAll=pct(d.filter(r=>r.den==='No'||r.den.startsWith('No estoy')).length,totAll);
+    if(nd>ndAll+10)hl.push(`Alto <strong>desconocimiento del mecanismo de denuncia</strong> (${nd}%)`);
+    const fc=cM(sub,'form');const fcAll=cM(d,'form');const topF=Object.entries(fc).sort((a,b)=>b[1]-a[1])[0];const topFAll=Object.entries(fcAll).sort((a,b)=>b[1]-a[1])[0];
+    if(topF&&topFAll&&topF[0]!==topFAll[0])hl.push(`Principal demanda: <strong>${topF[0]}</strong>`);
+    const am=pct(sub.filter(r=>r.amen==='Sí').length,tot);const amAll=pct(d.filter(r=>r.amen==='Sí').length,totAll);
+    if(am>amAll+12)hl.push(`<strong>Más amenazas digitales</strong> que el promedio (${am}% vs ${amAll}%)`);
+    const org=pct(sub.filter(r=>r.org==='Sí').length,tot);const orgAll=pct(d.filter(r=>r.org==='Sí').length,totAll);
+    if(org>orgAll+15)hl.push(`Alta <strong>participación organizativa</strong> (${org}%)`);
+    if(hl.length<2){const prs=['Discurso de odio en redes','Desconocimiento de derechos','Falta de espacios seguros','Situación económica','Discriminación territorial','Acceso a empleo formal'];const av=prs.map(pr=>({pr,avg:aP(sub,pr)})).filter(x=>x.avg!=null).sort((a,b)=>b.avg-a.avg);if(av.length)hl.push(`Preocupación principal: <strong>${av[0].pr}</strong> (${av[0].avg.toFixed(1)}/5)`);}
+    if(!hl.length)hl.push('Muestra pequeña — datos orientativos.');
+    const abbr=p==='Ciudad Autónoma de Buenos Aires'?'CABA':p;
+    const card=document.createElement('div');card.className='dest';
+    card.innerHTML=`<div class="dest-hdr"><span class="dest-hn">${abbr}</span><span class="dest-hx">${tot} resp.</span></div><div class="dest-body">${hl.slice(0,4).map(h=>`<div class="dest-item"><div class="dest-sq"></div><div class="dest-txt">${h}</div></div>`).join('')}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+function renderPreoc(d){
+  const list=document.getElementById('preocList');list.innerHTML='';
+  const labels=['Discurso de odio en redes','Desconocimiento de derechos','Falta de espacios seguros','Situación económica','Discriminación territorial','Acceso a empleo formal'];
+  const sorted=labels.map(l=>({l,avg:aP(d,l),dist:dP(d,l)})).filter(x=>x.avg!=null).sort((a,b)=>b.avg-a.avg);
+  if(!sorted.length){list.innerHTML='<div class="no-data">Sin datos para este filtro.</div>';return;}
+  sorted.forEach((item,i)=>{
+    const p5=d.length?Math.round(item.dist[4]/d.length*100):0;
+    const mxD=Math.max(...item.dist,1);
+    const bars=item.dist.map((v,j)=>`<div class="pd" style="background:${DC[j]};height:${Math.round(v/mxD*18)+2}px" title="${['Nada','Poco','Preocupante','Algo','Muy'][j]}: ${v}"></div>`).join('');
+    const row=document.createElement('div');row.className='pr-row';
+    row.innerHTML=`<div class="pr-rank">${i+1}</div><div class="pr-body"><div class="pr-name">${item.l}</div><div class="bw"><div class="bf" style="width:${item.avg/5*100}%"></div></div><div class="pdist">${bars}</div><div class="dl">1=Nada &middot; 2=Poco &middot; 3=Preocupante &middot; 4=Algo &middot; <strong style="color:var(--fu)">5=Muy preocupante</strong></div></div><div class="pr-r"><div class="pr-avg">${item.avg.toFixed(2)}</div><div class="pr-sub">/ 5</div><div class="pr-p5">${p5}%<br>muy preoc.</div></div>`;
+    list.appendChild(row);
+  });
+}
+
+function renderTrabajo(d){
+  const t=d.length||1;
+  const emp=pct(d.filter(r=>r.ing==='Empleo formal').length,t);
+  const emp2=pct(d.filter(r=>r.econ==='Empeoró').length,t);
+  const vis=pct(d.filter(r=>r.visible&&r.visible.startsWith('Si')).length,t);
+  const host=pct(d.filter(r=>r.clima&&r.clima.includes('hostilidad')).length,t);
+  document.getElementById('trabajo-hl').innerHTML=mkHL([{n:emp+'%',l:'empleo formal',c:'hl-v'},{n:emp2+'%',l:'economía empeoró',c:'hl-r'},{n:vis+'%',l:'visible laboralmente',c:'hl-v'},{n:host+'%',l:'clima hostil',c:'hl-r'}]);
+  const ingC=cF(d,'ing');const ingK=Object.entries(ingC).sort((a,b)=>b[1]-a[1]);
+  mC('chartIng',{type:'bar',data:{labels:ingK.map(([k])=>k),datasets:[{label:'Personas',data:ingK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'},ticks:{color:P.t2}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
+  const econC=cF(d,'econ');const econK=Object.entries(econC).sort((a,b)=>b[1]-a[1]);
+  mC('chartEcon',{type:'doughnut',data:{labels:econK.map(([k])=>k),datasets:[{data:econK.map(([,v])=>v),backgroundColor:[P.fu,'#B0BEC5',P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  const formC=cM(d,'form');const formK=Object.entries(formC).sort((a,b)=>b[1]-a[1]);
+  const fl=document.getElementById('formList');fl.innerHTML='';
+  formK.forEach(([k,v])=>{const pp=pct(v,t);fl.innerHTML+=`<div class="hbi"><div><div class="hbi-l">${k}</div><div class="hbt"><div class="hbf" style="width:${pp}%"></div></div></div><div class="hbv">${pp}%</div></div>`;});
+  if(!formK.length)fl.innerHTML='<div class="no-data">Sin datos.</div>';
+}
+
+function renderDerechos(d){
+  const t=d.length||1;
+  const noDen=pct(d.filter(r=>r.den==='No'||r.den.startsWith('No estoy')).length,t);
+  const quiere=pct(d.filter(r=>r.inci&&(r.inci.includes('gustaría')||r.inci.includes('más al'))).length,t);
+  const pres=pct(d.filter(r=>r.herr&&r.herr.toLowerCase().includes('presencial')).length,t);
+  document.getElementById('derechos-hl').innerHTML=mkHL([{n:noDen+'%',l:'no sabe denunciar',c:'hl-r'},{n:quiere+'%',l:'quiere aprender incidencia',c:'hl-v'},{n:pres+'%',l:'demanda espacios presenciales',c:'hl-g'}]);
+  const denC={};d.forEach(r=>{let k=r.den||'S/D';if(k.startsWith('No estoy'))k='No estoy segura/e/x';denC[k]=(denC[k]||0)+1;});
+  const denK=Object.entries(denC).sort((a,b)=>b[1]-a[1]);
+  mC('chartDen',{type:'doughnut',data:{labels:denK.map(([k])=>k),datasets:[{data:denK.map(([,v])=>v),backgroundColor:[P.fu,P.vm,P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  const herrC={};
+  d.forEach(r=>{if(!r.herr)return;r.herr.split(',').forEach(s=>{s=s.trim().replace(/\.$/,'');if(!s)return;let k=s;if(k.toLowerCase().includes('presencial')||k.toLowerCase().includes('encuentro'))k='Espacios presenciales';else if(k.toLowerCase().includes('virtual'))k='Talleres virtuales';else if(k.toLowerCase().includes('guía')||k.toLowerCase().includes('guia'))k='Guías prácticas descargables';else if(k.toLowerCase().includes('legislat'))k='Alertas legislativas';else if(k.toLowerCase().includes('mentor'))k='Mentorías individuales';herrC[k]=(herrC[k]||0)+1;});});
+  const herrK=Object.entries(herrC).filter(([k])=>k.length>3).sort((a,b)=>b[1]-a[1]);
+  const hl=document.getElementById('herrList');hl.innerHTML='';
+  herrK.forEach(([k,v])=>{const pp=pct(v,t);hl.innerHTML+=`<div class="hbi"><div><div class="hbi-l">${k}</div><div class="hbt"><div class="hbf" style="width:${pp}%;background:linear-gradient(90deg,${P.vm},${P.do2})"></div></div></div><div class="hbv" style="color:${P.do}">${pp}%</div></div>`;});
+  if(!herrK.length)hl.innerHTML='<div class="no-data">Sin datos.</div>';
+  const inciC={};d.forEach(r=>{if(!r.inci)return;let k=r.inci.trim();if(k.includes('gustaría aprender al respecto'))k='No, pero quiero aprender';else if(k.includes('gustaría aprender más'))k='Sí, y quiero aprender más';else if(k==='Sí.'||k==='Sí')k='Sí';else if(k.includes('no es de mi interé'))k='No es de mi interés';inciC[k]=(inciC[k]||0)+1;});
+  const inciK=Object.entries(inciC).sort((a,b)=>b[1]-a[1]);
+  mC('chartInci',{type:'bar',data:{labels:inciK.map(([k])=>k),datasets:[{label:'Personas',data:inciK.map(([,v])=>v),backgroundColor:[P.vc,P.vm,P.do2,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'}},y:{grid:{display:false},ticks:{color:P.t2,font:{size:10}}}}}});
+}
+
+function renderComunidad(d){
+  const t=d.length||1;
+  const red=pct(d.filter(r=>r.red==='Sí').length,t);
+  const activa=pct(d.filter(r=>r.vinc&&r.vinc.includes('activamente')).length,t);
+  const org=pct(d.filter(r=>r.org==='Sí').length,t);
+  document.getElementById('comunidad-hl').innerHTML=mkHL([{n:red+'%',l:'con red de contención',c:'hl-v'},{n:activa+'%',l:'va activamente a espacios',c:'hl-g'},{n:org+'%',l:'en organización',c:'hl-v'}]);
+  const ab=document.getElementById('acompBar');ab.innerHTML='';
+  const ac=[0,0,0,0,0];
+  d.forEach(r=>{if(r.acomp&&r.acomp>=1&&r.acomp<=5)ac[r.acomp-1]++;});
+  const totA=ac.reduce((a,b)=>a+b,0)||1;
+  const acC=[P.fu,'#9C3A6A',P.vm,P.vc,P.do2];
+  ac.forEach((n,i)=>{if(!n)return;const w=pct(n,totA);const seg=document.createElement('div');seg.className='acomp-seg';seg.style.cssText=`width:${w}%;background:${acC[i]}`;seg.title=`${i+1}/5: ${n} personas`;if(w>6)seg.textContent=i+1;ab.appendChild(seg);});
+  const bajo=ac[0]+ac[1];
+  document.getElementById('acomp-txt').innerHTML=`<strong style="color:var(--fu)">${pct(bajo,totA)}%</strong> se siente poco acompañada (niveles 1–2). <strong style="color:var(--do)">${pct(ac[4],totA)}%</strong> se siente muy acompañada.`;
+  const vincC={};d.forEach(r=>{if(!r.vinc)return;let k=r.vinc.trim();if(k.includes('amigue')||k.includes('amigues'))k='Sí, tiene grupo de amigues';else if(k.includes('activamente'))k='Sí, va activamente a espacios';else if(k.includes('sexo-afectivo'))k='Solo vínculos sexo-afectivos';else if(k.startsWith('No'))k='Sin vínculos LBTI+';vincC[k]=(vincC[k]||0)+1;});
+  const vincK=Object.entries(vincC).sort((a,b)=>b[1]-a[1]);
+  mC('chartVinc',{type:'bar',data:{labels:vincK.map(([k])=>k),datasets:[{data:vincK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu],borderRadius:0,borderSkipped:false}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'}},y:{grid:{display:false},ticks:{color:P.t2,font:{size:10},maxRotation:20}}}}});
+}
+
+function renderTerritorio(d){
+  const t=d.length||1;
+  const mh=pct(d.filter(r=>r.ctx==='Muy hostil').length,t);
+  const am=pct(d.filter(r=>r.amen==='Sí').length,t);
+  const sinE=pct(d.filter(r=>r.esp_prov==='No').length,t);
+  document.getElementById('territorio-hl').innerHTML=mkHL([{n:mh+'%',l:'contexto muy hostil',c:'hl-r'},{n:am+'%',l:'sufrió amenazas digitales',c:'hl-r'},{n:sinE+'%',l:'sin espacios LBTI+',c:'hl-g'}]);
+  const ctxC=cF(d,'ctx');
+  const ctxK=[['Muy hostil',ctxC['Muy hostil']||0],['Hostil',ctxC['Hostil']||0],['Neutral',ctxC['Neutral']||0],['Favorable',ctxC['Favorable']||0]];
+  mC('chartCtx',{type:'bar',data:{labels:ctxK.map(([k])=>k),datasets:[{data:ctxK.map(([,v])=>v),backgroundColor:[P.fu,'#E06090','#B0BEC5',P.do2],borderRadius:0,borderSkipped:false}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:P.t2}},y:{grid:{color:'rgba(107,53,184,.06)'}}}}});
+  const espC=cF(d,'esp_prov');const espK=Object.entries(espC).sort((a,b)=>b[1]-a[1]);
+  mC('chartEsp',{type:'doughnut',data:{labels:espK.map(([k])=>k),datasets:[{data:espK.map(([,v])=>v),backgroundColor:[P.vm,P.do2,P.vc,P.fu],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  const amenC=cF(d,'amen');const amenK=Object.entries(amenC).sort((a,b)=>b[1]-a[1]);
+  mC('chartAmen',{type:'bar',data:{labels:amenK.map(([k])=>k),datasets:[{data:amenK.map(([,v])=>v),backgroundColor:[P.vc,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.06)'}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
+}
+
+function renderUrgencias(d){
+  const urgs=d.map(r=>r.urg).filter(u=>u&&u.length>15&&!['no se','no sé','nan','none','.','no sé '].includes(u.toLowerCase().trim()));
+  const track=document.getElementById('urgTrack');track.innerHTML='';
+  [...urgs,...urgs].forEach(u=>{const pill=document.createElement('div');pill.className='urg-pill';pill.textContent=u.length>100?u.slice(0,100)+'…':u;pill.title=u;track.appendChild(pill);});
+  const grid=document.getElementById('urgGrid');grid.innerHTML='';
+  urgs.slice(0,12).forEach(u=>{grid.innerHTML+=`<div class="urg-card"><p>"${u.length>200?u.slice(0,200)+'…':u}"</p></div>`;});
+  if(!urgs.length)grid.innerHTML='<div class="no-data">Sin urgencias registradas para este filtro.</div>';
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.sb-item[data-panel]').forEach(el=>el.addEventListener('click',()=>{
+    goTo(el.dataset.panel);
+    closeSidebar();
+  }));
+  document.querySelectorAll('.ov-card[data-goto]').forEach(el=>el.addEventListener('click',()=>goTo(el.dataset.goto)));
+  document.getElementById('filterSel').addEventListener('change',onFilter);
+
+  // Hamburguesa
+  const ham=document.getElementById('hamBtn');
+  const sb=document.getElementById('sidebar');
+  const ov=document.getElementById('sbOverlay');
+  function openSidebar(){sb.classList.add('open');ov.classList.add('show');ham.classList.add('open');document.body.style.overflow='hidden';}
+  function closeSidebar(){sb.classList.remove('open');ov.classList.remove('show');ham.classList.remove('open');document.body.style.overflow='';}
+  window.closeSidebar=closeSidebar;
+  ham.addEventListener('click',()=>sb.classList.contains('open')?closeSidebar():openSidebar());
+  ov.addEventListener('click',closeSidebar);
+  // Cerrar con Escape
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSidebar();});
+
+  renderOV(RAW);
+});
+</script>
+</div><!-- /.lic-app -->
+</body>
+</html>
+
+
