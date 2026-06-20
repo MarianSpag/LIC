@@ -1,0 +1,3202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RED VIVA – Recursero Integral de Salud Mental Adolescente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1E3A5F;
+    --blue: #2D6A8F;
+    --blue-light: #4A9CC7;
+    --teal: #3D8E7E;
+    --teal-light: #6DBFAD;
+    --teal-pale: #E8F5F2;
+    --orange: #E07840;
+    --orange-light: #F0A070;
+    --orange-pale: #FDF0E8;
+    --cream: #F7F4EF;
+    --white: #FFFFFF;
+    --gray-100: #F4F5F7;
+    --gray-200: #E8EAED;
+    --gray-400: #9DA3AE;
+    --gray-600: #5F6B7A;
+    --gray-800: #2E3A48;
+    --danger: #C0392B;
+    --danger-pale: #FDECEA;
+    --success: #27AE60;
+    --warning: #F39C12;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.06);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+    --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--gray-800);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ──────────────────────────────────────
+     SCREENS SYSTEM
+  ────────────────────────────────────── */
+  .screen {
+    display: none;
+    min-height: 100vh;
+    animation: fadeIn 0.3s ease;
+  }
+  .screen.active { display: flex; flex-direction: column; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ──────────────────────────────────────
+     PROFILE SELECTION SCREEN
+  ────────────────────────────────────── */
+  #screen-profile {
+    background: linear-gradient(160deg, #1E3A5F 0%, #2D6A8F 45%, #3D8E7E 100%);
+    min-height: 100vh;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .profile-header {
+    padding: 48px 24px 32px;
+    text-align: center;
+    color: white;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .logo-text {
+    text-align: left;
+  }
+
+  .logo-name {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    color: white;
+  }
+
+  .logo-sub {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-top: 3px;
+  }
+
+  .profile-title {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .profile-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.55;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .profile-cards-container {
+    flex: 1;
+    background: var(--cream);
+    border-radius: 28px 28px 0 0;
+    padding: 28px 20px 100px;
+    margin-top: 8px;
+  }
+
+  .profile-cards-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .profile-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 20px 16px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    border-radius: 20px 20px 0 0;
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+
+  .profile-card:hover, .profile-card:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .profile-card:hover::before { opacity: 1; }
+
+  .profile-card.p-salud::before { background: var(--blue); }
+  .profile-card.p-educacion::before { background: var(--teal); }
+  .profile-card.p-familiar::before { background: var(--orange); }
+  .profile-card.p-comunidad::before { background: #7C5CBF; }
+  .profile-card.p-deporte::before { background: #2E8B57; }
+  .profile-card.p-primera-persona {
+    grid-column: 1 / -1;
+    border-color: #C0392B22;
+    background: linear-gradient(135deg, #FFF5F5, #FFF);
+  }
+  .profile-card.p-primera-persona::before { background: var(--danger); opacity: 1; }
+
+  .profile-card-emoji {
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: block;
+    line-height: 1;
+  }
+
+  .profile-card-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .profile-card-desc {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+  }
+
+  .profile-card.p-primera-persona .profile-card-name {
+    color: var(--danger);
+    font-size: 14px;
+  }
+
+  .profile-card.p-primera-persona .profile-card-desc {
+    color: #c0392b99;
+    font-size: 12px;
+  }
+
+  .urgent-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--danger);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* ──────────────────────────────────────
+     PRIMERA PERSONA SCREEN
+  ────────────────────────────────────── */
+  #screen-primera-persona {
+    background: var(--cream);
+  }
+
+  .pp-header {
+    background: linear-gradient(135deg, #8B1A1A, #C0392B);
+    padding: 48px 24px 36px;
+    color: white;
+    text-align: center;
+  }
+
+  .back-btn {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background var(--transition);
+    backdrop-filter: blur(4px);
+  }
+
+  .back-btn:hover { background: rgba(255,255,255,0.25); }
+
+  .pp-header-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .pp-header h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .pp-header p {
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.5;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .pp-content {
+    padding: 24px 20px 100px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .pp-emergency-box {
+    background: var(--danger);
+    color: white;
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .pp-emergency-box .line-number {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 8px 0;
+    display: block;
+  }
+
+  .pp-emergency-box .line-label {
+    font-size: 12px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  .pp-emergency-box .line-desc {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .call-btn-big {
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 14px;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 14px;
+    transition: background var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .call-btn-big:hover { background: rgba(255,255,255,0.3); }
+
+  .pp-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    margin-top: 24px;
+  }
+
+  .pp-resource-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: 1px solid var(--gray-200);
+  }
+
+  .pp-resource-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .pp-resource-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .pp-resource-info { flex: 1; }
+
+  .pp-resource-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 3px;
+  }
+
+  .pp-resource-detail {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.4;
+  }
+
+  .pp-resource-phone {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-top: 4px;
+  }
+
+  .availability-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .dot-green { background: var(--success); }
+  .dot-yellow { background: var(--warning); }
+  .dot-gray { background: var(--gray-400); }
+
+  /* ──────────────────────────────────────
+     MAIN APP (professionals/community)
+  ────────────────────────────────────── */
+  #screen-main {
+    background: var(--gray-100);
+  }
+
+  /* TOP BAR */
+  .app-topbar {
+    background: var(--white);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .topbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .topbar-logo-icon {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .topbar-logo-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .topbar-profile-pill {
+    background: var(--teal-pale);
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .notif-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: background var(--transition);
+    color: var(--gray-600);
+    font-size: 20px;
+  }
+
+  .notif-btn:hover { background: var(--gray-100); }
+
+  .notif-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: var(--orange);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* MAIN CONTENT AREA */
+  .app-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 70px;
+  }
+
+  /* TAB VIEWS */
+  .tab-view {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+    height: calc(100vh - 130px);
+    animation: fadeIn 0.25s ease;
+  }
+  .tab-view.active { display: flex; }
+
+  /* ──────────────────────────────────────
+     CHAT TAB
+  ────────────────────────────────────── */
+  .chat-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    padding: 16px 20px;
+    color: white;
+  }
+
+  .chat-header-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .agent-avatar {
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    border: 1px solid rgba(255,255,255,0.2);
+    flex-shrink: 0;
+  }
+
+  .agent-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .agent-info p {
+    font-size: 12px;
+    opacity: 0.75;
+    margin-top: 1px;
+  }
+
+  .agent-status {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    opacity: 0.85;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    background: #2ECC71;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #2ECC71;
+  }
+
+  .quick-chips {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  .quick-chips::-webkit-scrollbar { display: none; }
+
+  .chip {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background var(--transition);
+    backdrop-filter: blur(4px);
+  }
+  .chip:hover { background: rgba(255,255,255,0.25); }
+
+  /* MESSAGES AREA */
+  .messages-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--gray-100);
+    scroll-behavior: smooth;
+  }
+
+  .message-wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .message-wrapper.user {
+    flex-direction: row-reverse;
+  }
+
+  .msg-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    box-shadow: var(--shadow-sm);
+  }
+
+  .message-bubble {
+    max-width: 78%;
+    padding: 11px 14px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .message-bubble.agent {
+    background: var(--white);
+    color: var(--gray-800);
+    border-bottom-left-radius: 4px;
+  }
+
+  .message-bubble.user {
+    background: linear-gradient(135deg, var(--blue), #3A8FBF);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+
+  .message-timestamp {
+    font-size: 10px;
+    color: var(--gray-400);
+    margin-top: 3px;
+    text-align: center;
+    padding: 0 4px;
+  }
+
+  /* TYPING INDICATOR */
+  .typing-indicator {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 6px;
+    display: none;
+  }
+  .typing-indicator.visible { display: flex; }
+
+  .typing-bubble {
+    background: var(--white);
+    padding: 12px 16px;
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    display: flex;
+    gap: 5px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .typing-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--gray-400);
+    border-radius: 50%;
+    animation: typingBounce 1.2s infinite;
+  }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+
+  /* RESPONSE OPTIONS IN CHAT */
+  .chat-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 8px;
+  }
+
+  .chat-option-btn {
+    background: var(--teal-pale);
+    border: 1.5px solid var(--teal-light);
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+
+  .chat-option-btn:hover {
+    background: var(--teal);
+    color: white;
+    border-color: var(--teal);
+  }
+
+  .chat-option-btn.danger {
+    background: var(--danger-pale);
+    border-color: #e07070;
+    color: var(--danger);
+  }
+
+  .chat-option-btn.danger:hover {
+    background: var(--danger);
+    color: white;
+  }
+
+  /* RESOURCE CARD IN CHAT */
+  .chat-resource-card {
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-top: 6px;
+    cursor: pointer;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .chat-resource-card:hover {
+    border-color: var(--blue-light);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .crc-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .crc-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .crc-info { flex: 1; }
+
+  .crc-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 2px;
+  }
+
+  .crc-type {
+    font-size: 11px;
+    color: var(--gray-400);
+  }
+
+  .crc-avail {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .crc-details {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 10px;
+    background: var(--gray-100);
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .tag.urgencia { background: #FDECEA; color: var(--danger); }
+  .tag.gratuito { background: #E8F5F2; color: var(--teal); }
+  .tag.hs24 { background: #E8F0FD; color: var(--blue); }
+  .tag.virtual { background: #F0E8FD; color: #7C5CBF; }
+
+  .crc-phone {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* CHAT INPUT */
+  .chat-input-area {
+    background: var(--white);
+    padding: 10px 12px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  .chat-input-wrap {
+    flex: 1;
+    background: var(--gray-100);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 8px;
+    transition: border-color var(--transition);
+  }
+
+  .chat-input-wrap:focus-within {
+    border-color: var(--blue-light);
+    background: var(--white);
+  }
+
+  .chat-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--gray-800);
+    padding: 11px 0;
+    resize: none;
+    max-height: 80px;
+  }
+
+  .chat-input::placeholder { color: var(--gray-400); }
+
+  .send-btn {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .send-btn:hover {
+    transform: scale(1.06);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* ──────────────────────────────────────
+     EXPLORE TAB
+  ────────────────────────────────────── */
+  #tab-explore {
+    overflow-y: auto;
+    padding: 0;
+  }
+
+  .explore-search-bar {
+    background: var(--white);
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .search-input-wrap {
+    background: var(--gray-100);
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .search-input-wrap:focus-within {
+    border-color: var(--blue-light);
+    background: var(--white);
+  }
+
+  .search-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 11px 0;
+    color: var(--gray-800);
+  }
+
+  .search-icon { color: var(--gray-400); font-size: 16px; }
+
+  .filter-chips {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .filter-chips::-webkit-scrollbar { display: none; }
+
+  .filter-chip {
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    color: var(--gray-600);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--transition);
+  }
+
+  .filter-chip.active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: white;
+  }
+
+  .filter-chip:hover:not(.active) {
+    border-color: var(--blue-light);
+    color: var(--blue);
+  }
+
+  .resources-list {
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .resource-card-full {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all var(--transition);
+    border: 1.5px solid var(--gray-200);
+  }
+
+  .resource-card-full:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--blue-light);
+    transform: translateY(-1px);
+  }
+
+  .rcf-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .rcf-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .rcf-meta { flex: 1; }
+
+  .rcf-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 2px;
+  }
+
+  .rcf-type {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+
+  .rcf-avail {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .rcf-avail.open { background: #E8F5EE; color: var(--success); }
+  .rcf-avail.soon { background: #FEF9E7; color: var(--warning); }
+  .rcf-avail.closed { background: var(--gray-100); color: var(--gray-400); }
+  .rcf-avail.always { background: #E8F0FD; color: var(--blue); }
+
+  .rcf-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .rcf-detail-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+
+  .rcf-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  /* ──────────────────────────────────────
+     RESOURCE DETAIL MODAL
+  ────────────────────────────────────── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: flex-end;
+    animation: fadeIn 0.2s ease;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal-sheet {
+    background: var(--white);
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    border-radius: 24px 24px 0 0;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  .modal-handle {
+    width: 40px;
+    height: 4px;
+    background: var(--gray-200);
+    border-radius: 2px;
+    margin: 14px auto 0;
+  }
+
+  .modal-header {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .modal-close {
+    background: var(--gray-100);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-600);
+    flex-shrink: 0;
+    transition: background var(--transition);
+  }
+
+  .modal-close:hover { background: var(--gray-200); }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .modal-section {
+    margin-bottom: 20px;
+  }
+
+  .modal-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray-400);
+    margin-bottom: 10px;
+  }
+
+  .modal-info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 14px;
+  }
+
+  .modal-info-row:last-child { border-bottom: none; }
+
+  .modal-info-label {
+    font-weight: 600;
+    color: var(--gray-600);
+    min-width: 90px;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+
+  .modal-info-value {
+    color: var(--gray-800);
+    flex: 1;
+    line-height: 1.45;
+  }
+
+  .protocol-box {
+    background: var(--teal-pale);
+    border-radius: var(--radius);
+    padding: 14px;
+    font-size: 13px;
+    color: var(--teal);
+    line-height: 1.5;
+    border-left: 3px solid var(--teal);
+  }
+
+  .map-placeholder {
+    background: var(--gray-100);
+    border-radius: var(--radius);
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--gray-400);
+    gap: 8px;
+    border: 1.5px dashed var(--gray-200);
+  }
+
+  .modal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 20px 20px;
+  }
+
+  .action-btn {
+    background: var(--gray-100);
+    border: 1.5px solid var(--gray-200);
+    color: var(--gray-700);
+    padding: 12px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all var(--transition);
+    font-family: inherit;
+  }
+
+  .action-btn.primary {
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    border-color: transparent;
+    color: white;
+    grid-column: 1 / -1;
+  }
+
+  .action-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+  .action-btn.primary:hover { box-shadow: var(--shadow-md); }
+
+  /* ──────────────────────────────────────
+     ADD RESOURCE TAB
+  ────────────────────────────────────── */
+  #tab-add {
+    overflow-y: auto;
+    padding: 16px;
+  }
+
+  .add-header {
+    background: linear-gradient(135deg, var(--teal), var(--blue));
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .add-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .add-header p {
+    font-size: 13px;
+    opacity: 0.85;
+    line-height: 1.4;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 11px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--gray-800);
+    outline: none;
+    transition: border-color var(--transition);
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--blue-light);
+  }
+
+  .form-textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  .form-tags-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px;
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    cursor: text;
+  }
+
+  .form-tag-item {
+    background: var(--teal-pale);
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .submit-btn:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .submit-success {
+    display: none;
+    background: var(--teal-pale);
+    border: 1.5px solid var(--teal-light);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    color: var(--teal);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* ──────────────────────────────────────
+     FORUM TAB
+  ────────────────────────────────────── */
+  #tab-forum {
+    overflow-y: auto;
+    padding: 16px;
+  }
+
+  .forum-header {
+    background: linear-gradient(135deg, #4A3580, #7C5CBF);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    color: white;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .forum-header-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+
+  .forum-header h2 { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+  .forum-header p { font-size: 12px; opacity: 0.8; line-height: 1.4; }
+
+  .forum-thread {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1.5px solid var(--gray-200);
+    transition: all var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .forum-thread:hover {
+    border-color: #7C5CBF44;
+    box-shadow: var(--shadow-md);
+  }
+
+  .forum-thread-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+
+  .forum-thread-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--gray-400);
+  }
+
+  .forum-thread-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .forum-tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-top: 8px;
+    display: inline-block;
+  }
+
+  .forum-tag.crisis { background: #FDECEA; color: var(--danger); }
+  .forum-tag.recursos { background: var(--teal-pale); color: var(--teal); }
+  .forum-tag.supervision { background: #F0E8FD; color: #7C5CBF; }
+  .forum-tag.debate { background: var(--orange-pale); color: var(--orange); }
+
+  /* ──────────────────────────────────────
+     NOTIFICATIONS TAB
+  ────────────────────────────────────── */
+  #tab-notif {
+    overflow-y: auto;
+    padding: 16px;
+  }
+
+  .notif-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    border: 1.5px solid var(--gray-200);
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+
+  .notif-item.unread { border-left: 3px solid var(--blue); background: #F0F7FF; }
+  .notif-item:hover { box-shadow: var(--shadow-md); }
+
+  .notif-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .notif-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+
+  .notif-desc {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.4;
+  }
+
+  .notif-time {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 4px;
+  }
+
+  /* ──────────────────────────────────────
+     BOTTOM NAVIGATION
+  ────────────────────────────────────── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    height: 68px;
+    z-index: 100;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    max-width: 100vw;
+  }
+
+  .nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+    padding: 6px 2px;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  .nav-item .nav-icon {
+    font-size: 22px;
+    transition: transform var(--transition);
+  }
+
+  .nav-item .nav-label {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    transition: color var(--transition);
+  }
+
+  .nav-item.active .nav-icon { transform: scale(1.15); }
+
+  .nav-item.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--teal));
+    border-radius: 0 0 3px 3px;
+  }
+
+  .nav-item.active .nav-label { color: var(--blue); }
+
+  .nav-badge {
+    position: absolute;
+    top: 4px;
+    right: calc(50% - 16px);
+    background: var(--orange);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ──────────────────────────────────────
+     TOAST
+  ────────────────────────────────────── */
+  .toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--gray-800);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2000;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ──────────────────────────────────────
+     RESPONSIVE
+  ────────────────────────────────────── */
+  @media (min-width: 600px) {
+    .profile-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .profile-card.p-primera-persona { grid-column: 1 / -1; }
+    .modal-sheet { max-height: 80vh; }
+  }
+
+  @media (min-width: 768px) {
+    .profile-cards-container { padding: 36px 32px 100px; }
+    .pp-content { max-width: 520px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     SCREEN 1: PROFILE SELECTION
+══════════════════════════════════════════════ -->
+<div id="screen-profile" class="screen active">
+  <div class="profile-header">
+    <div class="logo-container">
+      <div class="logo-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/>
+          <circle cx="14" cy="5" r="3" fill="white" opacity="0.7"/>
+          <circle cx="14" cy="23" r="3" fill="white" opacity="0.7"/>
+          <circle cx="5" cy="14" r="3" fill="white" opacity="0.7"/>
+          <circle cx="23" cy="14" r="3" fill="white" opacity="0.7"/>
+          <line x1="14" y1="8" x2="14" y2="11" stroke="white" stroke-width="1.5" opacity="0.5"/>
+          <line x1="14" y1="17" x2="14" y2="20" stroke="white" stroke-width="1.5" opacity="0.5"/>
+          <line x1="8" y1="14" x2="11" y2="14" stroke="white" stroke-width="1.5" opacity="0.5"/>
+          <line x1="17" y1="14" x2="20" y2="14" stroke="white" stroke-width="1.5" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <div class="logo-name">RED VIVA</div>
+        <div class="logo-sub">Salud Mental Adolescente</div>
+      </div>
+    </div>
+    <h1 class="profile-title">¿Desde dónde<br>estás consultando?</h1>
+    <p class="profile-subtitle">Para orientarte mejor, contanos quién sos. Cada perfil accede a recursos y herramientas específicas.</p>
+  </div>
+
+  <div class="profile-cards-container">
+    <div class="profile-cards-label">Seleccioná tu perfil</div>
+    <div class="profile-grid">
+
+      <div class="profile-card p-salud" onclick="goToMatricula()" tabindex="0">
+        <span class="profile-card-emoji">🧠</span>
+        <div class="profile-card-name">Profesional de Salud Mental</div>
+        <div class="profile-card-desc">Psicólogos/as, psiquiatras, trabajadores sociales</div>
+      </div>
+
+      <div class="profile-card p-educacion" onclick="selectProfile('educacion', 'Comunidad Educativa', '📚')" tabindex="0">
+        <span class="profile-card-emoji">📚</span>
+        <div class="profile-card-name">Comunidad Educativa</div>
+        <div class="profile-card-desc">Docentes, directivos, equipos de orientación</div>
+      </div>
+
+      <div class="profile-card p-familiar" onclick="selectProfile('familiar', 'Familiar o Amigue', '💛')" tabindex="0">
+        <span class="profile-card-emoji">💛</span>
+        <div class="profile-card-name">Familiar o Amigue</div>
+        <div class="profile-card-desc">Mamás, papás, hermanes, amigues cercanes</div>
+      </div>
+
+      <div class="profile-card p-comunidad" onclick="selectProfile('comunidad', 'Organización Comunitaria', '🏘️')" tabindex="0">
+        <span class="profile-card-emoji">🏘️</span>
+        <div class="profile-card-name">Organización Comunitaria</div>
+        <div class="profile-card-desc">Centros comunitarios, ONGs, líderes barriales</div>
+      </div>
+
+      <div class="profile-card p-deporte" onclick="selectProfile('deporte', 'Club o Deporte Barrial', '⚽')" tabindex="0">
+        <span class="profile-card-emoji">⚽</span>
+        <div class="profile-card-name">Club o Deporte Barrial</div>
+        <div class="profile-card-desc">Entrenadores/as, referentes deportivos</div>
+      </div>
+
+      <div class="profile-card p-primera-persona" onclick="goToPrimeraPersona()" tabindex="0">
+        <div class="urgent-badge">Urgente</div>
+        <span class="profile-card-emoji">🫂</span>
+        <div class="profile-card-name">Estoy buscando ayuda para mí</div>
+        <div class="profile-card-desc">Soy adolescente o joven y necesito apoyo</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     SCREEN 1B: MATRÍCULA (Profesional de Salud)
+══════════════════════════════════════════════ -->
+<div id="screen-matricula" class="screen">
+  <div class="pp-header" style="position:relative; background: linear-gradient(135deg, var(--navy), var(--blue));">
+    <button class="back-btn" onclick="showScreen('screen-profile')">←</button>
+    <div class="pp-header-icon">🧠</div>
+    <h2>Registro profesional</h2>
+    <p>Para acceder como Profesional de Salud Mental necesitamos validar tu matrícula.</p>
+  </div>
+
+  <div class="pp-content">
+    <div style="background: var(--white); border-radius: var(--radius-lg); padding: 20px; box-shadow: var(--shadow-sm); border: 1.5px solid var(--gray-200);">
+      <div class="form-group">
+        <label class="form-label">Nombre y apellido *</label>
+        <input class="form-input" type="text" id="matricula-nombre" placeholder="Ej: Lic. Ana García">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Profesión *</label>
+        <select class="form-select" id="matricula-profesion">
+          <option>Psicólogo/a</option>
+          <option>Psiquiatra</option>
+          <option>Trabajador/a social</option>
+          <option>Médico/a</option>
+          <option>Acompañante terapéutico</option>
+          <option>Otra</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tipo de matrícula *</label>
+        <select class="form-select" id="matricula-tipo">
+          <option>Matrícula Nacional (MN)</option>
+          <option>Matrícula Provincial (MP)</option>
+          <option>Matrícula CABA</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Número de matrícula *</label>
+        <input class="form-input" type="text" id="matricula-numero" placeholder="Ej: 12345">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Jurisdicción</label>
+        <input class="form-input" type="text" id="matricula-jurisdiccion" placeholder="Ej: Buenos Aires, CABA">
+      </div>
+
+      <div style="background: var(--teal-pale); border-radius: var(--radius); padding: 12px; font-size: 12px; color: var(--teal); line-height: 1.5; margin-bottom: 14px; border-left: 3px solid var(--teal);">
+        🔒 Tu matrícula será validada con los colegios profesionales. Esta información es confidencial y solo se usa para acreditar tu perfil.
+      </div>
+
+      <button class="submit-btn" onclick="validateMatricula()">Validar y continuar</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     SCREEN 2: PRIMERA PERSONA
+══════════════════════════════════════════════ -->
+<div id="screen-primera-persona" class="screen">
+  <div class="pp-header" style="position:relative;">
+    <button class="back-btn" onclick="showScreen('screen-profile')">←</button>
+    <div class="pp-header-icon">🫂</div>
+    <h2>Estás en el lugar<br>correcto</h2>
+    <p>Que hayas llegado hasta acá es un paso importante. Acá encontrás recursos para pedir ayuda de forma rápida y confidencial.</p>
+  </div>
+
+  <div class="pp-content">
+    <div class="pp-emergency-box">
+      <div class="line-label">📞 Línea de crisis — Gratis · 24hs</div>
+      <span class="line-number">0800-222-5462</span>
+      <div class="line-desc">Atención confidencial para situaciones de crisis.<br>Podés llamar cuando quieras, sin dar tu nombre.</div>
+      <button class="call-btn-big" onclick="showToast('📞 Marcando 0800-222-5462...')">
+        📞 Llamar ahora
+      </button>
+    </div>
+
+    <div class="pp-section-title">💬 También podés escribir</div>
+
+    <div class="pp-resource-card" onclick="openModal(0)">
+      <div class="pp-resource-icon" style="background:#E8F0FD;">💬</div>
+      <div class="pp-resource-info">
+        <div class="pp-resource-name">Centro de Asistencia al Suicida</div>
+        <div class="pp-resource-detail">Línea de escucha · Nacional</div>
+        <div class="pp-resource-phone">135</div>
+      </div>
+      <div class="availability-dot dot-green"></div>
+    </div>
+
+    <div class="pp-resource-card" onclick="openModal(1)">
+      <div class="pp-resource-icon" style="background:#F0E8FD;">🏥</div>
+      <div class="pp-resource-info">
+        <div class="pp-resource-name">Guardia de Salud Mental más cercana</div>
+        <div class="pp-resource-detail">Hospitales con guardia psiquiátrica</div>
+        <div class="pp-resource-phone">Ver hospitales →</div>
+      </div>
+      <div class="availability-dot dot-green"></div>
+    </div>
+
+    <div class="pp-section-title">🏥 Centros de atención gratuita</div>
+
+    <div class="pp-resource-card" onclick="openModal(2)">
+      <div class="pp-resource-icon" style="background:#E8F5F2;">🏠</div>
+      <div class="pp-resource-info">
+        <div class="pp-resource-name">CESAC / CeSAC más cercano</div>
+        <div class="pp-resource-detail">Centro de Salud y Acción Comunitaria · CABA</div>
+        <div class="pp-resource-detail" style="margin-top:3px;">Atención gratuita · Turnos</div>
+      </div>
+      <div class="availability-dot dot-yellow"></div>
+    </div>
+
+    <div class="pp-resource-card" onclick="openModal(3)">
+      <div class="pp-resource-icon" style="background:#FEF9E7;">🌿</div>
+      <div class="pp-resource-info">
+        <div class="pp-resource-name">Hospital de Día – Adolescentes</div>
+        <div class="pp-resource-detail">Atención especializada · GBA Sur</div>
+        <div class="pp-resource-detail" style="margin-top:3px;">L a V · 8 a 16hs</div>
+      </div>
+      <div class="availability-dot dot-yellow"></div>
+    </div>
+
+    <div style="background: var(--gray-100); border-radius: var(--radius); padding: 16px; margin-top: 20px; text-align: center;">
+      <div style="font-size: 15px; font-weight: 700; color: var(--gray-800); margin-bottom: 6px;">No estás sole en esto 💙</div>
+      <div style="font-size: 13px; color: var(--gray-600); line-height: 1.5;">Hay personas capacitadas esperando escucharte. Cada llamada o visita es un paso hacia sentirte mejor.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     SCREEN 3: MAIN APP (profesionales & comunidad)
+══════════════════════════════════════════════ -->
+<div id="screen-main" class="screen">
+
+  <!-- TOP BAR -->
+  <div class="app-topbar">
+    <div class="topbar-logo">
+      <div class="topbar-logo-icon">🌿</div>
+      <span class="topbar-logo-name">RED VIVA</span>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-profile-pill" id="profile-pill" onclick="showScreen('screen-profile')">
+        <span id="profile-pill-icon">🧠</span>
+        <span id="profile-pill-name">Profesional</span>
+      </div>
+      <button class="notif-btn" onclick="switchTab('notif')">
+        🔔
+        <div class="notif-badge" id="notif-badge">3</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- APP CONTENT -->
+  <div class="app-content">
+
+    <!-- ── TAB: CHAT ── -->
+    <div id="tab-chat" class="tab-view active">
+      <div class="chat-header">
+        <div class="chat-header-top">
+          <div class="agent-avatar">🤖</div>
+          <div class="agent-info">
+            <h3>Asistente RED VIVA</h3>
+            <p>Guía de derivación inteligente</p>
+          </div>
+          <div class="agent-status">
+            <div class="status-dot"></div>
+            En línea
+          </div>
+        </div>
+        <div class="quick-chips" id="quick-chips">
+          <div class="chip" onclick="sendChip('Necesito derivar urgente')">🚨 Derivar urgente</div>
+          <div class="chip" onclick="sendChip('Buscar psicólogo/a')">🔍 Buscar psicólogo/a</div>
+          <div class="chip" onclick="sendChip('Recursos en mi zona')">📍 Recursos en mi zona</div>
+          <div class="chip" onclick="sendChip('Señales de alerta')">⚠️ Señales de alerta</div>
+          <div class="chip" onclick="sendChip('Ver todos los servicios')">📋 Ver todos</div>
+        </div>
+      </div>
+
+      <div class="messages-area" id="messages-area">
+        <!-- Initial welcome message injected by JS -->
+      </div>
+
+      <div class="chat-input-area">
+        <div class="chat-input-wrap">
+          <span style="color:var(--gray-400); font-size:16px;">💬</span>
+          <textarea
+            class="chat-input"
+            id="chat-input"
+            placeholder="Escribí tu consulta..."
+            rows="1"
+            onkeydown="handleInputKeydown(event)"
+            oninput="autoResize(this)"
+          ></textarea>
+        </div>
+        <button class="send-btn" onclick="sendMessage()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── TAB: EXPLORE ── -->
+    <div id="tab-explore" class="tab-view">
+      <div class="explore-search-bar">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="search-input" placeholder="Buscar recursos..." oninput="filterResources()">
+        </div>
+        <div class="filter-chips" id="filter-chips">
+          <div class="filter-chip active" onclick="setFilter('todos', this)">Todos</div>
+          <div class="filter-chip" onclick="setFilter('salud', this)">🏥 Salud</div>
+          <div class="filter-chip" onclick="setFilter('educacion', this)">📚 Educación</div>
+          <div class="filter-chip" onclick="setFilter('comunidad', this)">🏘️ Comunidad</div>
+          <div class="filter-chip" onclick="setFilter('urgencia', this)">🚨 Urgencias</div>
+          <div class="filter-chip" onclick="setFilter('virtual', this)">💻 Virtual</div>
+        </div>
+      </div>
+      <div class="resources-list" id="resources-list"></div>
+    </div>
+
+    <!-- ── TAB: ADD ── -->
+    <div id="tab-add" class="tab-view">
+      <div class="add-header">
+        <div style="font-size:32px;margin-bottom:10px;">➕</div>
+        <h2>Sumá un recurso a la red</h2>
+        <p>Cada recurso compartido puede ayudar a alguien en situación crítica. Tu aporte fortalece la red.</p>
+      </div>
+
+      <!-- Educational institution registration toggle (only for educacion profile) -->
+      <div id="edu-institution-section" style="display:none; margin-bottom:18px;">
+        <div style="background: linear-gradient(135deg, #E8F5F2, #E8F0FD); border-radius: var(--radius-lg); padding: 16px; border: 1.5px solid var(--teal-light);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <div style="font-size:24px;">🏫</div>
+            <div>
+              <div style="font-size:14px; font-weight:700; color:var(--gray-800);">Registrá tu institución educativa</div>
+              <div style="font-size:12px; color:var(--gray-600);">Sumá tu escuela o colegio a la red</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="action-btn" style="flex:1;" onclick="setAddMode('institucion')" id="btn-mode-institucion">🏫 Registrar institución</button>
+            <button class="action-btn" style="flex:1;" onclick="setAddMode('recurso')" id="btn-mode-recurso">➕ Sumar recurso</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Institution form (only shown when in 'institucion' mode) -->
+      <div id="institucion-form" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Nombre de la institución *</label>
+          <input class="form-input" type="text" placeholder="Ej: Escuela Secundaria N°12">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Tipo de institución</label>
+          <select class="form-select">
+            <option>Escuela primaria</option>
+            <option>Escuela secundaria</option>
+            <option>Escuela técnica</option>
+            <option>Instituto terciario</option>
+            <option>Centro de formación profesional</option>
+            <option>Universidad</option>
+            <option>Otra</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Gestión</label>
+          <select class="form-select">
+            <option>Pública</option>
+            <option>Privada</option>
+            <option>Privada con subvención estatal</option>
+            <option>Cooperativa / Comunitaria</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Dirección *</label>
+          <input class="form-input" type="text" placeholder="Ej: Av. Mitre 1230, Adrogué">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Zona / Municipio</label>
+          <input class="form-input" type="text" placeholder="Ej: Almirante Brown">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Cantidad aproximada de estudiantes</label>
+          <input class="form-input" type="number" placeholder="Ej: 450">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Equipo de orientación escolar (EOE)</label>
+          <select class="form-select">
+            <option>Sí, propio</option>
+            <option>Sí, articulado con EOE distrital</option>
+            <option>No tenemos</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Persona referente *</label>
+          <input class="form-input" type="text" placeholder="Ej: Prof. Laura Sánchez (Directora)">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email institucional *</label>
+          <input class="form-input" type="email" placeholder="Ej: contacto@escuela12.edu.ar">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Teléfono</label>
+          <input class="form-input" type="tel" placeholder="Ej: 011-4244-0000">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">¿Qué buscan de la red? (intereses)</label>
+          <textarea class="form-textarea" placeholder="Ej: Capacitación docente en PAP, articulación para derivaciones, talleres con estudiantes..."></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="submitInstitucionForm()">Registrar institución</button>
+        <div class="submit-success" id="institucion-success">
+          ✅ ¡Gracias!<br>
+          Tu institución será validada por el equipo de RED VIVA y notificada por email.
+        </div>
+      </div>
+
+      <div id="recurso-form-wrapper">
+
+      <div class="form-group">
+        <label class="form-label">Nombre del servicio *</label>
+        <input class="form-input" type="text" placeholder="Ej: Centro de Salud Barrial N°5">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Área</label>
+        <select class="form-select">
+          <option>Salud Mental</option>
+          <option>Salud General</option>
+          <option>Educación</option>
+          <option>Desarrollo Social</option>
+          <option>Comunidad</option>
+          <option>Emergencias</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tipo de servicio</label>
+        <select class="form-select">
+          <option>Centro de Salud</option>
+          <option>Hospital</option>
+          <option>Consultorio privado</option>
+          <option>Línea telefónica</option>
+          <option>Centro comunitario</option>
+          <option>Institución educativa</option>
+          <option>ONG / Organización</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Dirección</label>
+        <input class="form-input" type="text" placeholder="Ej: Av. San Martín 450, Adrogué">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Zona / Municipio</label>
+        <input class="form-input" type="text" placeholder="Ej: Almirante Brown, CABA, Lomas de Zamora">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Teléfono / WhatsApp</label>
+        <input class="form-input" type="tel" placeholder="Ej: 011-4244-0000">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Persona referente</label>
+        <input class="form-input" type="text" placeholder="Ej: Lic. Ana García">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Horarios de atención</label>
+        <input class="form-input" type="text" placeholder="Ej: Lun a Vie 8-16hs, Guardia 24hs">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Descripción del servicio</label>
+        <textarea class="form-textarea" placeholder="Describí brevemente qué atienden y cómo derivar..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tags</label>
+        <div class="form-tags-input">
+          <div class="form-tag-item">gratuito ✕</div>
+          <div class="form-tag-item">presencial ✕</div>
+        </div>
+        <div style="font-size:11px;color:var(--gray-400);margin-top:5px;">Ej: urgencia, virtual, gratuito, adolescentes</div>
+      </div>
+
+      <button class="submit-btn" onclick="submitForm()">Enviar recurso a validación</button>
+      <div class="submit-success" id="submit-success">
+        ✅ ¡Gracias por tu aporte!<br>
+        Tu información será revisada por el equipo de RED VIVA antes de publicarse en la red.
+      </div>
+      </div><!-- /recurso-form-wrapper -->
+    </div>
+
+    <!-- ── TAB: FORUM ── -->
+    <div id="tab-forum" class="tab-view">
+      <div class="forum-header">
+        <div class="forum-header-icon">🗣️</div>
+        <div>
+          <h2>Foro Profesional Confidencial</h2>
+          <p>Espacio seguro para intercambio entre colegas. Identidades protegidas.</p>
+        </div>
+      </div>
+
+      <div class="forum-thread" onclick="showToast('📬 Abriendo hilo...')">
+        <div class="forum-thread-title">¿Cómo manejan derivaciones cuando no hay cupo disponible?</div>
+        <div class="forum-tag debate">💬 Debate</div>
+        <div class="forum-thread-meta" style="margin-top:8px;">
+          <span>💬 14 respuestas</span>
+          <span>🕐 Hace 2 horas</span>
+          <span>👤 8 participantes</span>
+        </div>
+      </div>
+
+      <div class="forum-thread" onclick="showToast('📬 Abriendo hilo...')">
+        <div class="forum-thread-title">Caso complejo: adolescente con consumo problemático + ideación suicida. ¿Cómo abordaron casos similares?</div>
+        <div class="forum-tag crisis">🚨 Crisis</div>
+        <div class="forum-thread-meta" style="margin-top:8px;">
+          <span>💬 27 respuestas</span>
+          <span>🕐 Hace 5 horas</span>
+          <span>👤 12 participantes</span>
+        </div>
+      </div>
+
+      <div class="forum-thread" onclick="showToast('📬 Abriendo hilo...')">
+        <div class="forum-thread-title">Recursos de capacitación en Primeros Auxilios Psicológicos (PAP) — compilado</div>
+        <div class="forum-tag recursos">📚 Recursos</div>
+        <div class="forum-thread-meta" style="margin-top:8px;">
+          <span>💬 9 respuestas</span>
+          <span>🕐 Ayer</span>
+          <span>👤 5 participantes</span>
+        </div>
+      </div>
+
+      <div class="forum-thread" onclick="showToast('📬 Abriendo hilo...')">
+        <div class="forum-thread-title">Red de supervisión entre pares — ¿alguien se suma? Propuesta de encuentros mensuales</div>
+        <div class="forum-tag supervision">🔄 Supervisión</div>
+        <div class="forum-thread-meta" style="margin-top:8px;">
+          <span>💬 31 respuestas</span>
+          <span>🕐 Hace 3 días</span>
+          <span>👤 19 participantes</span>
+        </div>
+      </div>
+
+      <div class="forum-thread" onclick="showToast('📬 Abriendo hilo...')">
+        <div class="forum-thread-title">Protocolo de intervención en escuelas post-intento: ¿qué pasos siguen desde educación?</div>
+        <div class="forum-tag debate">💬 Debate</div>
+        <div class="forum-thread-meta" style="margin-top:8px;">
+          <span>💬 18 respuestas</span>
+          <span>🕐 Hace 4 días</span>
+          <span>👤 11 participantes</span>
+        </div>
+      </div>
+
+      <button class="submit-btn" style="margin-top:8px;" onclick="showToast('✏️ Función disponible próximamente')">
+        + Iniciar nuevo hilo
+      </button>
+    </div>
+
+    <!-- ── TAB: NOTIFICATIONS ── -->
+    <div id="tab-notif" class="tab-view">
+      <div style="padding: 16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <span style="font-size:16px;font-weight:700;color:var(--gray-800);">Notificaciones</span>
+          <span style="font-size:12px;color:var(--blue);font-weight:600;cursor:pointer;" onclick="markAllRead()">Marcar todo leído</span>
+        </div>
+
+        <div class="notif-item unread">
+          <div class="notif-icon-wrap" style="background:#E8F0FD;">🆕</div>
+          <div>
+            <div class="notif-title">Nuevo servicio en Almirante Brown</div>
+            <div class="notif-desc">Centro de Orientación Familiar "La Escucha" fue agregado a la red por un colega.</div>
+            <div class="notif-time">Hace 1 hora</div>
+          </div>
+        </div>
+
+        <div class="notif-item unread">
+          <div class="notif-icon-wrap" style="background:#FEF9E7;">⏰</div>
+          <div>
+            <div class="notif-title">Cambio de horarios — CESAC 24</div>
+            <div class="notif-desc">El centro actualizó sus horarios: ahora atiende también los sábados de 9 a 13hs.</div>
+            <div class="notif-time">Hace 3 horas</div>
+          </div>
+        </div>
+
+        <div class="notif-item unread">
+          <div class="notif-icon-wrap" style="background:#E8F5F2;">⭐</div>
+          <div>
+            <div class="notif-title">Recurso destacado: Línea 24hs ampliada</div>
+            <div class="notif-desc">La Línea 135 incorporó atención por WhatsApp para jóvenes que prefieren texto.</div>
+            <div class="notif-time">Hace 6 horas</div>
+          </div>
+        </div>
+
+        <div class="notif-item">
+          <div class="notif-icon-wrap" style="background:var(--gray-100);">📋</div>
+          <div>
+            <div class="notif-title">Tu recurso fue validado</div>
+            <div class="notif-desc">El recurso que enviaste fue revisado y está publicado en la red. ¡Gracias!</div>
+            <div class="notif-time">Ayer</div>
+          </div>
+        </div>
+
+        <div class="notif-item">
+          <div class="notif-icon-wrap" style="background:#FDECEA;">🚨</div>
+          <div>
+            <div class="notif-title">Nuevo hilo en el foro</div>
+            <div class="notif-desc">"Caso complejo: adolescente con consumo + ideación suicida" – 27 respuestas.</div>
+            <div class="notif-time">Hace 2 días</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /app-content -->
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <button class="nav-item active" id="nav-chat" onclick="switchTab('chat')">
+      <span class="nav-icon">💬</span>
+      <span class="nav-label">Asistente</span>
+    </button>
+    <button class="nav-item" id="nav-explore" onclick="switchTab('explore')">
+      <span class="nav-icon">🔍</span>
+      <span class="nav-label">Explorar</span>
+    </button>
+    <button class="nav-item" id="nav-add" onclick="switchTab('add')">
+      <span class="nav-icon">➕</span>
+      <span class="nav-label">Agregar</span>
+    </button>
+    <button class="nav-item" id="nav-forum" onclick="switchTab('forum')">
+      <span class="nav-icon">🗣️</span>
+      <span class="nav-label">Foro</span>
+    </button>
+    <button class="nav-item" id="nav-notif" onclick="switchTab('notif')">
+      <span class="nav-icon">🔔</span>
+      <span class="nav-label">Alertas</span>
+      <div class="notif-badge" id="nav-notif-badge">3</div>
+    </button>
+  </div>
+
+</div><!-- /screen-main -->
+
+
+<!-- ══════════════════════════════════════════════
+     RESOURCE DETAIL MODAL
+══════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOnBg(event)">
+  <div class="modal-sheet" id="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div>
+        <div id="modal-name" style="font-size:17px;font-weight:800;color:var(--gray-800);margin-bottom:4px;"></div>
+        <div id="modal-type" style="font-size:13px;color:var(--gray-400);"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="action-btn primary" id="modal-call-btn" onclick="showToast('📞 Iniciando llamada...')">
+        📞 Llamar ahora
+      </button>
+      <button class="action-btn" onclick="showToast('💬 Abriendo WhatsApp...')">💬 WhatsApp</button>
+      <button class="action-btn" onclick="showToast('📤 Ficha copiada al portapapeles')">📤 Compartir</button>
+      <button class="action-btn" onclick="showToast('⚠️ Reporte enviado. Gracias.')">⚠️ Reportar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+
+<script>
+// ══════════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════════
+
+const recursos = [
+  {
+    id: 0,
+    nombre: 'Línea Nacional de Prevención del Suicidio',
+    tipo: 'Línea telefónica',
+    area: 'salud',
+    telefono: '0800-222-5462',
+    horario: '24 horas, todos los días',
+    ubicacion: 'Nacional',
+    referente: 'Ministerio de Salud de la Nación',
+    disponibilidad: 'always',
+    descripcion: 'Atención gratuita y confidencial para situaciones de crisis y prevención del suicidio. Especialistas disponibles las 24hs.',
+    protocolo: 'Derivar directamente. No requiere turno previo. El llamado es confidencial.',
+    tags: ['urgencia', '24hs', 'gratuito', 'telefónico'],
+    icon: '📞',
+    iconBg: '#E8F0FD'
+  },
+  {
+    id: 1,
+    nombre: 'CAS – Centro de Asistencia al Suicida',
+    tipo: 'Línea telefónica',
+    area: 'salud',
+    telefono: '135',
+    horario: '24 horas',
+    ubicacion: 'Nacional',
+    referente: 'Voluntariado especializado',
+    disponibilidad: 'always',
+    descripcion: 'Escucha activa y contención emocional para personas en crisis. Atendido por voluntarios capacitados.',
+    protocolo: 'Llamado directo. Disponible también por chat en su web.',
+    tags: ['urgencia', '24hs', 'gratuito', 'telefónico'],
+    icon: '💙',
+    iconBg: '#FDECEA'
+  },
+  {
+    id: 2,
+    nombre: 'CESAC N°24 – Villa Lugano',
+    tipo: 'Centro de Salud',
+    area: 'salud',
+    telefono: '011-4602-1234',
+    direccion: 'Av. Escalada 3090, Villa Lugano, CABA',
+    horario: 'Lun a Vie: 7 a 19hs | Sáb: 8 a 13hs',
+    ubicacion: 'CABA Sur',
+    referente: 'Lic. Claudia Moreno',
+    disponibilidad: 'open',
+    descripcion: 'Centro de atención primaria de la salud con servicio de salud mental para adolescentes y familias. Turnos programados y espontáneos.',
+    protocolo: 'Presentarse con DNI. Para urgencias, atención sin turno. Para consulta programada, llamar con anticipación.',
+    tags: ['gratuito', 'presencial', 'adolescentes'],
+    icon: '🏥',
+    iconBg: '#E8F5F2'
+  },
+  {
+    id: 3,
+    nombre: 'Hospital de Día Adolescentes – Htal. Alvear',
+    tipo: 'Hospital público',
+    area: 'salud',
+    telefono: '011-4858-2400',
+    direccion: 'Av. Las Heras 2670, Recoleta, CABA',
+    horario: 'Lun a Vie: 8 a 16hs',
+    ubicacion: 'CABA',
+    referente: 'Dra. Patricia Suárez',
+    disponibilidad: 'open',
+    descripcion: 'Programa de hospital de día especializado en salud mental adolescente. Atiende cuadros moderados a severos con abordaje integral.',
+    protocolo: 'Requiere derivación de profesional. Llamar al área de admisión para coordinar.',
+    tags: ['gratuito', 'presencial', 'adolescentes'],
+    icon: '🏨',
+    iconBg: '#F0E8FD'
+  },
+  {
+    id: 4,
+    nombre: 'Hospital Municipal de Almirante Brown',
+    tipo: 'Hospital público',
+    area: 'salud',
+    telefono: '011-4244-0888',
+    direccion: 'Gral. Paz 1910, Adrogué, Almirante Brown',
+    horario: 'Guardia 24hs | Consultorios: L-V 8 a 16hs',
+    ubicacion: 'Almirante Brown',
+    referente: 'Dra. María González',
+    disponibilidad: 'open',
+    descripcion: 'Hospital general con servicio de guardia 24hs y consultorios externos de salud mental. Atiende urgencias y consultas programadas.',
+    protocolo: 'Urgencias: acudir directo a guardia. Consulta programada: llamar previamente para turno.',
+    tags: ['guardia', 'presencial', 'gratuito'],
+    icon: '🏥',
+    iconBg: '#E8F0FD'
+  },
+  {
+    id: 5,
+    nombre: 'Red Lazos – Apoyo Comunitario',
+    tipo: 'ONG',
+    area: 'comunidad',
+    telefono: '011-15-6543-2100',
+    direccion: 'Av. Calchaquí 2850, Quilmes',
+    horario: 'Lun, Mié y Vie: 14 a 19hs',
+    ubicacion: 'Quilmes / GBA Sur',
+    referente: 'Lic. Valeria Ruiz',
+    disponibilidad: 'soon',
+    descripcion: 'Organización comunitaria que brinda acompañamiento a adolescentes y familias en situación de vulnerabilidad. Grupos de apoyo y talleres.',
+    protocolo: 'Contactar por WhatsApp para coordinar primera consulta.',
+    tags: ['comunitario', 'gratuito', 'adolescentes'],
+    icon: '🌐',
+    iconBg: '#FEF9E7'
+  },
+  {
+    id: 6,
+    nombre: 'EOE – Equipo de Orientación Escolar N°8',
+    tipo: 'Institución educativa',
+    area: 'educacion',
+    telefono: '011-4345-6789',
+    direccion: 'Los Robles 450, Lomas de Zamora',
+    horario: 'Lun a Vie: 8 a 17hs (período lectivo)',
+    ubicacion: 'Lomas de Zamora',
+    referente: 'Lic. Sofía Ibáñez',
+    disponibilidad: 'open',
+    descripcion: 'Equipo interdisciplinario de orientación que trabaja en articulación con escuelas secundarias. Abordaje de situaciones complejas y derivación.',
+    protocolo: 'Articulación vía directivos de la institución educativa. Reunión conjunta para planificar intervención.',
+    tags: ['educación', 'gratuito', 'presencial'],
+    icon: '📚',
+    iconBg: '#E8F5F2'
+  },
+  {
+    id: 7,
+    nombre: 'Consultorio Virtual – Psico Joven',
+    tipo: 'Consultorio privado',
+    area: 'salud',
+    telefono: '011-15-2233-4455',
+    horario: 'Lun a Sáb: 9 a 21hs (virtual)',
+    ubicacion: 'Virtual (todo el país)',
+    referente: 'Lic. Tomás Ferreyra',
+    disponibilidad: 'open',
+    descripcion: 'Atención psicológica individual para adolescentes por videollamada. Especialización en ansiedad, identidad y vínculos. Trabaja con principales obras sociales.',
+    protocolo: 'Consulta inicial gratuita. Coordinar turno por WhatsApp.',
+    tags: ['virtual', 'adolescentes', 'obras sociales'],
+    icon: '💻',
+    iconBg: '#F0E8FD'
+  },
+  {
+    id: 8,
+    nombre: 'Centro Comunitario La Esperanza',
+    tipo: 'Centro comunitario',
+    area: 'comunidad',
+    telefono: '011-4876-1200',
+    direccion: 'Eva Perón 1456, Florencio Varela',
+    horario: 'Mié y Jue: 15 a 20hs | Sáb: 10 a 14hs',
+    ubicacion: 'Florencio Varela',
+    referente: 'Prof. Daniela Castro',
+    disponibilidad: 'soon',
+    descripcion: 'Espacio comunitario con talleres de expresión, contención grupal y acompañamiento para jóvenes. Articulación con sistema de salud local.',
+    protocolo: 'Acercarse directamente o llamar para información de actividades.',
+    tags: ['comunitario', 'gratuito', 'presencial'],
+    icon: '🏘️',
+    iconBg: '#E8F0FD'
+  },
+  {
+    id: 9,
+    nombre: 'Hospital Rossi – Guardia de Salud Mental',
+    tipo: 'Hospital público',
+    area: 'salud',
+    telefono: '0221-457-2929',
+    direccion: 'Calle 37 N°183, La Plata, Buenos Aires',
+    horario: 'Guardia 24hs',
+    ubicacion: 'La Plata / GBA',
+    referente: 'Servicio de Guardia',
+    disponibilidad: 'always',
+    descripcion: 'Guardia de salud mental disponible las 24hs. Referente provincial para crisis psiquiátricas y derivaciones complejas.',
+    protocolo: 'Concurrir directamente a guardia. Llevar DNI y, si hay, historia clínica o antecedentes relevantes.',
+    tags: ['urgencia', '24hs', 'guardia', 'gratuito'],
+    icon: '🚑',
+    iconBg: '#FDECEA'
+  },
+  {
+    id: 10,
+    nombre: 'SEDRONAR – Línea de Orientación',
+    tipo: 'Línea telefónica',
+    area: 'salud',
+    telefono: '0800-222-1002',
+    horario: '24 horas',
+    ubicacion: 'Nacional',
+    referente: 'SEDRONAR – Secretaría de Políticas Integrales sobre Drogas',
+    disponibilidad: 'always',
+    descripcion: 'Orientación y derivación en situaciones relacionadas con consumo problemático de sustancias en adolescentes y jóvenes.',
+    protocolo: 'Llamado gratuito. Brindan orientación y derivan a centros de tratamiento según zona.',
+    tags: ['urgencia', '24hs', 'gratuito', 'consumo'],
+    icon: '☎️',
+    iconBg: '#E8F5F2'
+  }
+];
+
+// ══════════════════════════════════════════════
+//  CONVERSATION PATTERNS
+// ══════════════════════════════════════════════
+
+const patterns = [
+  {
+    keywords: ['urgente', 'emergencia', 'riesgo', 'suicidio', 'suicida', 'ahora', 'crisis'],
+    response: '⚠️ Entiendo que es una situación urgente. Necesito saber más para orientarte mejor.\n\n**¿El adolescente está en riesgo inmediato en este momento?**',
+    options: ['Sí, riesgo inmediato', 'No, pero es urgente'],
+    action: 'askUrgency'
+  },
+  {
+    keywords: ['riesgo inmediato', 'sí riesgo', 'si riesgo', 'en peligro', 'inmediato'],
+    response: '🚨 Actuá ahora. Estas son las líneas de atención inmediata:',
+    showResources: [0, 1, 9],
+    followup: 'También podés acompañar al adolescente directamente a la guardia del hospital más cercano. ¿Necesitás hospitales con guardia 24hs en tu zona?',
+    options: ['Ver guardias 24hs', 'Ya llamé, ¿qué sigue?']
+  },
+  {
+    keywords: ['no pero es urgente', 'atención pronto', 'no urgente', 'necesita atención'],
+    response: '📍 Entendido. Para ayudarte a encontrar el mejor recurso disponible, ¿en qué zona estás trabajando?',
+    options: ['Almirante Brown / GBA Sur', 'CABA', 'La Plata / GBA', 'Otra zona'],
+    action: 'askZone'
+  },
+  {
+    keywords: ['psicólogo', 'psicologa', 'psicologo', 'psicóloga', 'terapeuta', 'atención psicológica'],
+    response: '🔍 Te ayudo a encontrar un/a psicólogo/a. Para filtrar mejor:\n\n¿Qué tipo de atención necesita el/la adolescente?',
+    options: ['Presencial – gratuito', 'Virtual', 'Con obra social', 'Urgente'],
+    action: 'askPsyType'
+  },
+  {
+    keywords: ['virtual', 'online', 'videollamada', 'remoto'],
+    response: '💻 Para atención virtual, tengo disponible:',
+    showResources: [7],
+    followup: '¿Querés que también busque otras opciones virtuales o con obra social?',
+    options: ['Sí, más opciones', 'Ver recursos presenciales también']
+  },
+  {
+    keywords: ['almirante brown', 'adrogué', 'burzaco', 'longchamps'],
+    response: '📍 Recursos disponibles en **Almirante Brown y alrededores**:',
+    showResources: [4, 5],
+    followup: '¿Necesitás algún tipo de servicio específico en esta zona? Puedo filtrar por urgencia, tipo de atención o cobertura.',
+    options: ['Solo urgencias', 'Atención ambulatoria', 'Comunidad / Social']
+  },
+  {
+    keywords: ['caba', 'capital', 'buenos aires ciudad', 'palermo', 'villa lugano', 'flores'],
+    response: '📍 Recursos disponibles en **CABA**:',
+    showResources: [2, 3, 7],
+    followup: '¿Buscás algo específico: urgencias, consulta programada o atención comunitaria?',
+    options: ['Urgencias', 'Consulta programada', 'Comunitario']
+  },
+  {
+    keywords: ['la plata', 'gba', 'conurbano', 'quilmes', 'florencio varela', 'lomas'],
+    response: '📍 Recursos disponibles en **GBA y La Plata**:',
+    showResources: [5, 8, 9],
+    followup: 'También tenemos el EOE de Lomas de Zamora para articulación educativa. ¿Lo incluyo?',
+    options: ['Sí, incluir EOE', 'Solo salud mental']
+  },
+  {
+    keywords: ['señales', 'alerta', 'síntomas', 'detectar', 'cómo identificar', 'signos'],
+    response: '🔍 **Señales de alerta en salud mental adolescente** a tener en cuenta:\n\n• Aislamiento social súbito o progresivo\n• Cambios en el sueño (insomnio o hipersomnia)\n• Irritabilidad constante o cambios de humor extremos\n• Pérdida de interés en actividades antes valoradas\n• Descuido del higiene y presentación personal\n• Expresiones de desesperanza ("para qué")\n• Regalar pertenencias significativas\n• Despedidas o expresiones de "no estar más"\n\n¿Notaste alguna de estas señales en particular en la persona que te preocupa?',
+    options: ['Sí, varias de estas', 'Solo algunas', 'Quiero más información']
+  },
+  {
+    keywords: ['protocolo', 'derivación', 'cómo derivar', 'pasos', 'procedimiento'],
+    response: '📋 **Protocolo básico de derivación en crisis:**\n\n1️⃣ **Evaluá el nivel de riesgo** (ideación, plan, medios, intención)\n2️⃣ **No dejar sola a la persona** durante la evaluación\n3️⃣ **Contactar a la familia** si es menor de edad\n4️⃣ **Derivar a guardia** si hay riesgo inmediato o moderado-alto\n5️⃣ **Registrar la intervención** y hacer seguimiento\n\n¿Querés que te muestre los recursos de guardia 24hs disponibles?',
+    options: ['Sí, ver guardias 24hs', 'Recursos de seguimiento post-crisis']
+  },
+  {
+    keywords: ['consumo', 'drogas', 'alcohol', 'adicción', 'sustancias'],
+    response: '💊 Para situaciones que involucran **consumo problemático de sustancias** en adolescentes, estos son los recursos específicos:',
+    showResources: [10],
+    followup: 'SEDRONAR también puede orientarte sobre centros de tratamiento según la complejidad del caso y la zona. ¿Hay algo más que necesitás sobre este tema?',
+    options: ['Ver más recursos', 'Protocolo de intervención']
+  },
+  {
+    keywords: ['gratuito', 'sin obra social', 'no tiene cobertura', 'económico'],
+    response: '💚 Recursos con **atención gratuita** disponibles:',
+    showResources: [0, 1, 2, 9],
+    followup: '¿Buscás atención presencial o también considerás opciones virtuales gratuitas?',
+    options: ['Solo presencial', 'Virtual también']
+  },
+  {
+    keywords: ['educación', 'escuela', 'colegio', 'docente', 'director', 'equipo orientación'],
+    response: '📚 Para articulación con el **sistema educativo**, el recurso clave es el EOE (Equipo de Orientación Escolar):',
+    showResources: [6],
+    followup: 'También podés trabajar con el EOE de tu distrito para intervenciones institucionales. ¿Necesitás saber más sobre cómo activar este protocolo?',
+    options: ['Sí, protocolo EOE', 'Ver recursos de salud también']
+  },
+  {
+    keywords: ['todos', 'ver todos', 'lista', 'recursos disponibles'],
+    response: '📋 Aquí tenés todos los recursos disponibles en la red. También podés explorarlos en la sección **"Explorar"** con filtros.',
+    showResources: [0, 1, 2, 4, 5, 7, 9],
+    options: ['Filtrar por zona', 'Solo urgencias', 'Solo gratuitos']
+  }
+];
+
+const defaultResponse = 'Entendí tu consulta. Estoy buscando la mejor orientación para ayudarte. ¿Podés darme un poco más de contexto?\n\nPodés decirme por ejemplo:\n• **La zona** donde está el adolescente\n• **Qué tipo de atención** necesita\n• **Si es urgente** o puede esperar turno';
+const defaultOptions = ['Necesito derivar urgente', 'Buscar psicólogo/a', 'Recursos gratuitos', 'Señales de alerta'];
+
+// ══════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════
+
+let currentProfile = { name: 'Profesional', icon: '🧠' };
+let conversationHistory = JSON.parse(localStorage.getItem('rv-chat') || '[]');
+let currentFilter = 'todos';
+
+// Tab permissions per profile type
+const profileTabs = {
+  salud:     ['chat', 'explore', 'add', 'forum', 'notif'],
+  educacion: ['chat', 'explore', 'add', 'notif'],
+  familiar:  ['chat', 'explore', 'notif'],
+  comunidad: ['chat', 'explore', 'add', 'notif'],
+  deporte:   ['chat', 'explore', 'add', 'notif']
+};
+
+function applyProfileTabs(type) {
+  const allowed = profileTabs[type] || profileTabs.salud;
+  ['chat', 'explore', 'add', 'forum', 'notif'].forEach(t => {
+    const nav = document.getElementById(`nav-${t}`);
+    if (nav) nav.style.display = allowed.includes(t) ? '' : 'none';
+  });
+
+  // Show institution registration section only for educacion
+  const eduSection = document.getElementById('edu-institution-section');
+  if (eduSection) {
+    eduSection.style.display = (type === 'educacion') ? 'block' : 'none';
+  }
+  // Reset add mode to recurso by default
+  setAddMode('recurso');
+}
+
+function setAddMode(mode) {
+  const instForm = document.getElementById('institucion-form');
+  const recForm = document.getElementById('recurso-form-wrapper');
+  const btnInst = document.getElementById('btn-mode-institucion');
+  const btnRec = document.getElementById('btn-mode-recurso');
+  if (!instForm || !recForm) return;
+
+  if (mode === 'institucion') {
+    instForm.style.display = 'block';
+    recForm.style.display = 'none';
+    if (btnInst) { btnInst.style.background = 'linear-gradient(135deg, var(--teal), var(--blue))'; btnInst.style.color = 'white'; btnInst.style.borderColor = 'transparent'; }
+    if (btnRec) { btnRec.style.background = 'var(--gray-100)'; btnRec.style.color = 'var(--gray-700)'; btnRec.style.borderColor = 'var(--gray-200)'; }
+  } else {
+    instForm.style.display = 'none';
+    recForm.style.display = 'block';
+    if (btnRec) { btnRec.style.background = 'linear-gradient(135deg, var(--teal), var(--blue))'; btnRec.style.color = 'white'; btnRec.style.borderColor = 'transparent'; }
+    if (btnInst) { btnInst.style.background = 'var(--gray-100)'; btnInst.style.color = 'var(--gray-700)'; btnInst.style.borderColor = 'var(--gray-200)'; }
+  }
+}
+
+function goToMatricula() {
+  showScreen('screen-matricula');
+}
+
+function validateMatricula() {
+  const nombre = document.getElementById('matricula-nombre').value.trim();
+  const numero = document.getElementById('matricula-numero').value.trim();
+  if (!nombre || !numero) {
+    showToast('⚠️ Completá nombre y número de matrícula');
+    return;
+  }
+  showToast('🔒 Matrícula validada correctamente');
+  setTimeout(() => {
+    selectProfile('salud', 'Profesional de Salud Mental', '🧠');
+  }, 700);
+}
+
+function submitInstitucionForm() {
+  const inputs = document.querySelectorAll('#institucion-form .form-input, #institucion-form .form-textarea');
+  let hasContent = false;
+  inputs.forEach(i => { if (i.value.trim()) hasContent = true; });
+
+  if (!hasContent) {
+    showToast('⚠️ Completá al menos el nombre de la institución');
+    return;
+  }
+
+  const btn = document.querySelector('#institucion-form .submit-btn');
+  btn.textContent = 'Enviando...';
+  btn.style.opacity = '0.7';
+
+  setTimeout(() => {
+    btn.style.display = 'none';
+    document.getElementById('institucion-success').style.display = 'block';
+    inputs.forEach(i => i.value = '');
+    showToast('✅ Institución enviada para validación');
+  }, 1000);
+}
+
+// ══════════════════════════════════════════════
+//  NAVIGATION
+// ══════════════════════════════════════════════
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function selectProfile(type, name, icon) {
+  currentProfile = { type, name, icon };
+  document.getElementById('profile-pill-icon').textContent = icon;
+  document.getElementById('profile-pill-name').textContent = name.split(' ')[0];
+
+  // Update agent greeting
+  const greetings = {
+    salud: `Hola 👋 Soy el asistente de RED VIVA. Estoy aquí para ayudarte a **gestionar derivaciones** y encontrar los mejores recursos para los/as adolescentes que atendés. ¿Cómo puedo ayudarte hoy?`,
+    educacion: `Hola 👋 Soy el asistente de RED VIVA. Entiendo que desde la comunidad educativa a veces es difícil saber cómo actuar ante una situación de salud mental. Estoy aquí para orientarte. ¿Qué situación se presenta?`,
+    familiar: `Hola 💙 Soy el asistente de RED VIVA. Sé que preocuparse por un/a hije o adolescente cercano puede ser difícil. Estoy aquí para ayudarte a encontrar el apoyo que necesitan. ¿Qué está pasando?`,
+    comunidad: `Hola 🤝 Soy el asistente de RED VIVA. Desde la comunidad pueden darse señales importantes a tiempo. Estoy aquí para orientarte sobre cómo actuar y qué recursos están disponibles. ¿Cómo puedo ayudarte?`,
+    deporte: `Hola ⚽ Soy el asistente de RED VIVA. Los espacios deportivos son fundamentales para detectar señales a tiempo. Estoy aquí para ayudarte con recursos y orientación. ¿Qué situación querés consultar?`
+  };
+
+  startingMessage = greetings[type] || greetings.salud;
+  conversationHistory = [];
+  localStorage.removeItem('rv-chat');
+
+  applyProfileTabs(type);
+  switchTab('chat');
+  showScreen('screen-main');
+
+  setTimeout(() => {
+    const area = document.getElementById('messages-area');
+    area.innerHTML = '';
+    addMessage('agent', startingMessage, defaultOptions);
+  }, 100);
+}
+
+function goToPrimeraPersona() {
+  showScreen('screen-primera-persona');
+}
+
+function switchTab(tab) {
+  // If profile doesn't have access to this tab, fall back to chat
+  const type = currentProfile && currentProfile.type;
+  if (type && profileTabs[type] && !profileTabs[type].includes(tab)) {
+    tab = 'chat';
+  }
+
+  document.querySelectorAll('.tab-view').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+  document.getElementById(`tab-${tab}`).classList.add('active');
+  const nav = document.getElementById(`nav-${tab}`);
+  if (nav) nav.classList.add('active');
+
+  if (tab === 'explore') renderResources();
+  if (tab === 'notif') markNotifRead();
+}
+
+function markNotifRead() {
+  setTimeout(() => {
+    document.getElementById('notif-badge').style.display = 'none';
+    document.getElementById('nav-notif-badge').style.display = 'none';
+  }, 500);
+}
+
+function markAllRead() {
+  document.querySelectorAll('.notif-item.unread').forEach(n => n.classList.remove('unread'));
+  showToast('✅ Notificaciones marcadas como leídas');
+}
+
+// ══════════════════════════════════════════════
+//  CHAT ENGINE
+// ══════════════════════════════════════════════
+
+let startingMessage = `Hola 👋 Soy el asistente de RED VIVA. Puedo ayudarte a **encontrar recursos**, orientarte en **derivaciones urgentes** o responder consultas sobre servicios disponibles.\n\n¿Cómo puedo ayudarte hoy?`;
+
+function initChat() {
+  const area = document.getElementById('messages-area');
+
+  if (conversationHistory.length > 0) {
+    conversationHistory.forEach(msg => {
+      renderMessage(msg.role, msg.content, msg.options, msg.resources, false);
+    });
+  } else {
+    addMessage('agent', startingMessage, defaultOptions);
+  }
+}
+
+function getTime() {
+  return new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
+}
+
+function addMessage(role, content, options = null, resourceIds = null) {
+  const saved = { role, content, options, resources: resourceIds, time: getTime() };
+  conversationHistory.push(saved);
+
+  try {
+    localStorage.setItem('rv-chat', JSON.stringify(conversationHistory.slice(-40)));
+  } catch(e) {}
+
+  renderMessage(role, content, options, resourceIds, true);
+}
+
+function renderMessage(role, content, options, resourceIds, animate) {
+  const area = document.getElementById('messages-area');
+  const time = getTime();
+
+  const wrapper = document.createElement('div');
+  wrapper.className = `message-wrapper ${role}`;
+  if (animate) { wrapper.style.opacity = '0'; wrapper.style.transform = 'translateY(6px)'; }
+
+  const inner = document.createElement('div');
+  inner.style.maxWidth = '82%';
+
+  if (role === 'agent') {
+    const avatarHtml = `<div class="msg-avatar">🤖</div>`;
+    const bubbleContent = markdownToHtml(content);
+    const bubble = document.createElement('div');
+    bubble.className = 'message-bubble agent';
+    bubble.innerHTML = bubbleContent;
+    inner.appendChild(bubble);
+
+    if (resourceIds && resourceIds.length > 0) {
+      resourceIds.forEach(id => {
+        const r = recursos[id];
+        if (!r) return;
+        const card = createResourceCard(r);
+        inner.appendChild(card);
+      });
+    }
+
+    if (options && options.length > 0) {
+      const optDiv = document.createElement('div');
+      optDiv.className = 'chat-options';
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'chat-option-btn';
+        if (opt.toLowerCase().includes('urgente') || opt.toLowerCase().includes('inmediato') || opt.toLowerCase().includes('peligro')) {
+          btn.className += ' danger';
+        }
+        btn.textContent = opt;
+        btn.onclick = () => sendChip(opt);
+        optDiv.appendChild(btn);
+      });
+      inner.appendChild(optDiv);
+    }
+
+    wrapper.innerHTML = avatarHtml;
+    wrapper.appendChild(inner);
+  } else {
+    const bubble = document.createElement('div');
+    bubble.className = 'message-bubble user';
+    bubble.textContent = content;
+    inner.appendChild(bubble);
+    wrapper.appendChild(inner);
+  }
+
+  const ts = document.createElement('div');
+  ts.className = 'message-timestamp';
+  ts.textContent = time;
+  wrapper.appendChild(ts);
+
+  area.appendChild(wrapper);
+
+  if (animate) {
+    requestAnimationFrame(() => {
+      wrapper.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      wrapper.style.opacity = '1';
+      wrapper.style.transform = 'translateY(0)';
+    });
+  }
+
+  area.scrollTop = area.scrollHeight;
+}
+
+function createResourceCard(r) {
+  const card = document.createElement('div');
+  card.className = 'chat-resource-card';
+  card.onclick = () => openModal(r.id);
+
+  const availMap = {
+    'always': ['dot-green', '24hs disponible'],
+    'open': ['dot-green', 'Abierto ahora'],
+    'soon': ['dot-yellow', 'Próximo turno'],
+    'closed': ['dot-gray', 'Fuera de horario']
+  };
+  const [dotClass, availText] = availMap[r.disponibilidad] || availMap['closed'];
+
+  const tags = r.tags.slice(0, 3).map(t => {
+    const cls = t === 'urgencia' ? 'urgencia' : t === 'gratuito' ? 'gratuito' : t === '24hs' ? 'hs24' : t === 'virtual' ? 'virtual' : '';
+    return `<span class="tag ${cls}">${t}</span>`;
+  }).join('');
+
+  card.innerHTML = `
+    <div class="crc-header">
+      <div class="crc-icon" style="background:${r.iconBg}">${r.icon}</div>
+      <div class="crc-info">
+        <div class="crc-name">${r.nombre}</div>
+        <div class="crc-type">${r.tipo} · ${r.ubicacion}</div>
+      </div>
+      <div class="crc-avail"><span class="availability-dot ${dotClass}"></span>${availText}</div>
+    </div>
+    <div class="crc-details">${tags}</div>
+    <div class="crc-phone">📞 ${r.telefono}</div>
+  `;
+
+  return card;
+}
+
+function markdownToHtml(text) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n/g, '<br>')
+    .replace(/•\s/g, '&bull;&nbsp;');
+}
+
+function showTyping(callback, delay = 900) {
+  const area = document.getElementById('messages-area');
+  const indicator = document.createElement('div');
+  indicator.className = 'typing-indicator visible';
+  indicator.innerHTML = `
+    <div class="msg-avatar">🤖</div>
+    <div class="typing-bubble">
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+    </div>
+  `;
+  area.appendChild(indicator);
+  area.scrollTop = area.scrollHeight;
+
+  setTimeout(() => {
+    indicator.remove();
+    callback();
+    area.scrollTop = area.scrollHeight;
+  }, delay);
+}
+
+function matchPattern(input) {
+  const lower = input.toLowerCase();
+
+  for (const p of patterns) {
+    for (const kw of p.keywords) {
+      if (lower.includes(kw.toLowerCase())) {
+        return p;
+      }
+    }
+  }
+  return null;
+}
+
+function processInput(input) {
+  addMessage('user', input);
+
+  const match = matchPattern(input);
+  const delay = 600 + Math.random() * 600;
+
+  showTyping(() => {
+    if (match) {
+      addMessage('agent', match.response, match.options, match.showResources);
+      if (match.followup) {
+        showTyping(() => {
+          addMessage('agent', match.followup, match.options ? [] : defaultOptions);
+        }, 1200);
+      }
+    } else {
+      addMessage('agent', defaultResponse, defaultOptions);
+    }
+  }, delay);
+}
+
+function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  input.style.height = 'auto';
+  processInput(text);
+}
+
+function sendChip(text) {
+  processInput(text);
+}
+
+function handleInputKeydown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 80) + 'px';
+}
+
+// ══════════════════════════════════════════════
+//  EXPLORE / RESOURCES
+// ══════════════════════════════════════════════
+
+function setFilter(filter, el) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  filterResources();
+}
+
+function filterResources() {
+  const search = document.getElementById('search-input').value.toLowerCase();
+  const list = document.getElementById('resources-list');
+
+  const filtered = recursos.filter(r => {
+    const matchSearch = !search ||
+      r.nombre.toLowerCase().includes(search) ||
+      r.tipo.toLowerCase().includes(search) ||
+      r.ubicacion.toLowerCase().includes(search) ||
+      r.descripcion.toLowerCase().includes(search);
+
+    const matchFilter = currentFilter === 'todos' ||
+      r.area === currentFilter ||
+      r.tags.includes(currentFilter) ||
+      (currentFilter === 'urgencia' && r.tags.includes('urgencia')) ||
+      (currentFilter === 'virtual' && r.tags.includes('virtual'));
+
+    return matchSearch && matchFilter;
+  });
+
+  renderResourcesList(filtered, list);
+}
+
+function renderResources() {
+  filterResources();
+}
+
+function renderResourcesList(list, container) {
+  const availMap = {
+    'always': ['always', '24hs'],
+    'open': ['open', 'Abierto'],
+    'soon': ['soon', 'Próx. turno'],
+    'closed': ['closed', 'Cerrado']
+  };
+
+  container.innerHTML = list.map(r => {
+    const [cls, label] = availMap[r.disponibilidad] || availMap['closed'];
+    const tags = r.tags.slice(0, 4).map(t => {
+      const cls = t === 'urgencia' ? 'urgencia' : t === 'gratuito' ? 'gratuito' : t === '24hs' ? 'hs24' : t === 'virtual' ? 'virtual' : '';
+      return `<span class="tag ${cls}">${t}</span>`;
+    }).join('');
+
+    return `
+      <div class="resource-card-full" onclick="openModal(${r.id})">
+        <div class="rcf-top">
+          <div class="rcf-icon" style="background:${r.iconBg}">${r.icon}</div>
+          <div class="rcf-meta">
+            <div class="rcf-name">${r.nombre}</div>
+            <div class="rcf-type">${r.tipo}</div>
+          </div>
+          <div class="rcf-avail ${cls}">
+            <span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;"></span>
+            ${label}
+          </div>
+        </div>
+        <div class="rcf-details">
+          ${r.telefono ? `<div class="rcf-detail-row"><span>📞</span><span>${r.telefono}</span></div>` : ''}
+          ${r.direccion ? `<div class="rcf-detail-row"><span>📍</span><span>${r.direccion}</span></div>` : ''}
+          ${r.horario ? `<div class="rcf-detail-row"><span>🕐</span><span>${r.horario}</span></div>` : ''}
+          ${r.ubicacion ? `<div class="rcf-detail-row"><span>🗺️</span><span>${r.ubicacion}</span></div>` : ''}
+        </div>
+        <div class="rcf-tags">${tags}</div>
+      </div>
+    `;
+  }).join('');
+
+  if (list.length === 0) {
+    container.innerHTML = `
+      <div style="text-align:center;padding:40px 20px;color:var(--gray-400);">
+        <div style="font-size:36px;margin-bottom:12px;">🔍</div>
+        <div style="font-weight:600;margin-bottom:6px;">Sin resultados</div>
+        <div style="font-size:13px;">Probá con otros términos o filtros</div>
+      </div>
+    `;
+  }
+}
+
+// ══════════════════════════════════════════════
+//  MODAL
+// ══════════════════════════════════════════════
+
+function openModal(id) {
+  const r = recursos[id];
+  if (!r) return;
+
+  document.getElementById('modal-name').textContent = r.nombre;
+  document.getElementById('modal-type').textContent = `${r.tipo} · ${r.ubicacion}`;
+  document.getElementById('modal-call-btn').onclick = () => showToast(`📞 Llamando al ${r.telefono}...`);
+
+  const availMap = {
+    'always': '<span style="color:var(--blue);font-weight:600;">✅ Disponible 24hs</span>',
+    'open': '<span style="color:var(--success);font-weight:600;">✅ Abierto ahora</span>',
+    'soon': '<span style="color:var(--warning);font-weight:600;">⏰ Próximo turno disponible</span>',
+    'closed': '<span style="color:var(--gray-400);font-weight:600;">❌ Fuera de horario</span>'
+  };
+
+  const tags = r.tags.map(t => {
+    const cls = t === 'urgencia' ? 'urgencia' : t === 'gratuito' ? 'gratuito' : t === '24hs' ? 'hs24' : t === 'virtual' ? 'virtual' : '';
+    return `<span class="tag ${cls}">${t}</span>`;
+  }).join('');
+
+  document.getElementById('modal-body').innerHTML = `
+    <div class="modal-section">
+      ${availMap[r.disponibilidad] || ''}
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">Información de contacto</div>
+      ${r.telefono ? `<div class="modal-info-row"><span class="modal-info-label">📞 Teléfono</span><span class="modal-info-value" style="color:var(--blue);font-weight:700;">${r.telefono}</span></div>` : ''}
+      ${r.direccion ? `<div class="modal-info-row"><span class="modal-info-label">📍 Dirección</span><span class="modal-info-value">${r.direccion}</span></div>` : ''}
+      ${r.horario ? `<div class="modal-info-row"><span class="modal-info-label">🕐 Horarios</span><span class="modal-info-value">${r.horario}</span></div>` : ''}
+      ${r.referente ? `<div class="modal-info-row"><span class="modal-info-label">👤 Referente</span><span class="modal-info-value">${r.referente}</span></div>` : ''}
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">Descripción del servicio</div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.55;">${r.descripcion}</p>
+    </div>
+
+    ${r.protocolo ? `
+    <div class="modal-section">
+      <div class="modal-section-title">Protocolo de derivación</div>
+      <div class="protocol-box">${r.protocolo}</div>
+    </div>` : ''}
+
+    ${r.direccion ? `
+    <div class="modal-section">
+      <div class="modal-section-title">Ubicación</div>
+      <div class="map-placeholder">🗺️ Mapa de ubicación — Próximamente</div>
+    </div>` : ''}
+
+    <div class="modal-section">
+      <div class="modal-section-title">Etiquetas</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">${tags}</div>
+    </div>
+  `;
+
+  document.getElementById('modal-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnBg(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+// ══════════════════════════════════════════════
+//  FORM
+// ══════════════════════════════════════════════
+
+function submitForm() {
+  const inputs = document.querySelectorAll('#recurso-form-wrapper .form-input, #recurso-form-wrapper .form-textarea');
+  let hasContent = false;
+  inputs.forEach(i => { if (i.value.trim()) hasContent = true; });
+
+  if (!hasContent) {
+    showToast('⚠️ Por favor completá al menos el nombre del servicio');
+    return;
+  }
+
+  const btn = document.querySelector('#recurso-form-wrapper .submit-btn');
+  btn.textContent = 'Enviando...';
+  btn.style.opacity = '0.7';
+
+  setTimeout(() => {
+    btn.style.display = 'none';
+    document.getElementById('submit-success').style.display = 'block';
+    inputs.forEach(i => i.value = '');
+    showToast('✅ Recurso enviado para validación');
+  }, 1000);
+}
+
+// ══════════════════════════════════════════════
+//  TOAST
+// ══════════════════════════════════════════════
+
+let toastTimer = null;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ══════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════
+
+window.addEventListener('load', () => {
+  // Profile screen cards: keyboard support
+  document.querySelectorAll('.profile-card').forEach(card => {
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
