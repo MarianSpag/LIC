@@ -68,30 +68,34 @@
   ────────────────────────────────────── */
   #screen-profile {
     background: linear-gradient(160deg, #1E3A5F 0%, #2D6A8F 45%, #3D8E7E 100%);
+    height: 100vh;
     min-height: 100vh;
+    max-height: 100vh;
     padding: 0;
     justify-content: flex-start;
+    overflow: hidden;
   }
 
   .profile-header {
-    padding: 48px 24px 32px;
+    padding: 20px 24px 16px;
     text-align: center;
     color: white;
+    flex-shrink: 0;
   }
 
   .logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 14px;
   }
 
   .logo-icon {
-    width: 52px;
-    height: 52px;
+    width: 42px;
+    height: 42px;
     background: rgba(255,255,255,0.15);
-    border-radius: 16px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,12 +103,14 @@
     border: 1px solid rgba(255,255,255,0.2);
   }
 
+  .logo-icon svg { width: 24px; height: 24px; }
+
   .logo-text {
     text-align: left;
   }
 
   .logo-name {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 800;
     letter-spacing: -0.5px;
     line-height: 1;
@@ -112,59 +118,67 @@
   }
 
   .logo-sub {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 500;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.3px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.65);
     margin-top: 3px;
   }
 
   .profile-title {
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 10px;
+    line-height: 1.2;
+    margin-bottom: 6px;
   }
 
   .profile-subtitle {
-    font-size: 15px;
+    font-size: 13px;
     color: rgba(255,255,255,0.75);
-    line-height: 1.55;
-    max-width: 360px;
+    line-height: 1.45;
+    max-width: 340px;
     margin: 0 auto;
   }
 
   .profile-cards-container {
     flex: 1;
     background: var(--cream);
-    border-radius: 28px 28px 0 0;
-    padding: 28px 20px 100px;
-    margin-top: 8px;
+    border-radius: 24px 24px 0 0;
+    padding: 16px 16px 20px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
   }
 
   .profile-cards-label {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.1px;
     text-transform: uppercase;
     color: var(--gray-400);
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     text-align: center;
+    flex-shrink: 0;
   }
 
   .profile-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 8px;
     max-width: 480px;
     margin: 0 auto;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
   }
 
   .profile-card {
     background: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 20px 16px;
+    border-radius: var(--radius);
+    padding: 10px 8px;
     cursor: pointer;
     border: 2px solid transparent;
     transition: all var(--transition);
@@ -172,14 +186,19 @@
     text-align: center;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
   }
 
   .profile-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 4px;
-    border-radius: 20px 20px 0 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
     opacity: 0;
     transition: opacity var(--transition);
   }
@@ -200,49 +219,61 @@
     grid-column: 1 / -1;
     border-color: #C0392B22;
     background: linear-gradient(135deg, #FFF5F5, #FFF);
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px 14px;
+    text-align: left;
+    justify-content: flex-start;
   }
   .profile-card.p-primera-persona::before { background: var(--danger); opacity: 1; }
 
   .profile-card-emoji {
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 4px;
     display: block;
     line-height: 1;
   }
 
+  .profile-card.p-primera-persona .profile-card-emoji {
+    font-size: 26px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
   .profile-card-name {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--gray-800);
-    line-height: 1.3;
-    margin-bottom: 4px;
+    line-height: 1.25;
+    margin-bottom: 2px;
   }
 
   .profile-card-desc {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--gray-400);
-    line-height: 1.4;
+    line-height: 1.3;
   }
 
   .profile-card.p-primera-persona .profile-card-name {
     color: var(--danger);
-    font-size: 14px;
+    font-size: 13px;
+    margin-bottom: 2px;
   }
 
   .profile-card.p-primera-persona .profile-card-desc {
     color: #c0392b99;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .urgent-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 8px;
+    right: 8px;
     background: var(--danger);
     color: white;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
-    padding: 3px 7px;
+    padding: 2px 6px;
     border-radius: 20px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -1629,8 +1660,18 @@
   }
 
   @media (min-width: 768px) {
-    .profile-cards-container { padding: 36px 32px 100px; }
+    .profile-cards-container { padding: 20px 32px 24px; }
     .pp-content { max-width: 520px; }
+  }
+
+  /* Fallback for very short viewports */
+  @media (max-height: 600px) {
+    .profile-header { padding: 12px 20px 10px; }
+    .logo-container { margin-bottom: 8px; }
+    .profile-title { font-size: 17px; margin-bottom: 4px; }
+    .profile-subtitle { font-size: 12px; }
+    .profile-cards-container { padding: 12px 14px 14px; }
+    .profile-cards-label { margin-bottom: 8px; }
   }
 </style>
 </head>
@@ -1849,7 +1890,7 @@
 
   <!-- TOP BAR -->
   <div class="app-topbar">
-    <div class="topbar-logo">
+    <div class="topbar-logo" onclick="goHome()" style="cursor:pointer;" title="Ir a inicio">
       <div class="topbar-logo-icon">🌿</div>
       <span class="topbar-logo-name">RED VIVA</span>
     </div>
@@ -2691,6 +2732,10 @@ function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0, 0);
+}
+
+function goHome() {
+  showScreen('screen-profile');
 }
 
 function selectProfile(type, name, icon) {
