@@ -81,6 +81,7 @@ body{margin:0;padding:0}
   min-height:100vh;
   width:100%;
   position:relative;
+  overflow-y:auto;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -339,9 +340,9 @@ button{font-family:inherit;cursor:pointer}
 .g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
 .g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.g2>.card,.g3>.card,.g4>.card{min-width:0;overflow:hidden}
+.g2>.card,.g3>.card,.g4>.card{min-width:0}
 .card{position:relative}
-canvas{display:block;max-width:100%}
+canvas{max-width:100%}
 .gauto{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
 .mt{margin-top:1.2rem}
 .mt2{margin-top:2rem}
@@ -1451,7 +1452,7 @@ function goTo(id){
   if(nav)nav.classList.add('act');
   activePanel=id;
   document.getElementById('topName').textContent=(PANEL_NAMES_I18N[typeof currentLang!=='undefined'?currentLang:'es']||PANEL_NAMES_I18N.es)[id]||'';
-  window.scrollTo(0,0);
+  try{document.querySelector('.lic-app').scrollTop=0;}catch(e){window.scrollTo(0,0);}
   if(id!=='proyecto')renderPanel(id);
 }
 
