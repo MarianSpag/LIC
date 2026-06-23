@@ -1450,7 +1450,7 @@ function goTo(id){
   activePanel=id;
   document.getElementById('topName').textContent=(PANEL_NAMES_I18N[typeof currentLang!=='undefined'?currentLang:'es']||PANEL_NAMES_I18N.es)[id]||'';
   document.getElementById('main-content').scrollTop=0;
-  if(id!=='proyecto')renderPanel(id);
+  if(id!=='proyecto')requestAnimationFrame(()=>renderPanel(id));
 }
 
 function onFilter(){
