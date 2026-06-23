@@ -70,7 +70,8 @@
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:14px}
-body{
+body{margin:0;padding:0}
+.lic-app{
   font-family:'DM Sans',sans-serif;
   background-color:var(--bg);
   background-image:var(--paper);
@@ -78,6 +79,8 @@ body{
   line-height:1.65;
   display:flex;
   min-height:100vh;
+  width:100%;
+  position:relative;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -853,6 +856,7 @@ button{font-family:inherit;cursor:pointer}
 </style>
 </head>
 <body>
+<div class="lic-app">
 
 <!-- Overlay móvil -->
 <div class="sb-overlay" id="sbOverlay"></div>
@@ -1619,6 +1623,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderOV(RAW);
 });
 </script>
+</div><!-- /.lic-app -->
 </body>
 </html>
 
