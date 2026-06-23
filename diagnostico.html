@@ -340,6 +340,7 @@ button{font-family:inherit;cursor:pointer}
 .g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
 .g2>.card,.g3>.card,.g4>.card{min-width:0}
+.g2>.card{min-height:220px}
 .card{position:relative}
 canvas{max-width:100%}
 .gauto{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
@@ -694,7 +695,7 @@ canvas{max-width:100%}
 /* ==============================
    DONUT
 ============================== */
-.dw{max-width:220px;margin:0 auto}
+.dw{max-width:220px;margin:0 auto;position:relative;height:220px}
 
 /* ==============================
    NO DATA
@@ -855,7 +856,7 @@ canvas{max-width:100%}
   .acomp-bar{height:28px}
 
   /* Donut más pequeño en mobile */
-  .dw{max-width:180px}
+  .dw{max-width:180px;height:180px}
 
   /* Proyecto info block */
   .card[style*="flex"]{flex-direction:column}
@@ -1231,7 +1232,7 @@ canvas{max-width:100%}
   <div class="g2 mt">
     <div class="card card-top-v">
       <div class="card-t" data-i18n="ct-id">Identidades (múltiple opción)</div>
-      <div class="dw"><canvas id="chartId" height="220"></canvas></div>
+      <div class="dw"><canvas id="chartId"></canvas></div>
     </div>
     <div class="card card-top-g">
       <div class="card-t" data-i18n="ct-dist">Distribución territorial</div>
@@ -1282,7 +1283,7 @@ canvas{max-width:100%}
     </div>
     <div class="card card-top-f">
       <div class="card-t" data-i18n="ct-econ">Situación económica — último año</div>
-      <div class="dw"><canvas id="chartEcon" height="220"></canvas></div>
+      <div class="dw"><canvas id="chartEcon"></canvas></div>
     </div>
   </div>
   <div class="cita">"La situación económica es agobiante y la urgencia personal come los espacios de encuentro y diálogo, individualizando las respuestas ante la crisis."</div>
@@ -1309,7 +1310,7 @@ canvas{max-width:100%}
   <div class="g2">
     <div class="card card-top-v">
       <div class="card-t" data-i18n="ct-den">¿Sabés cómo presentar una denuncia?</div>
-      <div class="dw"><canvas id="chartDen" height="220"></canvas></div>
+      <div class="dw"><canvas id="chartDen"></canvas></div>
     </div>
     <div class="card card-top-g">
       <div class="card-t" data-i18n="ct-herr">Herramientas cívicas más útiles</div>
@@ -1370,10 +1371,10 @@ canvas{max-width:100%}
     </div>
     <div class="card card-top-v">
       <div class="card-t" data-i18n="ct-esp">Espacios LBTI+ activos en la provincia</div>
-      <div class="dw"><canvas id="chartEsp" height="220"></canvas></div>
+      <div class="dw"><canvas id="chartEsp"></canvas></div>
     </div>
   </div>
-  <div class="card mt">
+  <div class="card card-top-f mt">
     <div class="card-t" data-i18n="ct-amen">¿Han sufrido amenazas digitales o acoso organizado?</div>
     <div style="position:relative;height:130px"><canvas id="chartAmen"></canvas></div>
   </div>
@@ -1492,7 +1493,7 @@ function renderPerfil(d){
   [{n:t,l:'Participantes',c:P.vm},{n:emp+'%',l:'Empleo formal',c:P.do2},{n:emp2+'%',l:'Economía empeoró',c:P.fu},{n:ids,l:'Identidades presentes',c:P.vc}]
     .forEach(k=>{const div=document.createElement('div');div.className='kpi-card';div.innerHTML=`<div class="kpi-n" style="color:${k.c}">${k.n}</div><div class="kpi-l">${k.l}</div>`;kp.appendChild(div);});
   const idC=cI(d);const idK=Object.entries(idC).sort((a,b)=>b[1]-a[1]);
-  mC('chartId',{type:'doughnut',data:{labels:idK.map(([k])=>k),datasets:[{data:idK.map(([,v])=>v),backgroundColor:PAL6,borderColor:'#fff',borderWidth:2,hoverOffset:4}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  mC('chartId',{type:'doughnut',data:{labels:idK.map(([k])=>k),datasets:[{data:idK.map(([,v])=>v),backgroundColor:PAL6,borderColor:'#fff',borderWidth:2,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const pg=document.getElementById('provGrid');pg.innerHTML='';
   const pc=cF(d,'prov');const mx=Math.max(...Object.values(pc),1);
   PROVINCES.forEach((p,i)=>{const n=pc[p]||0;if(!n)return;const abbr=p==='Ciudad Autónoma de Buenos Aires'?'CABA':p;const feat=i<2&&n>4?'feat':'';const div=document.createElement('div');div.className=`pv ${feat}`;div.innerHTML=`<div class="pv-name">${abbr}</div><div class="pv-n">${n}</div><div class="pv-pct">${pct(n,t)}% del total</div><div class="pv-bar"><div class="pv-bf" style="width:${pct(n,mx)}%"></div></div>`;pg.appendChild(div);});
@@ -1552,7 +1553,7 @@ function renderTrabajo(d){
   const ingC=cF(d,'ing');const ingK=Object.entries(ingC).sort((a,b)=>b[1]-a[1]);
   mC('chartIng',{type:'bar',data:{labels:ingK.map(([k])=>k),datasets:[{label:'Personas',data:ingK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'},ticks:{color:P.t2}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
   const econC=cF(d,'econ');const econK=Object.entries(econC).sort((a,b)=>b[1]-a[1]);
-  mC('chartEcon',{type:'doughnut',data:{labels:econK.map(([k])=>k),datasets:[{data:econK.map(([,v])=>v),backgroundColor:[P.fu,'#B0BEC5',P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  mC('chartEcon',{type:'doughnut',data:{labels:econK.map(([k])=>k),datasets:[{data:econK.map(([,v])=>v),backgroundColor:[P.fu,'#B0BEC5',P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const formC=cM(d,'form');const formK=Object.entries(formC).sort((a,b)=>b[1]-a[1]);
   const fl=document.getElementById('formList');fl.innerHTML='';
   formK.forEach(([k,v])=>{const pp=pct(v,t);fl.innerHTML+=`<div class="hbi"><div><div class="hbi-l">${k}</div><div class="hbt"><div class="hbf" style="width:${pp}%"></div></div></div><div class="hbv">${pp}%</div></div>`;});
@@ -1567,7 +1568,7 @@ function renderDerechos(d){
   document.getElementById('derechos-hl').innerHTML=mkHL([{n:noDen+'%',l:'no sabe denunciar',c:'hl-r'},{n:quiere+'%',l:'quiere aprender incidencia',c:'hl-v'},{n:pres+'%',l:'demanda espacios presenciales',c:'hl-g'}]);
   const denC={};d.forEach(r=>{let k=r.den||'S/D';if(k.startsWith('No estoy'))k='No estoy segura/e/x';denC[k]=(denC[k]||0)+1;});
   const denK=Object.entries(denC).sort((a,b)=>b[1]-a[1]);
-  mC('chartDen',{type:'doughnut',data:{labels:denK.map(([k])=>k),datasets:[{data:denK.map(([,v])=>v),backgroundColor:[P.fu,P.vm,P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  mC('chartDen',{type:'doughnut',data:{labels:denK.map(([k])=>k),datasets:[{data:denK.map(([,v])=>v),backgroundColor:[P.fu,P.vm,P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const herrC={};
   d.forEach(r=>{if(!r.herr)return;r.herr.split(',').forEach(s=>{s=s.trim().replace(/\.$/,'');if(!s)return;let k=s;if(k.toLowerCase().includes('presencial')||k.toLowerCase().includes('encuentro'))k='Espacios presenciales';else if(k.toLowerCase().includes('virtual'))k='Talleres virtuales';else if(k.toLowerCase().includes('guía')||k.toLowerCase().includes('guia'))k='Guías prácticas descargables';else if(k.toLowerCase().includes('legislat'))k='Alertas legislativas';else if(k.toLowerCase().includes('mentor'))k='Mentorías individuales';herrC[k]=(herrC[k]||0)+1;});});
   const herrK=Object.entries(herrC).filter(([k])=>k.length>3).sort((a,b)=>b[1]-a[1]);
@@ -1608,7 +1609,7 @@ function renderTerritorio(d){
   const ctxK=[['Muy hostil',ctxC['Muy hostil']||0],['Hostil',ctxC['Hostil']||0],['Neutral',ctxC['Neutral']||0],['Favorable',ctxC['Favorable']||0]];
   mC('chartCtx',{type:'bar',data:{labels:ctxK.map(([k])=>k),datasets:[{data:ctxK.map(([,v])=>v),backgroundColor:[P.fu,'#E06090','#B0BEC5',P.do2],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:P.t2}},y:{grid:{color:'rgba(107,53,184,.06)'}}}}});
   const espC=cF(d,'esp_prov');const espK=Object.entries(espC).sort((a,b)=>b[1]-a[1]);
-  mC('chartEsp',{type:'doughnut',data:{labels:espK.map(([k])=>k),datasets:[{data:espK.map(([,v])=>v),backgroundColor:[P.vm,P.do2,P.vc,P.fu],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  mC('chartEsp',{type:'doughnut',data:{labels:espK.map(([k])=>k),datasets:[{data:espK.map(([,v])=>v),backgroundColor:[P.vm,P.do2,P.vc,P.fu],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const amenC=cF(d,'amen');const amenK=Object.entries(amenC).sort((a,b)=>b[1]-a[1]);
   mC('chartAmen',{type:'bar',data:{labels:amenK.map(([k])=>k),datasets:[{data:amenK.map(([,v])=>v),backgroundColor:[P.vc,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.06)'}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
 }
