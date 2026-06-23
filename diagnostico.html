@@ -47,7 +47,7 @@
    TOKENS & RESET
 ============================== */
 :root {
-  --vp: #9B59D0;
+  --vp: #3D1A6E;
   --vm: #6B35B8;
   --vc: #9B59D0;
   --li: #C89FE8;
@@ -115,7 +115,7 @@ button{font-family:inherit;cursor:pointer}
 }
 .sb-tagline{
   margin-top:.6rem;
-  font-size:.80rem;
+  font-size:.96rem;
   font-weight:800;
   letter-spacing:.12em;
   text-transform:uppercase;
@@ -128,7 +128,7 @@ button{font-family:inherit;cursor:pointer}
   border-bottom:1px solid rgba(255,255,255,.1);
 }
 .sb-filter-lbl{
-  font-size:.6rem;
+  font-size:.72rem;
   font-weight:700;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -143,7 +143,7 @@ button{font-family:inherit;cursor:pointer}
   color:#fff;
   padding:.45rem .65rem;
   font-family:'DM Sans',sans-serif;
-  font-size:.78rem;
+  font-size:.94rem;
   font-weight:500;
   appearance:none;
   -webkit-appearance:none;
@@ -155,11 +155,11 @@ button{font-family:inherit;cursor:pointer}
 }
 .sb-select:hover{border-color:rgba(255,255,255,.4)}
 .sb-select:focus{outline:2px solid var(--do2);outline-offset:0}
-.sb-select option{background:#3D1A6E;color:#fff}
-.sb-select optgroup{color:rgba(255,255,255,.5);font-size:.72rem}
+.sb-select option{background:var(--vc);color:#fff}
+.sb-select optgroup{color:rgba(255,255,255,.5);font-size:.86rem}
 .sb-badge{
   margin-top:.45rem;
-  font-size:.68rem;
+  font-size:.82rem;
   color:var(--do2);
   font-weight:600;
 }
@@ -170,7 +170,7 @@ button{font-family:inherit;cursor:pointer}
   padding:.6rem 0;
 }
 .sb-nav-group{
-  font-size:.57rem;
+  font-size:.68rem;
   font-weight:700;
   letter-spacing:.15em;
   text-transform:uppercase;
@@ -184,7 +184,7 @@ button{font-family:inherit;cursor:pointer}
   padding:.5rem 1.4rem;
   cursor:pointer;
   color:rgba(255,255,255,.55);
-  font-size:.78rem;
+  font-size:.94rem;
   font-weight:500;
   transition:all .15s;
   border-left:3px solid transparent;
@@ -200,16 +200,16 @@ button{font-family:inherit;cursor:pointer}
 }
 .sb-num{
   font-family:'Bebas Neue',sans-serif;
-  font-size:.9rem;
+  font-size:1.08rem;
   color:rgba(255,255,255,.28);
-  width:18px;
+  width:22px;
   flex-shrink:0;
   text-align:center;
 }
 .sb-item.act .sb-num{color:var(--do2)}
 .sb-icon-img{
-  width:15px;
-  height:15px;
+  width:18px;
+  height:18px;
   object-fit:contain;
   opacity:.55;
   flex-shrink:0;
@@ -225,11 +225,12 @@ button{font-family:inherit;cursor:pointer}
   gap:.7rem;
 }
 .sb-foot img{
-  height:60px;
-  width:auto;
+  height:auto;
+  width:100%;
+  max-width:200px;
   object-fit:contain;
   object-position:left center;
-  opacity:.55;
+  opacity:.9;
 }
 
 /* ==============================
@@ -950,7 +951,9 @@ button{font-family:inherit;cursor:pointer}
   <div class="sb-foot">
     <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/logo-CD.png"
          alt="Conectando Derechos"
-         style="height:26px"
+         onerror="this.style.display='none'">
+    <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Outright-blanco.png"
+         alt="OutRight Action International"
          onerror="this.style.display='none'">
   </div>
 
