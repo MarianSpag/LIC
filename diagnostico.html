@@ -1420,6 +1420,11 @@ let activePanel='overview';
 let activeFilter='all';
 
 const PANEL_NAMES={overview:'RESUMEN GENERAL',proyecto:'EL PROYECTO',perfil:'PERFIL GENERAL',preoc:'PREOCUPACIONES',trabajo:'TRABAJO Y ECONOMÍA',derechos:'DERECHOS Y PARTICIPACIÓN CÍVICA',comunidad:'COMUNIDAD Y VÍNCULOS',territorio:'CONTEXTO TERRITORIAL',urgencias:'URGENCIAS TERRITORIALES'};
+const PANEL_NAMES_I18N={
+  es:{overview:'RESUMEN GENERAL',proyecto:'EL PROYECTO',perfil:'PERFIL GENERAL',preoc:'PREOCUPACIONES',trabajo:'TRABAJO Y ECONOMÍA',derechos:'DERECHOS Y PARTICIPACIÓN CÍVICA',comunidad:'COMUNIDAD Y VÍNCULOS',territorio:'CONTEXTO TERRITORIAL',urgencias:'URGENCIAS TERRITORIALES'},
+  en:{overview:'OVERVIEW',proyecto:'THE PROJECT',perfil:'GENERAL PROFILE',preoc:'CONCERNS',trabajo:'WORK & ECONOMY',derechos:'RIGHTS & CIVIC PARTICIPATION',comunidad:'COMMUNITY & BONDS',territorio:'TERRITORIAL CONTEXT',urgencias:'URGENT NEEDS'}
+};
+let currentLang='es';
 
 function gF(){
   if(activeFilter==='all')return RAW;
@@ -1643,10 +1648,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderOV(RAW);
 
   // ── TRANSLATIONS ──────────────────────────────────────
-  const PANEL_NAMES_I18N = {
-    es:{overview:'RESUMEN GENERAL',proyecto:'EL PROYECTO',perfil:'PERFIL GENERAL',preoc:'PREOCUPACIONES',trabajo:'TRABAJO Y ECONOMÍA',derechos:'DERECHOS Y PARTICIPACIÓN CÍVICA',comunidad:'COMUNIDAD Y VÍNCULOS',territorio:'CONTEXTO TERRITORIAL',urgencias:'URGENCIAS TERRITORIALES'},
-    en:{overview:'OVERVIEW',proyecto:'THE PROJECT',perfil:'GENERAL PROFILE',preoc:'CONCERNS',trabajo:'WORK & ECONOMY',derechos:'RIGHTS & CIVIC PARTICIPATION',comunidad:'COMMUNITY & BONDS',territorio:'TERRITORIAL CONTEXT',urgencias:'URGENT NEEDS'}
-  };
 
   const T = {
     es: {
@@ -1710,8 +1711,6 @@ document.addEventListener('DOMContentLoaded',()=>{
       'desc-07':'Verbatim answers to "What is today\'s main urgent need for LBTI+ people in your territory?"',
     }
   };
-
-  let currentLang = 'es';
 
   function applyLang(lang) {
     currentLang = lang;
