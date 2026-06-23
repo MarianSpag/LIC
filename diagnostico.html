@@ -218,11 +218,11 @@ button{font-family:inherit;cursor:pointer}
 
 /* Sidebar footer */
 .sb-foot{
-  padding:1rem 1.4rem;
+  padding:.6rem 1.4rem .8rem;
   border-top:1px solid rgba(255,255,255,.08);
   display:flex;
   flex-direction:column;
-  gap:.7rem;
+  gap:.3rem;
 }
 .sb-foot img{
   height:auto;
@@ -262,6 +262,15 @@ button{font-family:inherit;cursor:pointer}
   color:var(--t3);
   font-weight:500;
 }
+.top-right{display:flex;align-items:center;gap:1rem}
+.lang-toggle{display:flex;align-items:center;gap:2px;border:1.5px solid var(--brd);padding:2px}
+.lang-btn{
+  background:none;border:none;
+  font-family:'DM Sans',sans-serif;
+  font-size:.68rem;font-weight:700;letter-spacing:.08em;
+  color:var(--t3);padding:3px 7px;cursor:pointer;transition:all .15s;
+}
+.lang-btn.act{background:var(--vp);color:#fff}
 
 /* ==============================
    MAIN
@@ -330,6 +339,8 @@ button{font-family:inherit;cursor:pointer}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.g2>.card,.g3>.card,.g4>.card{min-width:0;overflow:hidden}
+canvas{max-width:100%}
 .gauto{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
 .mt{margin-top:1.2rem}
 .mt2{margin-top:2rem}
@@ -874,14 +885,13 @@ button{font-family:inherit;cursor:pointer}
   <div class="sb-brand">
     <img src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/LIC-logo-principal-scaled.png"
          alt="Libres, Iguales y Conectadas"
-         style="height:56px"
          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <div style="display:none;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#fff;letter-spacing:.05em">LIC 2026</div>
-    <div class="sb-tagline">Diagnóstico Federal LBTI+</div>
+    <div class="sb-tagline" data-i18n="sb-tagline">Diagnóstico Federal LBTI+</div>
   </div>
 
   <div class="sb-filter">
-    <span class="sb-filter-lbl">Filtrar por territorio</span>
+    <span class="sb-filter-lbl" data-i18n="sb-filter-lbl">Filtrar por territorio</span>
     <select class="sb-select" id="filterSel">
       <option value="all">Argentina — todas</option>
       <option value="federal">Federal (sin AMBA)</option>
@@ -901,50 +911,50 @@ button{font-family:inherit;cursor:pointer}
   </div>
 
   <nav class="sb-nav">
-    <div class="sb-nav-group">Secciones</div>
+    <div class="sb-nav-group" data-i18n="nav-group">Secciones</div>
 
     <div class="sb-item act" data-panel="overview">
-      <span class="sb-num">◆</span><span>Resumen</span>
+      <span class="sb-num">◆</span><span data-i18n="nav-overview">Resumen</span>
     </div>
     <div class="sb-item" data-panel="proyecto">
       <span class="sb-num">00</span>
       <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corazon-libres.png" alt="" role="presentation" aria-hidden="true">
-      <span>El Proyecto</span>
+      <span data-i18n="nav-proyecto">El Proyecto</span>
     </div>
     <div class="sb-item" data-panel="perfil">
       <span class="sb-num">01</span>
       <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-logo-femenino.png" alt="">
-      <span>Perfil General</span>
+      <span data-i18n="nav-perfil">Perfil General</span>
     </div>
     <div class="sb-item" data-panel="preoc">
       <span class="sb-num">02</span>
       <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/icono-rayito-scaled.png" alt="">
-      <span>Preocupaciones</span>
+      <span data-i18n="nav-preoc">Preocupaciones</span>
     </div>
     <div class="sb-item" data-panel="trabajo">
       <span class="sb-num">03</span>
       <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-pesa.png" alt="">
-      <span>Trabajo</span>
+      <span data-i18n="nav-trabajo">Trabajo</span>
     </div>
     <div class="sb-item" data-panel="derechos">
       <span class="sb-num">04</span>
       <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Iconos-listos-Iguales.png" alt="">
-      <span>Derechos</span>
+      <span data-i18n="nav-derechos">Derechos</span>
     </div>
     <div class="sb-item" data-panel="comunidad">
       <span class="sb-num">05</span>
       <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
-      <span>Comunidad</span>
+      <span data-i18n="nav-comunidad">Comunidad</span>
     </div>
     <div class="sb-item" data-panel="territorio">
       <span class="sb-num">06</span>
       <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corona.png" alt="">
-      <span>Territorio</span>
+      <span data-i18n="nav-territorio">Territorio</span>
     </div>
     <div class="sb-item" data-panel="urgencias">
       <span class="sb-num">07</span>
       <img class="sb-icon-img" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
-      <span>Urgencias</span>
+      <span data-i18n="nav-urgencias">Urgencias</span>
     </div>
   </nav>
 
@@ -964,7 +974,13 @@ button{font-family:inherit;cursor:pointer}
 ============================== -->
 <div class="topbar" role="banner">
   <span class="top-name" id="topName">RESUMEN GENERAL</span>
-  <span class="top-meta" id="topMeta">82 respuestas · 8 provincias</span>
+  <div class="top-right">
+    <span class="top-meta" id="topMeta">82 respuestas · 8 provincias</span>
+    <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+      <button class="lang-btn act" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
 </div>
 
 <!-- ==============================
@@ -1285,9 +1301,9 @@ button{font-family:inherit;cursor:pointer}
 <div class="panel-content">
   <div class="sh">
     <div class="sh-left">
-      <div class="sh-tag">Módulo 04</div>
-      <h2 class="sh-title">Derechos y Participación Cívica</h2>
-      <p class="sh-desc">Conocimiento legal, denuncia e incidencia.</p>
+      <div class="sh-tag" data-i18n="tag-04">Módulo 04</div>
+      <h2 class="sh-title" data-i18n="title-04">Derechos y Participación Cívica</h2>
+      <p class="sh-desc" data-i18n="desc-04">Conocimiento legal, denuncia e incidencia.</p>
     </div>
     <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Iconos-listos-Iguales.png" alt="">
   </div>
@@ -1315,9 +1331,9 @@ button{font-family:inherit;cursor:pointer}
 <div class="panel-content">
   <div class="sh">
     <div class="sh-left">
-      <div class="sh-tag">Módulo 05</div>
-      <h2 class="sh-title">Comunidad y Vínculos</h2>
-      <p class="sh-desc">Lazos, contención y participación en espacios comunitarios LBTI+.</p>
+      <div class="sh-tag" data-i18n="tag-05">Módulo 05</div>
+      <h2 class="sh-title" data-i18n="title-05">Comunidad y Vínculos</h2>
+      <p class="sh-desc" data-i18n="desc-05">Lazos, contención y participación en espacios comunitarios LBTI+.</p>
     </div>
     <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
   </div>
@@ -1342,9 +1358,9 @@ button{font-family:inherit;cursor:pointer}
 <div class="panel-content">
   <div class="sh">
     <div class="sh-left">
-      <div class="sh-tag">Módulo 06</div>
-      <h2 class="sh-title">Contexto Territorial</h2>
-      <p class="sh-desc">Percepción política, espacios disponibles y amenazas digitales.</p>
+      <div class="sh-tag" data-i18n="tag-06">Módulo 06</div>
+      <h2 class="sh-title" data-i18n="title-06">Contexto Territorial</h2>
+      <p class="sh-desc" data-i18n="desc-06">Percepción política, espacios disponibles y amenazas digitales.</p>
     </div>
     <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corona.png" alt="">
   </div>
@@ -1372,9 +1388,9 @@ button{font-family:inherit;cursor:pointer}
 <div class="panel-content">
   <div class="sh">
     <div class="sh-left">
-      <div class="sh-tag">Módulo 07 · Voces de la comunidad</div>
-      <h2 class="sh-title">Urgencias Territoriales</h2>
-      <p class="sh-desc">Respuestas literales a "¿Cuál es hoy la principal urgencia para personas LBTI+ en tu territorio?"</p>
+      <div class="sh-tag" data-i18n="tag-07">Módulo 07 · Voces de la comunidad</div>
+      <h2 class="sh-title" data-i18n="title-07">Urgencias Territoriales</h2>
+      <p class="sh-desc" data-i18n="desc-07">Respuestas literales a "¿Cuál es hoy la principal urgencia para personas LBTI+ en tu territorio?"</p>
     </div>
     <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
   </div>
@@ -1624,6 +1640,80 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSidebar();});
 
   renderOV(RAW);
+
+  // ── TRANSLATIONS ──────────────────────────────────────
+  const T = {
+    es: {
+      'sb-tagline':   'Diagnóstico Federal LBTI+',
+      'sb-filter-lbl':'Filtrar por territorio',
+      'nav-group':    'Secciones',
+      'nav-overview': 'Resumen',
+      'nav-proyecto': 'El Proyecto',
+      'nav-perfil':   'Perfil General',
+      'nav-preoc':    'Preocupaciones',
+      'nav-trabajo':  'Trabajo',
+      'nav-derechos': 'Derechos',
+      'nav-comunidad':'Comunidad',
+      'nav-territorio':'Territorio',
+      'nav-urgencias':'Urgencias',
+      'tag-04':'Módulo 04',
+      'title-04':'Derechos y Participación Cívica',
+      'desc-04':'Conocimiento legal, denuncia e incidencia.',
+      'tag-05':'Módulo 05',
+      'title-05':'Comunidad y Vínculos',
+      'desc-05':'Lazos, contención y participación en espacios comunitarios LBTI+.',
+      'tag-06':'Módulo 06',
+      'title-06':'Contexto Territorial',
+      'desc-06':'Percepción política, espacios disponibles y amenazas digitales.',
+      'tag-07':'Módulo 07 · Voces de la comunidad',
+      'title-07':'Urgencias Territoriales',
+      'desc-07':'Respuestas literales a "¿Cuál es hoy la principal urgencia para personas LBTI+ en tu territorio?"',
+    },
+    en: {
+      'sb-tagline':   'Federal LBTI+ Diagnostic',
+      'sb-filter-lbl':'Filter by territory',
+      'nav-group':    'Sections',
+      'nav-overview': 'Overview',
+      'nav-proyecto': 'The Project',
+      'nav-perfil':   'General Profile',
+      'nav-preoc':    'Concerns',
+      'nav-trabajo':  'Work & Economy',
+      'nav-derechos': 'Rights',
+      'nav-comunidad':'Community',
+      'nav-territorio':'Territory',
+      'nav-urgencias':'Urgent Needs',
+      'tag-04':'Module 04',
+      'title-04':'Rights & Civic Participation',
+      'desc-04':'Legal awareness, reporting and advocacy.',
+      'tag-05':'Module 05',
+      'title-05':'Community & Bonds',
+      'desc-05':'Connections, support and participation in LBTI+ community spaces.',
+      'tag-06':'Module 06',
+      'title-06':'Territorial Context',
+      'desc-06':'Political perceptions, available spaces and digital threats.',
+      'tag-07':'Module 07 · Community Voices',
+      'title-07':'Territorial Urgent Needs',
+      'desc-07':'Verbatim answers to "What is today\'s main urgent need for LBTI+ people in your territory?"',
+    }
+  };
+
+  let currentLang = 'es';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    const dict = T[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key]) el.textContent = dict[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('act', btn.dataset.lang === lang);
+    });
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
 });
 </script>
 </div><!-- /.lic-app -->
