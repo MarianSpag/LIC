@@ -1780,9 +1780,19 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('act', btn.dataset.lang === lang);
     });
-    // Update topbar title to current panel
-    const names = PANEL_NAMES_I18N[lang];
-    document.getElementById('topName').textContent = names[activePanel] || '';
+    document.getElementById('topName').textContent = (PANEL_NAMES_I18N[lang]||PANEL_NAMES_I18N.es)[activePanel]||'';
+    // Re-render current panel so dynamic content (highlights, lists) updates
+    if(activePanel && activePanel !== 'proyecto') {
+      requestAnimationFrame(() => {
+        renderPanel(activePanel);
+        // Also re-translate any data-i18n elements the render might have touched
+        const d2 = T[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const k = el.dataset.i18n;
+          if (d2[k] !== undefined) el.textContent = d2[k];
+        });
+      });
+    }
   }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
