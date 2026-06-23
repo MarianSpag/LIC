@@ -78,9 +78,9 @@ body{margin:0;padding:0}
   color:var(--t1);
   line-height:1.65;
   display:flex;
-  min-height:100vh;
+  height:100vh;
   width:100%;
-  position:relative;
+  overflow:hidden;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -94,11 +94,10 @@ button{font-family:inherit;cursor:pointer}
   flex-shrink:0;
   background:var(--vc);
   background-image:var(--paper);
-  position:fixed;
-  inset:0 auto 0 0;
   display:flex;
   flex-direction:column;
   overflow-y:auto;
+  height:100%;
   z-index:400;
   border-right:2px solid rgba(0,0,0,.25);
 }
@@ -237,10 +236,8 @@ button{font-family:inherit;cursor:pointer}
    TOPBAR
 ============================== */
 .topbar{
-  position:fixed;
+  position:sticky;
   top:0;
-  left:var(--side-w);
-  right:0;
   height:var(--top-h);
   background:var(--bg);
   background-image:var(--paper);
@@ -250,6 +247,7 @@ button{font-family:inherit;cursor:pointer}
   justify-content:space-between;
   padding:0 2.2rem;
   z-index:300;
+  flex-shrink:0;
 }
 .top-name{
   font-family:'Bebas Neue',sans-serif;
@@ -276,10 +274,12 @@ button{font-family:inherit;cursor:pointer}
    MAIN
 ============================== */
 .main{
-  margin-left:var(--side-w);
-  margin-top:var(--top-h);
   flex:1;
   min-width:0;
+  display:flex;
+  flex-direction:column;
+  overflow-y:auto;
+  height:100%;
 }
 .panels{
   padding:0;
@@ -757,16 +757,14 @@ canvas{max-width:100%}
 
   /* Sidebar se convierte en drawer */
   .sidebar{
+    position:absolute;
+    top:0;left:0;bottom:0;
     transform:translateX(-100%);
     transition:transform .25s ease;
     z-index:400;
     box-shadow:4px 0 24px rgba(0,0,0,.3);
   }
   .sidebar.open{transform:translateX(0)}
-
-  /* Main ocupa todo el ancho */
-  .main{margin-left:0}
-  .topbar{left:0}
 
   /* Hamburger visible */
   .ham-btn{display:flex}
@@ -973,6 +971,10 @@ canvas{max-width:100%}
 <!-- ==============================
      TOPBAR
 ============================== -->
+<!-- ==============================
+     MAIN
+============================== -->
+<main class="main" id="main-content" role="main">
 <div class="topbar" role="banner">
   <span class="top-name" id="topName">RESUMEN GENERAL</span>
   <div class="top-right">
@@ -983,11 +985,6 @@ canvas{max-width:100%}
     </div>
   </div>
 </div>
-
-<!-- ==============================
-     MAIN
-============================== -->
-<main class="main" id="main-content" role="main">
 <div class="panels">
 
 <!-- ── OVERVIEW ── -->
@@ -1347,7 +1344,7 @@ canvas{max-width:100%}
     </div>
     <div class="card card-top-g">
       <div class="card-t" data-i18n="ct-vinc">Vinculación con la comunidad LBTI+</div>
-      <canvas id="chartVinc" height="190"></canvas>
+      <div style="position:relative;height:190px"><canvas id="chartVinc"></canvas></div>
     </div>
   </div>
 </div>
@@ -1378,7 +1375,7 @@ canvas{max-width:100%}
   </div>
   <div class="card mt">
     <div class="card-t" data-i18n="ct-amen">¿Han sufrido amenazas digitales o acoso organizado?</div>
-    <canvas id="chartAmen" height="110"></canvas>
+    <div style="position:relative;height:130px"><canvas id="chartAmen"></canvas></div>
   </div>
 </div>
 </div>
@@ -1451,7 +1448,7 @@ function goTo(id){
   if(nav)nav.classList.add('act');
   activePanel=id;
   document.getElementById('topName').textContent=(PANEL_NAMES_I18N[typeof currentLang!=='undefined'?currentLang:'es']||PANEL_NAMES_I18N.es)[id]||'';
-  document.querySelector('.main')?.scrollIntoView({block:'start',behavior:'instant'});
+  document.getElementById('main-content').scrollTop=0;
   if(id!=='proyecto')renderPanel(id);
 }
 
@@ -1598,7 +1595,7 @@ function renderComunidad(d){
   document.getElementById('acomp-txt').innerHTML=`<strong style="color:var(--fu)">${pct(bajo,totA)}%</strong> se siente poco acompañada (niveles 1–2). <strong style="color:var(--do)">${pct(ac[4],totA)}%</strong> se siente muy acompañada.`;
   const vincC={};d.forEach(r=>{if(!r.vinc)return;let k=r.vinc.trim();if(k.includes('amigue')||k.includes('amigues'))k='Sí, tiene grupo de amigues';else if(k.includes('activamente'))k='Sí, va activamente a espacios';else if(k.includes('sexo-afectivo'))k='Solo vínculos sexo-afectivos';else if(k.startsWith('No'))k='Sin vínculos LBTI+';vincC[k]=(vincC[k]||0)+1;});
   const vincK=Object.entries(vincC).sort((a,b)=>b[1]-a[1]);
-  mC('chartVinc',{type:'bar',data:{labels:vincK.map(([k])=>k),datasets:[{data:vincK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu],borderRadius:0,borderSkipped:false}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'}},y:{grid:{display:false},ticks:{color:P.t2,font:{size:10},maxRotation:20}}}}});
+  mC('chartVinc',{type:'bar',data:{labels:vincK.map(([k])=>k),datasets:[{data:vincK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'}},y:{grid:{display:false},ticks:{color:P.t2,font:{size:10},maxRotation:20}}}}});
 }
 
 function renderTerritorio(d){
@@ -1613,7 +1610,7 @@ function renderTerritorio(d){
   const espC=cF(d,'esp_prov');const espK=Object.entries(espC).sort((a,b)=>b[1]-a[1]);
   mC('chartEsp',{type:'doughnut',data:{labels:espK.map(([k])=>k),datasets:[{data:espK.map(([,v])=>v),backgroundColor:[P.vm,P.do2,P.vc,P.fu],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const amenC=cF(d,'amen');const amenK=Object.entries(amenC).sort((a,b)=>b[1]-a[1]);
-  mC('chartAmen',{type:'bar',data:{labels:amenK.map(([k])=>k),datasets:[{data:amenK.map(([,v])=>v),backgroundColor:[P.vc,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.06)'}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
+  mC('chartAmen',{type:'bar',data:{labels:amenK.map(([k])=>k),datasets:[{data:amenK.map(([,v])=>v),backgroundColor:[P.vc,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.06)'}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
 }
 
 function renderUrgencias(d){
