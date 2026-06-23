@@ -1278,7 +1278,7 @@ canvas{max-width:100%}
   <div class="g2">
     <div class="card card-top-v">
       <div class="card-t" data-i18n="ct-ing">Fuente de ingresos</div>
-      <canvas id="chartIng" height="190"></canvas>
+      <div style="position:relative;height:190px"><canvas id="chartIng"></canvas></div>
     </div>
     <div class="card card-top-f">
       <div class="card-t" data-i18n="ct-econ">Situación económica — último año</div>
@@ -1366,7 +1366,7 @@ canvas{max-width:100%}
   <div class="g2">
     <div class="card card-top-f">
       <div class="card-t" data-i18n="ct-ctx">Contexto político percibido</div>
-      <canvas id="chartCtx" height="190"></canvas>
+      <div style="position:relative;height:190px"><canvas id="chartCtx"></canvas></div>
     </div>
     <div class="card card-top-v">
       <div class="card-t" data-i18n="ct-esp">Espacios LBTI+ activos en la provincia</div>
@@ -1546,11 +1546,11 @@ function renderTrabajo(d){
   const t=d.length||1;
   const emp=pct(d.filter(r=>r.ing==='Empleo formal').length,t);
   const emp2=pct(d.filter(r=>r.econ==='Empeoró').length,t);
-  const vis=pct(d.filter(r=>r.visible&&r.visible.startsWith('Si')).length,t);
+  const vis=pct(d.filter(r=>r.visible&&(r.visible==='Sí'||r.visible.startsWith('Si'))).length,t);
   const host=pct(d.filter(r=>r.clima&&r.clima.includes('hostilidad')).length,t);
   document.getElementById('trabajo-hl').innerHTML=mkHL([{n:emp+'%',l:'empleo formal',c:'hl-v'},{n:emp2+'%',l:'economía empeoró',c:'hl-r'},{n:vis+'%',l:'visible laboralmente',c:'hl-v'},{n:host+'%',l:'clima hostil',c:'hl-r'}]);
   const ingC=cF(d,'ing');const ingK=Object.entries(ingC).sort((a,b)=>b[1]-a[1]);
-  mC('chartIng',{type:'bar',data:{labels:ingK.map(([k])=>k),datasets:[{label:'Personas',data:ingK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'},ticks:{color:P.t2}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
+  mC('chartIng',{type:'bar',data:{labels:ingK.map(([k])=>k),datasets:[{label:'Personas',data:ingK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'},ticks:{color:P.t2}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
   const econC=cF(d,'econ');const econK=Object.entries(econC).sort((a,b)=>b[1]-a[1]);
   mC('chartEcon',{type:'doughnut',data:{labels:econK.map(([k])=>k),datasets:[{data:econK.map(([,v])=>v),backgroundColor:[P.fu,'#B0BEC5',P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const formC=cM(d,'form');const formK=Object.entries(formC).sort((a,b)=>b[1]-a[1]);
@@ -1561,7 +1561,7 @@ function renderTrabajo(d){
 
 function renderDerechos(d){
   const t=d.length||1;
-  const noDen=pct(d.filter(r=>r.den==='No'||r.den.startsWith('No estoy')).length,t);
+  const noDen=pct(d.filter(r=>r.den&&(r.den==='No'||r.den.startsWith('No estoy'))).length,t);
   const quiere=pct(d.filter(r=>r.inci&&(r.inci.includes('gustaría')||r.inci.includes('más al'))).length,t);
   const pres=pct(d.filter(r=>r.herr&&r.herr.toLowerCase().includes('presencial')).length,t);
   document.getElementById('derechos-hl').innerHTML=mkHL([{n:noDen+'%',l:'no sabe denunciar',c:'hl-r'},{n:quiere+'%',l:'quiere aprender incidencia',c:'hl-v'},{n:pres+'%',l:'demanda espacios presenciales',c:'hl-g'}]);
@@ -1606,7 +1606,7 @@ function renderTerritorio(d){
   document.getElementById('territorio-hl').innerHTML=mkHL([{n:mh+'%',l:'contexto muy hostil',c:'hl-r'},{n:am+'%',l:'sufrió amenazas digitales',c:'hl-r'},{n:sinE+'%',l:'sin espacios LBTI+',c:'hl-g'}]);
   const ctxC=cF(d,'ctx');
   const ctxK=[['Muy hostil',ctxC['Muy hostil']||0],['Hostil',ctxC['Hostil']||0],['Neutral',ctxC['Neutral']||0],['Favorable',ctxC['Favorable']||0]];
-  mC('chartCtx',{type:'bar',data:{labels:ctxK.map(([k])=>k),datasets:[{data:ctxK.map(([,v])=>v),backgroundColor:[P.fu,'#E06090','#B0BEC5',P.do2],borderRadius:0,borderSkipped:false}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:P.t2}},y:{grid:{color:'rgba(107,53,184,.06)'}}}}});
+  mC('chartCtx',{type:'bar',data:{labels:ctxK.map(([k])=>k),datasets:[{data:ctxK.map(([,v])=>v),backgroundColor:[P.fu,'#E06090','#B0BEC5',P.do2],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:P.t2}},y:{grid:{color:'rgba(107,53,184,.06)'}}}}});
   const espC=cF(d,'esp_prov');const espK=Object.entries(espC).sort((a,b)=>b[1]-a[1]);
   mC('chartEsp',{type:'doughnut',data:{labels:espK.map(([k])=>k),datasets:[{data:espK.map(([,v])=>v),backgroundColor:[P.vm,P.do2,P.vc,P.fu],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const amenC=cF(d,'amen');const amenK=Object.entries(amenC).sort((a,b)=>b[1]-a[1]);
