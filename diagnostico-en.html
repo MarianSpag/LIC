@@ -979,7 +979,7 @@ canvas{max-width:100%}
 <div class="topbar" role="banner">
   <span class="top-name" id="topName">RESUMEN GENERAL</span>
   <div class="top-right">
-    <span class="top-meta" id="topMeta">82 respuestas · 8 provincias</span>
+    <span class="top-meta" id="topMeta">82 responses · 8 provinces</span>
   </div>
 </div>
 <div class="panels">
@@ -1540,6 +1540,45 @@ const T = {
 };
 
 function str(key){return (T&&T[currentLang]&&T[currentLang][key])||'';}
+const LABEL_EN = {
+  // Income
+  'Empleo formal':'Formal employment','Empleo informal':'Informal employment',
+  'Emprendimiento propio':'Self-employment','Sin ingresos estables':'No stable income',
+  'Apoyo familiar':'Family support',
+  // Economic trend
+  'Empeoró':'Worsened','Se mantuvo igual':'Stayed the same','Mejoró':'Improved',
+  // Political context
+  'Muy hostil':'Very hostile','Hostil':'Hostile','Neutral':'Neutral','Favorable':'Favorable',
+  // Yes/No/Unknown
+  'Sí':'Yes','No':'No','No estoy segura/e/x':'Not sure','S/D':'N/A',
+  'Sí, pero muy pocos':'Yes, but very few','Sí, hay varios':'Yes, several',
+  // Civic participation
+  'Sí.':'Yes','No, pero no es de mi interés':'No, not interested',
+  'No, pero me gustaría aprender al respecto':'No, but I want to learn',
+  'Sí, pero igual me gustaría aprender más al respecto':'Yes, but want to learn more',
+  'Sí, y quiero aprender más':'Yes, and want to learn more',
+  'No, pero quiero aprender':'No, but want to learn',
+  'No es de mi interés':'Not interested',
+  // Community bonds
+  'Sí, voy a espacio de la comunidad activamente (bares, reuni':'Yes, actively attends spaces',
+  'Sí, tiene grupo de amigues':'Yes, has friend group',
+  'Sí, va activamente a espacios':'Yes, actively attends spaces',
+  'Solo vínculos sexo-afectivos':'Only romantic/sexual bonds',
+  'Sin vínculos LBTI+':'No LBTI+ bonds',
+  // Identities
+  'Lesbiana/e/x':'Lesbian/e/x','Bisexual':'Bisexual','No binarie':'Non-binary',
+  'Trans femenina':'Trans feminine','Trans masculino':'Trans masculine',
+  'Pansexual':'Pansexual','Intersex':'Intersex','Queer':'Queer',
+  // Concerns
+  'Discurso de odio en redes':'Online hate speech',
+  'Desconocimiento de derechos':'Lack of rights awareness',
+  'Falta de espacios seguros':'Lack of safe spaces',
+  'Situación económica':'Economic situation',
+  'Discriminación territorial':'Territorial discrimination',
+  'Acceso a empleo formal':'Access to formal employment',
+};
+function xlat(s){return (currentLang==='en'&&LABEL_EN[s])||s;}
+
 
 function gF(){
   if(activeFilter==='all')return RAW;
@@ -1610,7 +1649,7 @@ function renderPerfil(d){
   [{n:t,l:'Participantes',c:P.vm},{n:emp+'%',l:'Empleo formal',c:P.do2},{n:emp2+'%',l:'Economía empeoró',c:P.fu},{n:ids,l:'Identidades presentes',c:P.vc}]
     .forEach(k=>{const div=document.createElement('div');div.className='kpi-card';div.innerHTML=`<div class="kpi-n" style="color:${k.c}">${k.n}</div><div class="kpi-l">${k.l}</div>`;kp.appendChild(div);});
   const idC=cI(d);const idK=Object.entries(idC).sort((a,b)=>b[1]-a[1]);
-  mC('chartId',{type:'doughnut',data:{labels:idK.map(([k])=>k),datasets:[{data:idK.map(([,v])=>v),backgroundColor:PAL6,borderColor:'#fff',borderWidth:2,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  mC('chartId',{type:'doughnut',data:{labels:idK.map(([k])=>xlat(k)),datasets:[{data:idK.map(([,v])=>v),backgroundColor:PAL6,borderColor:'#fff',borderWidth:2,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const pg=document.getElementById('provGrid');pg.innerHTML='';
   const pc=cF(d,'prov');const mx=Math.max(...Object.values(pc),1);
   PROVINCES.forEach((p,i)=>{const n=pc[p]||0;if(!n)return;const abbr=p==='Ciudad Autónoma de Buenos Aires'?'CABA':p;const feat=i<2&&n>4?'feat':'';const div=document.createElement('div');div.className=`pv ${feat}`;div.innerHTML=`<div class="pv-name">${abbr}</div><div class="pv-n">${n}</div><div class="pv-pct">${pct(n,t)}% del total</div><div class="pv-bar"><div class="pv-bf" style="width:${pct(n,mx)}%"></div></div>`;pg.appendChild(div);});
@@ -1668,9 +1707,9 @@ function renderTrabajo(d){
   const host=pct(d.filter(r=>r.clima&&r.clima.includes('hostilidad')).length,t);
   document.getElementById('trabajo-hl').innerHTML=mkHL([{n:emp+'%',l:str('hl-formal'),c:'hl-v'},{n:emp2+'%',l:str('hl-empeoro'),c:'hl-r'},{n:vis+'%',l:str('hl-visible'),c:'hl-v'},{n:host+'%',l:str('hl-hostil'),c:'hl-r'}]);
   const ingC=cF(d,'ing');const ingK=Object.entries(ingC).sort((a,b)=>b[1]-a[1]);
-  mC('chartIng',{type:'bar',data:{labels:ingK.map(([k])=>k),datasets:[{label:'Personas',data:ingK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'},ticks:{color:P.t2}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
+  mC('chartIng',{type:'bar',data:{labels:ingK.map(([k])=>xlat(k)),datasets:[{label:'Personas',data:ingK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'},ticks:{color:P.t2}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
   const econC=cF(d,'econ');const econK=Object.entries(econC).sort((a,b)=>b[1]-a[1]);
-  mC('chartEcon',{type:'doughnut',data:{labels:econK.map(([k])=>k),datasets:[{data:econK.map(([,v])=>v),backgroundColor:[P.fu,'#B0BEC5',P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  mC('chartEcon',{type:'doughnut',data:{labels:econK.map(([k])=>xlat(k)),datasets:[{data:econK.map(([,v])=>v),backgroundColor:[P.fu,'#B0BEC5',P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:P.t2,boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const formC=cM(d,'form');const formK=Object.entries(formC).sort((a,b)=>b[1]-a[1]);
   const fl=document.getElementById('formList');fl.innerHTML='';
   formK.forEach(([k,v])=>{const pp=pct(v,t);fl.innerHTML+=`<div class="hbi"><div><div class="hbi-l">${k}</div><div class="hbt"><div class="hbf" style="width:${pp}%"></div></div></div><div class="hbv">${pp}%</div></div>`;});
@@ -1685,7 +1724,7 @@ function renderDerechos(d){
   document.getElementById('derechos-hl').innerHTML=mkHL([{n:noDen+'%',l:str('hl-no-den'),c:'hl-r'},{n:quiere+'%',l:str('hl-quiere-inci'),c:'hl-v'},{n:pres+'%',l:str('hl-presencial'),c:'hl-g'}]);
   const denC={};d.forEach(r=>{let k=r.den||'S/D';if(k.startsWith('No estoy'))k='No estoy segura/e/x';denC[k]=(denC[k]||0)+1;});
   const denK=Object.entries(denC).sort((a,b)=>b[1]-a[1]);
-  mC('chartDen',{type:'doughnut',data:{labels:denK.map(([k])=>k),datasets:[{data:denK.map(([,v])=>v),backgroundColor:[P.fu,P.vm,P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  mC('chartDen',{type:'doughnut',data:{labels:denK.map(([k])=>xlat(k)),datasets:[{data:denK.map(([,v])=>v),backgroundColor:[P.fu,P.vm,P.do2],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const herrC={};
   d.forEach(r=>{if(!r.herr)return;r.herr.split(',').forEach(s=>{s=s.trim().replace(/\.$/,'');if(!s)return;let k=s;if(k.toLowerCase().includes('presencial')||k.toLowerCase().includes('encuentro'))k='Espacios presenciales';else if(k.toLowerCase().includes('virtual'))k='Talleres virtuales';else if(k.toLowerCase().includes('guía')||k.toLowerCase().includes('guia'))k='Guías prácticas descargables';else if(k.toLowerCase().includes('legislat'))k='Alertas legislativas';else if(k.toLowerCase().includes('mentor'))k='Mentorías individuales';herrC[k]=(herrC[k]||0)+1;});});
   const herrK=Object.entries(herrC).filter(([k])=>k.length>3).sort((a,b)=>b[1]-a[1]);
@@ -1694,7 +1733,7 @@ function renderDerechos(d){
   if(!herrK.length)hl.innerHTML='<div class="no-data">'+str('sin-datos')+'</div>';
   const inciC={};d.forEach(r=>{if(!r.inci)return;let k=r.inci.trim();if(k.includes('gustaría aprender al respecto'))k='No, pero quiero aprender';else if(k.includes('gustaría aprender más'))k='Sí, y quiero aprender más';else if(k==='Sí.'||k==='Sí')k='Sí';else if(k.includes('no es de mi interé'))k='No es de mi interés';inciC[k]=(inciC[k]||0)+1;});
   const inciK=Object.entries(inciC).sort((a,b)=>b[1]-a[1]);
-  mC('chartInci',{type:'bar',data:{labels:inciK.map(([k])=>k),datasets:[{label:'Personas',data:inciK.map(([,v])=>v),backgroundColor:[P.vc,P.vm,P.do2,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'}},y:{grid:{display:false},ticks:{color:P.t2,font:{size:10}}}}}});
+  mC('chartInci',{type:'bar',data:{labels:inciK.map(([k])=>xlat(k)),datasets:[{label:'Personas',data:inciK.map(([,v])=>v),backgroundColor:[P.vc,P.vm,P.do2,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'}},y:{grid:{display:false},ticks:{color:P.t2,font:{size:10}}}}}});
 }
 
 function renderComunidad(d){
@@ -1713,7 +1752,7 @@ function renderComunidad(d){
   document.getElementById('acomp-txt').innerHTML=`<strong style="color:var(--fu)">${pct(bajo,totA)}%</strong> ${str('acomp-low')} <strong style="color:var(--do)">${pct(ac[4],totA)}%</strong> ${str('acomp-high')}`;
   const vincC={};d.forEach(r=>{if(!r.vinc)return;let k=r.vinc.trim();if(k.includes('amigue')||k.includes('amigues'))k='Sí, tiene grupo de amigues';else if(k.includes('activamente'))k='Sí, va activamente a espacios';else if(k.includes('sexo-afectivo'))k='Solo vínculos sexo-afectivos';else if(k.startsWith('No'))k='Sin vínculos LBTI+';vincC[k]=(vincC[k]||0)+1;});
   const vincK=Object.entries(vincC).sort((a,b)=>b[1]-a[1]);
-  mC('chartVinc',{type:'bar',data:{labels:vincK.map(([k])=>k),datasets:[{data:vincK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'}},y:{grid:{display:false},ticks:{color:P.t2,font:{size:10},maxRotation:20}}}}});
+  mC('chartVinc',{type:'bar',data:{labels:vincK.map(([k])=>xlat(k)),datasets:[{data:vincK.map(([,v])=>v),backgroundColor:[P.vm,P.vc,P.do2,P.fu],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.07)'}},y:{grid:{display:false},ticks:{color:P.t2,font:{size:10},maxRotation:20}}}}});
 }
 
 function renderTerritorio(d){
@@ -1724,11 +1763,11 @@ function renderTerritorio(d){
   document.getElementById('territorio-hl').innerHTML=mkHL([{n:mh+'%',l:str('hl-muy-hostil'),c:'hl-r'},{n:am+'%',l:str('hl-amenazas'),c:'hl-r'},{n:sinE+'%',l:str('hl-sin-esp'),c:'hl-g'}]);
   const ctxC=cF(d,'ctx');
   const ctxK=[['Muy hostil',ctxC['Muy hostil']||0],['Hostil',ctxC['Hostil']||0],['Neutral',ctxC['Neutral']||0],['Favorable',ctxC['Favorable']||0]];
-  mC('chartCtx',{type:'bar',data:{labels:ctxK.map(([k])=>k),datasets:[{data:ctxK.map(([,v])=>v),backgroundColor:[P.fu,'#E06090','#B0BEC5',P.do2],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:P.t2}},y:{grid:{color:'rgba(107,53,184,.06)'}}}}});
+  mC('chartCtx',{type:'bar',data:{labels:ctxK.map(([k])=>xlat(k)),datasets:[{data:ctxK.map(([,v])=>v),backgroundColor:[P.fu,'#E06090','#B0BEC5',P.do2],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:P.t2}},y:{grid:{color:'rgba(107,53,184,.06)'}}}}});
   const espC=cF(d,'esp_prov');const espK=Object.entries(espC).sort((a,b)=>b[1]-a[1]);
-  mC('chartEsp',{type:'doughnut',data:{labels:espK.map(([k])=>k),datasets:[{data:espK.map(([,v])=>v),backgroundColor:[P.vm,P.do2,P.vc,P.fu],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
+  mC('chartEsp',{type:'doughnut',data:{labels:espK.map(([k])=>xlat(k)),datasets:[{data:espK.map(([,v])=>v),backgroundColor:[P.vm,P.do2,P.vc,P.fu],borderColor:'#fff',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:P.t2,boxWidth:10,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}`}}}}});
   const amenC=cF(d,'amen');const amenK=Object.entries(amenC).sort((a,b)=>b[1]-a[1]);
-  mC('chartAmen',{type:'bar',data:{labels:amenK.map(([k])=>k),datasets:[{data:amenK.map(([,v])=>v),backgroundColor:[P.vc,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.06)'}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
+  mC('chartAmen',{type:'bar',data:{labels:amenK.map(([k])=>xlat(k)),datasets:[{data:amenK.map(([,v])=>v),backgroundColor:[P.vc,P.fu,P.li],borderRadius:0,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(107,53,184,.06)'}},y:{grid:{display:false},ticks:{color:P.t2}}}}});
 }
 
 function renderUrgencias(d){
