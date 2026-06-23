@@ -336,11 +336,12 @@ button{font-family:inherit;cursor:pointer}
 /* ==============================
    LAYOUT
 ============================== */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
 .g2>.card,.g3>.card,.g4>.card{min-width:0;overflow:hidden}
-canvas{max-width:100%}
+.card{position:relative}
+canvas{display:block;max-width:100%}
 .gauto{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
 .mt{margin-top:1.2rem}
 .mt2{margin-top:2rem}
@@ -1005,64 +1006,64 @@ canvas{max-width:100%}
            alt="Conectando Derechos"
            style="height:50px">
     </div>
-    <span class="ov-tag">◆ Argentina · 2026</span>
-    <div class="ov-title">DIAGNÓSTICO<br>FEDERAL<br><span>LBTI+</span></div>
-    <p class="ov-sub">Resultados de la encuesta nacional de diagnóstico comunitario. Una respuesta colectiva al retroceso de derechos.</p>
+    <span class="ov-tag" data-i18n="ov-tag">◆ Argentina · 2026</span>
+    <div class="ov-title" data-i18n-html="ov-title">DIAGNÓSTICO<br>FEDERAL<br><span>LBTI+</span></div>
+    <p class="ov-sub" data-i18n="ov-sub">Resultados de la encuesta nacional de diagnóstico comunitario. Una respuesta colectiva al retroceso de derechos.</p>
     <div class="ov-kpis">
-      <div class="ov-k"><div class="ov-kn" id="ov-t">82</div><div class="ov-kl">Respuestas</div></div>
-      <div class="ov-k"><div class="ov-kn" id="ov-p">8</div><div class="ov-kl">Provincias</div></div>
-      <div class="ov-k"><div class="ov-kn" id="ov-f">29</div><div class="ov-kl">Federal sin AMBA</div></div>
-      <div class="ov-k"><div class="ov-kn" id="ov-h">73%</div><div class="ov-kl">Contexto hostil</div></div>
+      <div class="ov-k"><div class="ov-kn" id="ov-t">82</div><div class="ov-kl" data-i18n="kl-resp">Respuestas</div></div>
+      <div class="ov-k"><div class="ov-kn" id="ov-p">8</div><div class="ov-kl" data-i18n="kl-prov">Provincias</div></div>
+      <div class="ov-k"><div class="ov-kn" id="ov-f">29</div><div class="ov-kl" data-i18n="kl-fed">Federal sin AMBA</div></div>
+      <div class="ov-k"><div class="ov-kn" id="ov-h">73%</div><div class="ov-kl" data-i18n="kl-host">Contexto hostil</div></div>
     </div>
 </div>
 <div class="ov-cards">
     <div class="ov-card" data-goto="proyecto">
       <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corazon-libres.png" alt="">
       <div class="ov-card-num">00</div>
-      <div class="ov-card-title">El Proyecto</div>
-      <div class="ov-card-desc">Objetivos, fases y metodología de LIC</div>
+      <div class="ov-card-title" data-i18n="nav-proyecto">El Proyecto</div>
+      <div class="ov-card-desc" data-i18n="ov-desc-00">Objetivos, fases y metodología de LIC</div>
     </div>
     <div class="ov-card" data-goto="perfil">
       <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-logo-femenino.png" alt="">
       <div class="ov-card-num">01</div>
-      <div class="ov-card-title">Perfil General</div>
-      <div class="ov-card-desc">Identidades, distribución y datos destacados por provincia</div>
+      <div class="ov-card-title" data-i18n="nav-perfil">Perfil General</div>
+      <div class="ov-card-desc" data-i18n="ov-desc-01">Identidades, distribución y datos destacados por provincia</div>
     </div>
     <div class="ov-card" data-goto="preoc">
       <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/icono-rayito-scaled.png" alt="">
       <div class="ov-card-num">02</div>
-      <div class="ov-card-title">Preocupaciones</div>
-      <div class="ov-card-desc">Ranking 6 dimensiones escala 1–5</div>
+      <div class="ov-card-title" data-i18n="nav-preoc">Preocupaciones</div>
+      <div class="ov-card-desc" data-i18n="ov-desc-02">Ranking 6 dimensiones escala 1–5</div>
     </div>
     <div class="ov-card" data-goto="trabajo">
       <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-pesa.png" alt="">
       <div class="ov-card-num">03</div>
-      <div class="ov-card-title">Trabajo</div>
-      <div class="ov-card-desc">Situación laboral, ingresos y formaciones demandadas</div>
+      <div class="ov-card-title" data-i18n="nav-trabajo">Trabajo</div>
+      <div class="ov-card-desc" data-i18n="ov-desc-03">Situación laboral, ingresos y formaciones demandadas</div>
     </div>
     <div class="ov-card" data-goto="derechos">
       <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/Iconos-listos-Iguales.png" alt="">
       <div class="ov-card-num">04</div>
-      <div class="ov-card-title">Derechos</div>
-      <div class="ov-card-desc">Conocimiento legal, denuncia e incidencia cívica</div>
+      <div class="ov-card-title" data-i18n="nav-derechos">Derechos</div>
+      <div class="ov-card-desc" data-i18n="ov-desc-04">Conocimiento legal, denuncia e incidencia cívica</div>
     </div>
     <div class="ov-card" data-goto="comunidad">
       <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
       <div class="ov-card-num">05</div>
-      <div class="ov-card-title">Comunidad</div>
-      <div class="ov-card-desc">Vínculos, acompañamiento y participación organizada</div>
+      <div class="ov-card-title" data-i18n="nav-comunidad">Comunidad</div>
+      <div class="ov-card-desc" data-i18n="ov-desc-05">Vínculos, acompañamiento y participación organizada</div>
     </div>
     <div class="ov-card" data-goto="territorio">
       <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corona.png" alt="">
       <div class="ov-card-num">06</div>
-      <div class="ov-card-title">Territorio</div>
-      <div class="ov-card-desc">Contexto político, espacios y amenazas digitales</div>
+      <div class="ov-card-title" data-i18n="nav-territorio">Territorio</div>
+      <div class="ov-card-desc" data-i18n="ov-desc-06">Contexto político, espacios y amenazas digitales</div>
     </div>
     <div class="ov-card" data-goto="urgencias">
       <img class="ov-card-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-flor.png" alt="">
       <div class="ov-card-num">07</div>
-      <div class="ov-card-title">Urgencias</div>
-      <div class="ov-card-desc">Voces literales de la comunidad por territorio</div>
+      <div class="ov-card-title" data-i18n="nav-urgencias">Urgencias</div>
+      <div class="ov-card-desc" data-i18n="ov-desc-07">Voces literales de la comunidad por territorio</div>
     </div>
   </div>
 
@@ -1074,9 +1075,9 @@ canvas{max-width:100%}
 
   <div class="sh">
     <div class="sh-left">
-      <div class="sh-tag">Módulo 00</div>
-      <h2 class="sh-title">El Proyecto</h2>
-      <p class="sh-desc">Libres, Iguales y Conectadas — quiénes somos, qué hacemos y por qué.</p>
+      <div class="sh-tag" data-i18n="tag-00">Módulo 00</div>
+      <h2 class="sh-title" data-i18n="title-00">El Proyecto</h2>
+      <p class="sh-desc" data-i18n="desc-00">Libres, Iguales y Conectadas — quiénes somos, qué hacemos y por qué.</p>
     </div>
     <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-corazon-libres.png" alt="">
   </div>
@@ -1114,7 +1115,7 @@ canvas{max-width:100%}
   </div>
 
   <!-- 4 componentes -->
-  <div class="sh-tag" style="margin-bottom:.5rem">Los 4 componentes</div>
+  <div class="sh-tag" style="margin-bottom:.5rem" data-i18n="pj-comp-hdr">Los 4 componentes</div>
   <div class="proyecto-grid">
     <div class="proyecto-card">
       <img class="pj-ico" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/icono-rayito-scaled.png" alt="">
@@ -1143,7 +1144,7 @@ canvas{max-width:100%}
   </div>
 
   <!-- 3 fases -->
-  <div class="sh-tag" style="margin:.5rem 0 .5rem">Las 3 fases</div>
+  <div class="sh-tag" style="margin:.5rem 0 .5rem" data-i18n="pj-fase-hdr">Las 3 fases</div>
   <div class="fase-timeline">
     <div class="fase">
       <div class="fase-num">1</div>
@@ -1181,7 +1182,7 @@ canvas{max-width:100%}
   </div>
 
   <!-- Objetivos -->
-  <div class="sh-tag" style="margin:.5rem 0 .5rem">Objetivos específicos</div>
+  <div class="sh-tag" style="margin:.5rem 0 .5rem" data-i18n="pj-obj-hdr">Objetivos específicos</div>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem;margin-bottom:1.5rem">
     <div style="border:1.5px solid var(--brd);padding:1rem 1.1rem;background:#fff">
       <div style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vc);margin-bottom:.4rem">OE1 — Federalización</div>
@@ -1223,27 +1224,27 @@ canvas{max-width:100%}
 <div class="panel-content">
   <div class="sh">
     <div class="sh-left">
-      <div class="sh-tag">Módulo 01</div>
-      <h2 class="sh-title">Perfil General</h2>
-      <p class="sh-desc">Identidades y distribución territorial de las participantes.</p>
+      <div class="sh-tag" data-i18n="tag-01">Módulo 01</div>
+      <h2 class="sh-title" data-i18n="title-01">Perfil General</h2>
+      <p class="sh-desc" data-i18n="desc-01">Identidades y distribución territorial de las participantes.</p>
     </div>
     <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-logo-femenino.png" alt="">
   </div>
   <div class="g4" id="perfil-kpis"></div>
   <div class="g2 mt">
     <div class="card card-top-v">
-      <div class="card-t">Identidades (múltiple opción)</div>
+      <div class="card-t" data-i18n="ct-id">Identidades (múltiple opción)</div>
       <div class="dw"><canvas id="chartId" height="220"></canvas></div>
     </div>
     <div class="card card-top-g">
-      <div class="card-t">Distribución territorial</div>
+      <div class="card-t" data-i18n="ct-dist">Distribución territorial</div>
       <div class="prov-grid" id="provGrid"></div>
     </div>
   </div>
   <div class="mt2">
-    <div class="sh-tag" style="margin-bottom:.4rem">Análisis territorial</div>
-    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.55rem;color:var(--vp);letter-spacing:.03em;margin-bottom:.3rem">Datos destacados por provincia</h3>
-    <p style="font-size:.83rem;color:var(--t3);margin-bottom:1rem">Singularidades de cada territorio respecto al total nacional.</p>
+    <div class="sh-tag" style="margin-bottom:.4rem" data-i18n="perfil-terr-tag">Análisis territorial</div>
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.55rem;color:var(--vp);letter-spacing:.03em;margin-bottom:.3rem" data-i18n="perfil-terr-title">Datos destacados por provincia</h3>
+    <p style="font-size:.83rem;color:var(--t3);margin-bottom:1rem" data-i18n="perfil-terr-desc">Singularidades de cada territorio respecto al total nacional.</p>
     <div class="dest-grid" id="destGrid"></div>
   </div>
 </div>
@@ -1254,9 +1255,9 @@ canvas{max-width:100%}
 <div class="panel-content">
   <div class="sh">
     <div class="sh-left">
-      <div class="sh-tag">Módulo 02</div>
-      <h2 class="sh-title">Preocupaciones</h2>
-      <p class="sh-desc">Escala 1–5. El 100% identifica las mismas 6 preocupaciones prioritarias.</p>
+      <div class="sh-tag" data-i18n="tag-02">Módulo 02</div>
+      <h2 class="sh-title" data-i18n="title-02">Preocupaciones</h2>
+      <p class="sh-desc" data-i18n="desc-02">Escala 1–5. El 100% identifica las mismas 6 preocupaciones prioritarias.</p>
     </div>
     <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/icono-rayito-scaled.png" alt="">
   </div>
@@ -1270,26 +1271,26 @@ canvas{max-width:100%}
 <div class="panel-content">
   <div class="sh">
     <div class="sh-left">
-      <div class="sh-tag">Módulo 03</div>
-      <h2 class="sh-title">Trabajo y Economía</h2>
-      <p class="sh-desc">Situación laboral, ingresos y formaciones demandadas.</p>
+      <div class="sh-tag" data-i18n="tag-03">Módulo 03</div>
+      <h2 class="sh-title" data-i18n="title-03">Trabajo y Economía</h2>
+      <p class="sh-desc" data-i18n="desc-03">Situación laboral, ingresos y formaciones demandadas.</p>
     </div>
     <img class="sh-icon" src="https://conectandoderechos.org.ar/wp-content/uploads/2026/06/iconos-pesa.png" alt="">
   </div>
   <div class="hl-row" id="trabajo-hl"></div>
   <div class="g2">
     <div class="card card-top-v">
-      <div class="card-t">Fuente de ingresos</div>
+      <div class="card-t" data-i18n="ct-ing">Fuente de ingresos</div>
       <canvas id="chartIng" height="190"></canvas>
     </div>
     <div class="card card-top-f">
-      <div class="card-t">Situación económica — último año</div>
+      <div class="card-t" data-i18n="ct-econ">Situación económica — último año</div>
       <div class="dw"><canvas id="chartEcon" height="220"></canvas></div>
     </div>
   </div>
   <div class="cita">"La situación económica es agobiante y la urgencia personal come los espacios de encuentro y diálogo, individualizando las respuestas ante la crisis."</div>
   <div class="card card-top-g mt">
-    <div class="card-t">Formaciones más demandadas (máx. 3 opciones por persona)</div>
+    <div class="card-t" data-i18n="ct-form">Formaciones más demandadas (máx. 3 opciones por persona)</div>
     <div class="hbl" id="formList" style="margin-top:.7rem"></div>
   </div>
 </div>
@@ -1310,16 +1311,16 @@ canvas{max-width:100%}
   <div class="hl-row" id="derechos-hl"></div>
   <div class="g2">
     <div class="card card-top-v">
-      <div class="card-t">¿Sabés cómo presentar una denuncia?</div>
+      <div class="card-t" data-i18n="ct-den">¿Sabés cómo presentar una denuncia?</div>
       <div class="dw"><canvas id="chartDen" height="220"></canvas></div>
     </div>
     <div class="card card-top-g">
-      <div class="card-t">Herramientas cívicas más útiles</div>
+      <div class="card-t" data-i18n="ct-herr">Herramientas cívicas más útiles</div>
       <div class="hbl" id="herrList" style="margin-top:.5rem"></div>
     </div>
   </div>
   <div class="card card-top-f mt">
-    <div class="card-t">Participación en incidencia cívica</div>
+    <div class="card-t" data-i18n="ct-inci">Participación en incidencia cívica</div>
     <canvas id="chartInci" height="140"></canvas>
   </div>
 </div>
@@ -1340,12 +1341,12 @@ canvas{max-width:100%}
   <div class="hl-row" id="comunidad-hl"></div>
   <div class="g2">
     <div class="card card-top-v">
-      <div class="card-t">Acompañamiento de personas LBTI+ (escala 1–5)</div>
+      <div class="card-t" data-i18n="ct-acomp">Acompañamiento de personas LBTI+ (escala 1–5)</div>
       <div class="acomp-bar" id="acompBar"></div>
       <p style="font-size:.77rem;color:var(--t3);margin-top:.3rem" id="acomp-txt"></p>
     </div>
     <div class="card card-top-g">
-      <div class="card-t">Vinculación con la comunidad LBTI+</div>
+      <div class="card-t" data-i18n="ct-vinc">Vinculación con la comunidad LBTI+</div>
       <canvas id="chartVinc" height="190"></canvas>
     </div>
   </div>
@@ -1367,16 +1368,16 @@ canvas{max-width:100%}
   <div class="hl-row" id="territorio-hl"></div>
   <div class="g2">
     <div class="card card-top-f">
-      <div class="card-t">Contexto político percibido</div>
+      <div class="card-t" data-i18n="ct-ctx">Contexto político percibido</div>
       <canvas id="chartCtx" height="190"></canvas>
     </div>
     <div class="card card-top-v">
-      <div class="card-t">Espacios LBTI+ activos en la provincia</div>
+      <div class="card-t" data-i18n="ct-esp">Espacios LBTI+ activos en la provincia</div>
       <div class="dw"><canvas id="chartEsp" height="220"></canvas></div>
     </div>
   </div>
   <div class="card mt">
-    <div class="card-t">¿Han sufrido amenazas digitales o acoso organizado?</div>
+    <div class="card-t" data-i18n="ct-amen">¿Han sufrido amenazas digitales o acoso organizado?</div>
     <canvas id="chartAmen" height="110"></canvas>
   </div>
 </div>
@@ -1444,7 +1445,7 @@ function goTo(id){
   if(pan)pan.classList.add('act');
   if(nav)nav.classList.add('act');
   activePanel=id;
-  document.getElementById('topName').textContent=PANEL_NAMES[id]||'';
+  document.getElementById('topName').textContent=(PANEL_NAMES_I18N[typeof currentLang!=='undefined'?currentLang:'es']||PANEL_NAMES_I18N.es)[id]||'';
   window.scrollTo(0,0);
   if(id!=='proyecto')renderPanel(id);
 }
@@ -1642,57 +1643,70 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderOV(RAW);
 
   // ── TRANSLATIONS ──────────────────────────────────────
+  const PANEL_NAMES_I18N = {
+    es:{overview:'RESUMEN GENERAL',proyecto:'EL PROYECTO',perfil:'PERFIL GENERAL',preoc:'PREOCUPACIONES',trabajo:'TRABAJO Y ECONOMÍA',derechos:'DERECHOS Y PARTICIPACIÓN CÍVICA',comunidad:'COMUNIDAD Y VÍNCULOS',territorio:'CONTEXTO TERRITORIAL',urgencias:'URGENCIAS TERRITORIALES'},
+    en:{overview:'OVERVIEW',proyecto:'THE PROJECT',perfil:'GENERAL PROFILE',preoc:'CONCERNS',trabajo:'WORK & ECONOMY',derechos:'RIGHTS & CIVIC PARTICIPATION',comunidad:'COMMUNITY & BONDS',territorio:'TERRITORIAL CONTEXT',urgencias:'URGENT NEEDS'}
+  };
+
   const T = {
     es: {
-      'sb-tagline':   'Diagnóstico Federal LBTI+',
-      'sb-filter-lbl':'Filtrar por territorio',
-      'nav-group':    'Secciones',
-      'nav-overview': 'Resumen',
-      'nav-proyecto': 'El Proyecto',
-      'nav-perfil':   'Perfil General',
-      'nav-preoc':    'Preocupaciones',
-      'nav-trabajo':  'Trabajo',
-      'nav-derechos': 'Derechos',
-      'nav-comunidad':'Comunidad',
-      'nav-territorio':'Territorio',
-      'nav-urgencias':'Urgencias',
-      'tag-04':'Módulo 04',
-      'title-04':'Derechos y Participación Cívica',
-      'desc-04':'Conocimiento legal, denuncia e incidencia.',
-      'tag-05':'Módulo 05',
-      'title-05':'Comunidad y Vínculos',
-      'desc-05':'Lazos, contención y participación en espacios comunitarios LBTI+.',
-      'tag-06':'Módulo 06',
-      'title-06':'Contexto Territorial',
-      'desc-06':'Percepción política, espacios disponibles y amenazas digitales.',
-      'tag-07':'Módulo 07 · Voces de la comunidad',
-      'title-07':'Urgencias Territoriales',
+      'sb-tagline':'Diagnóstico Federal LBTI+','sb-filter-lbl':'Filtrar por territorio',
+      'nav-group':'Secciones','nav-overview':'Resumen','nav-proyecto':'El Proyecto',
+      'nav-perfil':'Perfil General','nav-preoc':'Preocupaciones','nav-trabajo':'Trabajo',
+      'nav-derechos':'Derechos','nav-comunidad':'Comunidad','nav-territorio':'Territorio','nav-urgencias':'Urgencias',
+      'ov-tag':'◆ Argentina · 2026',
+      'ov-title':'DIAGNÓSTICO<br>FEDERAL<br><span>LBTI+</span>',
+      'ov-sub':'Resultados de la encuesta nacional de diagnóstico comunitario. Una respuesta colectiva al retroceso de derechos.',
+      'kl-resp':'Respuestas','kl-prov':'Provincias','kl-fed':'Federal sin AMBA','kl-host':'Contexto hostil',
+      'ov-desc-00':'Objetivos, fases y metodología de LIC','ov-desc-01':'Identidades, distribución y datos destacados por provincia',
+      'ov-desc-02':'Ranking 6 dimensiones escala 1–5','ov-desc-03':'Situación laboral, ingresos y formaciones demandadas',
+      'ov-desc-04':'Conocimiento legal, denuncia e incidencia cívica','ov-desc-05':'Vínculos, acompañamiento y participación organizada',
+      'ov-desc-06':'Contexto político, espacios y amenazas digitales','ov-desc-07':'Voces literales de la comunidad por territorio',
+      'tag-00':'Módulo 00','title-00':'El Proyecto','desc-00':'Libres, Iguales y Conectadas — quiénes somos, qué hacemos y por qué.',
+      'pj-comp-hdr':'Los 4 componentes','pj-fase-hdr':'Las 3 fases','pj-obj-hdr':'Objetivos específicos',
+      'tag-01':'Módulo 01','title-01':'Perfil General','desc-01':'Identidades y distribución territorial de las participantes.',
+      'ct-id':'Identidades (múltiple opción)','ct-dist':'Distribución territorial',
+      'perfil-terr-tag':'Análisis territorial','perfil-terr-title':'Datos destacados por provincia','perfil-terr-desc':'Singularidades de cada territorio respecto al total nacional.',
+      'tag-02':'Módulo 02','title-02':'Preocupaciones','desc-02':'Escala 1–5. El 100% identifica las mismas 6 preocupaciones prioritarias.',
+      'tag-03':'Módulo 03','title-03':'Trabajo y Economía','desc-03':'Situación laboral, ingresos y formaciones demandadas.',
+      'ct-ing':'Fuente de ingresos','ct-econ':'Situación económica — último año','ct-form':'Formaciones más demandadas (máx. 3 opciones por persona)',
+      'tag-04':'Módulo 04','title-04':'Derechos y Participación Cívica','desc-04':'Conocimiento legal, denuncia e incidencia.',
+      'ct-den':'¿Sabés cómo presentar una denuncia?','ct-herr':'Herramientas cívicas más útiles','ct-inci':'Participación en incidencia cívica',
+      'tag-05':'Módulo 05','title-05':'Comunidad y Vínculos','desc-05':'Lazos, contención y participación en espacios comunitarios LBTI+.',
+      'ct-acomp':'Acompañamiento de personas LBTI+ (escala 1–5)','ct-vinc':'Vinculación con la comunidad LBTI+',
+      'tag-06':'Módulo 06','title-06':'Contexto Territorial','desc-06':'Percepción política, espacios disponibles y amenazas digitales.',
+      'ct-ctx':'Contexto político percibido','ct-esp':'Espacios LBTI+ activos en la provincia','ct-amen':'¿Han sufrido amenazas digitales o acoso organizado?',
+      'tag-07':'Módulo 07 · Voces de la comunidad','title-07':'Urgencias Territoriales',
       'desc-07':'Respuestas literales a "¿Cuál es hoy la principal urgencia para personas LBTI+ en tu territorio?"',
     },
     en: {
-      'sb-tagline':   'Federal LBTI+ Diagnostic',
-      'sb-filter-lbl':'Filter by territory',
-      'nav-group':    'Sections',
-      'nav-overview': 'Overview',
-      'nav-proyecto': 'The Project',
-      'nav-perfil':   'General Profile',
-      'nav-preoc':    'Concerns',
-      'nav-trabajo':  'Work & Economy',
-      'nav-derechos': 'Rights',
-      'nav-comunidad':'Community',
-      'nav-territorio':'Territory',
-      'nav-urgencias':'Urgent Needs',
-      'tag-04':'Module 04',
-      'title-04':'Rights & Civic Participation',
-      'desc-04':'Legal awareness, reporting and advocacy.',
-      'tag-05':'Module 05',
-      'title-05':'Community & Bonds',
-      'desc-05':'Connections, support and participation in LBTI+ community spaces.',
-      'tag-06':'Module 06',
-      'title-06':'Territorial Context',
-      'desc-06':'Political perceptions, available spaces and digital threats.',
-      'tag-07':'Module 07 · Community Voices',
-      'title-07':'Territorial Urgent Needs',
+      'sb-tagline':'Federal LBTI+ Diagnostic','sb-filter-lbl':'Filter by territory',
+      'nav-group':'Sections','nav-overview':'Overview','nav-proyecto':'The Project',
+      'nav-perfil':'General Profile','nav-preoc':'Concerns','nav-trabajo':'Work & Economy',
+      'nav-derechos':'Rights','nav-comunidad':'Community','nav-territorio':'Territory','nav-urgencias':'Urgent Needs',
+      'ov-tag':'◆ Argentina · 2026',
+      'ov-title':'FEDERAL<br>LBTI+<br><span>DIAGNOSTIC</span>',
+      'ov-sub':'Results of the national community diagnostic survey. A collective response to the rollback of rights.',
+      'kl-resp':'Responses','kl-prov':'Provinces','kl-fed':'Federal excl. AMBA','kl-host':'Hostile context',
+      'ov-desc-00':'LIC objectives, phases and methodology','ov-desc-01':'Identities, distribution and highlights by province',
+      'ov-desc-02':'Ranking of 6 dimensions on a 1–5 scale','ov-desc-03':'Employment status, income and training demands',
+      'ov-desc-04':'Legal awareness, reporting and civic advocacy','ov-desc-05':'Bonds, support and organized participation',
+      'ov-desc-06':'Political context, spaces and digital threats','ov-desc-07':'Verbatim community voices by territory',
+      'tag-00':'Module 00','title-00':'The Project','desc-00':'Free, Equal and Connected — who we are, what we do and why.',
+      'pj-comp-hdr':'The 4 components','pj-fase-hdr':'The 3 phases','pj-obj-hdr':'Specific objectives',
+      'tag-01':'Module 01','title-01':'General Profile','desc-01':'Identities and territorial distribution of participants.',
+      'ct-id':'Identities (multiple choice)','ct-dist':'Territorial distribution',
+      'perfil-terr-tag':'Territorial analysis','perfil-terr-title':'Highlights by province','perfil-terr-desc':'Singularities of each territory compared to the national total.',
+      'tag-02':'Module 02','title-02':'Concerns','desc-02':'Scale 1–5. 100% identify the same 6 priority concerns.',
+      'tag-03':'Module 03','title-03':'Work & Economy','desc-03':'Employment status, income and training demands.',
+      'ct-ing':'Source of income','ct-econ':'Economic situation — last year','ct-form':'Most demanded training (max. 3 options per person)',
+      'tag-04':'Module 04','title-04':'Rights & Civic Participation','desc-04':'Legal awareness, reporting and advocacy.',
+      'ct-den':'Do you know how to file a complaint?','ct-herr':'Most useful civic tools','ct-inci':'Participation in civic advocacy',
+      'tag-05':'Module 05','title-05':'Community & Bonds','desc-05':'Connections, support and participation in LBTI+ community spaces.',
+      'ct-acomp':'Support from LBTI+ people (scale 1–5)','ct-vinc':'Connection with the LBTI+ community',
+      'tag-06':'Module 06','title-06':'Territorial Context','desc-06':'Political perceptions, available spaces and digital threats.',
+      'ct-ctx':'Perceived political context','ct-esp':'Active LBTI+ spaces in the province','ct-amen':'Have they experienced digital threats or organized harassment?',
+      'tag-07':'Module 07 · Community Voices','title-07':'Territorial Urgent Needs',
       'desc-07':'Verbatim answers to "What is today\'s main urgent need for LBTI+ people in your territory?"',
     }
   };
@@ -1704,11 +1718,18 @@ document.addEventListener('DOMContentLoaded',()=>{
     const dict = T[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.dataset.i18n;
-      if (dict[key]) el.textContent = dict[key];
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18nHtml;
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
     });
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('act', btn.dataset.lang === lang);
     });
+    // Update topbar title to current panel
+    const names = PANEL_NAMES_I18N[lang];
+    document.getElementById('topName').textContent = names[activePanel] || '';
   }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
